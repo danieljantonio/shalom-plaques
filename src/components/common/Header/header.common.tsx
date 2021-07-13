@@ -5,37 +5,39 @@ import './header.common.scss';
 const Header: React.FC = () => {
 	return (
 		<nav className="navbar">
-			<Link to="/" className="navbar-brand">
-				ShalomPlaques
-			</Link>
-			<div className="navigation">
-				<ul>
-					<li>
-						<NavLink exact to="/">
-							Home
-						</NavLink>
-					</li>
-					<li>
-						<NavLink exact to="/products">
-							Products
-						</NavLink>
-					</li>
-					<li>
-						<NavLink exact to="/">
-							Catalogue
-						</NavLink>
-					</li>
-					<li>
-						<NavLink exact to="/about">
-							About Us
-						</NavLink>
-					</li>
-					<li>
-						<NavLink exact to="/contact">
-							Contact
-						</NavLink>
-					</li>
-				</ul>
+			<div className="container">
+				<Link to="/" className="navbar-brand">
+					ShalomPlaques
+				</Link>
+				<div className="navigation">
+					<ul>
+						<li>
+							<NavLink exact to="/">
+								Home
+							</NavLink>
+						</li>
+						<li>
+							<NavLink exact to="/products">
+								Products
+							</NavLink>
+						</li>
+						<li>
+							<NavLink exact to="/">
+								Catalogue
+							</NavLink>
+						</li>
+						<li>
+							<NavLink exact to="/about">
+								About Us
+							</NavLink>
+						</li>
+						<li>
+							<NavLink exact to="/contact">
+								Contact
+							</NavLink>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</nav>
 	);
