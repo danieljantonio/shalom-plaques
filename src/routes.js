@@ -1,9 +1,9 @@
 import { Route } from 'react-router-dom';
-import Header from './Components/common/Header/header.common';
-import AboutUsPage from './Components/pages/AboutUs/aboutus.page';
-import ContactUsPage from './Components/pages/ContactUs/contactus.page';
-import HomePage from './Components/pages/Home/home.page';
-import ProductsPage from './Components/pages/Products/products.page';
+import Header from './components/common/Header/header.common';
+import AboutUsPage from './components/pages/AboutUs/aboutus.page';
+import ContactUsPage from './components/pages/ContactUs/contactus.page';
+import HomePage from './components/pages/Home/home.page';
+import ProductsPage from './components/pages/Products/products.page';
 
 const publicRoutes = [
 	{ component: HomePage, path: '/', exact: true },
