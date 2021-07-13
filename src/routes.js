@@ -1,4 +1,5 @@
 import { Route } from 'react-router-dom';
+import Footer from './components/common/Footer/footer.common';
 import Header from './components/common/Header/header.common';
 import AboutUsPage from './components/pages/AboutUs/aboutus.page';
 import ContactUsPage from './components/pages/ContactUs/contactus.page';
@@ -17,6 +18,7 @@ const renderComponent = (Component) => {
 		<div>
 			<Header />
 			<Component />
+			<Footer />
 		</div>
 	);
 };
