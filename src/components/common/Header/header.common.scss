@@ -13,7 +13,7 @@
 		font-size: 18px;
 		float: left;
 		font-weight: 700;
-		padding: 16px;
+		padding: 25px 16px;
 		text-decoration: none;
 		color: #bfac5e;
 		transition: 0.25s;
@@ -23,7 +23,6 @@
 		}
 	}
 	.navigation {
-		// width: 100%;
 		display: flex;
 		justify-content: flex-end;
 		float: right;
@@ -40,11 +39,29 @@
 			font-weight: 500;
 			padding: 16px;
 			text-decoration: none;
-			color: #bfac5e;
+			color: $brown-light;
 			transition: 0.25s;
 			&:hover {
-				color: #877a47;
+				color: $brown;
 				transition: 0.25s;
+			}
+		}
+		button {
+			font-size: $font-navbar;
+			border: 0px;
+			font-family: arial;
+			font-weight: 500;
+			color: $brown-lighter;
+			transition: 0.25s;
+			background-color: $brown-dark;
+			padding: 9px;
+			border-radius: 6px;
+			margin: 0 16px;
+			&:hover {
+				cursor: pointer;
+				color: $brown-lighterer;
+				transition: 0.25s;
+				box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 			}
 		}
 	}

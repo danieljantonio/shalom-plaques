@@ -22,11 +22,6 @@ const Header: React.FC = () => {
 							</NavLink>
 						</li>
 						<li>
-							<NavLink exact to="/">
-								Catalogue
-							</NavLink>
-						</li>
-						<li>
 							<NavLink exact to="/about">
 								About Us
 							</NavLink>
@@ -35,6 +30,9 @@ const Header: React.FC = () => {
 							<NavLink exact to="/contact">
 								Contact
 							</NavLink>
+						</li>
+						<li>
+							<button>Download Catalogue &gt;</button>
 						</li>
 					</ul>
 				</div>
