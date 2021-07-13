@@ -1,0 +1,48 @@
+@import '../../../styles/main.scss';
+
+.navbar {
+	width: 100%;
+	display: flex;
+	box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.3);
+	margin-bottom: 16px;
+	.navbar-brand {
+		font-family: muli;
+		font-size: 18px;
+		float: left;
+		font-weight: 700;
+		padding: 16px;
+		text-decoration: none;
+		color: #bfac5e;
+		transition: 0.25s;
+		&:hover {
+			color: #877a47;
+			transition: 0.25s;
+		}
+	}
+	.navigation {
+		width: 100%;
+		display: flex;
+		justify-content: flex-end;
+		float: right;
+		font-size: $font-navbar;
+		ul {
+			display: inline;
+			list-style-type: none;
+		}
+		li {
+			display: inline;
+		}
+		a {
+			font-family: arial;
+			font-weight: 500;
+			padding: 16px;
+			text-decoration: none;
+			color: #bfac5e;
+			transition: 0.25s;
+			&:hover {
+				color: #877a47;
+				transition: 0.25s;
+			}
+		}
+	}
+}
