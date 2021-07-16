@@ -1,8 +1,14 @@
 import React from 'react';
+import ColumnHalf from '../../../../common/Column/half.column';
 import './tagline.section.scss';
 
 const TagLineSection: React.FC = () => {
-	return <div style={{ height: '100vh', width: '100%', border: '1px solid black' }}>First section here</div>;
+	return (
+		<div className="row">
+			<ColumnHalf></ColumnHalf>
+			<ColumnHalf></ColumnHalf>
+		</div>
+	);
 };
 
 export default TagLineSection;

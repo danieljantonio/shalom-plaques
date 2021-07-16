@@ -1,11 +1,38 @@
-.col-half {
-	width: 50%;
+.row {
+	width: 100%;
+	display: flex;
+	border: 1px solid grey;
+}
+@media (max-width: 1366px) {
+	.row {
+		flex-direction: column;
+	}
+	.col-half {
+		width: 100%;
+	}
+
+	.col-third {
+		width: 100%;
+	}
+
+	.col-twothirds {
+		width: 100%;
+	}
 }
 
-.col-third {
-	width: 33.3333%;
-}
+@media (min-width: 1367px) {
+	.row {
+		flex-direction: row;
+	}
+	.col-half {
+		width: 49.999%;
+	}
 
-.col-twothirds {
-	width: 66.6667%;
+	.col-third {
+		width: 33.3333%;
+	}
+
+	.col-twothirds {
+		width: 66.6667%;
+	}
 }

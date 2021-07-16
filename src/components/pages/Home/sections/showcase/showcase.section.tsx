@@ -1,8 +1,9 @@
 import React from 'react';
+import ColumnHalf from '../../../../common/Column/half.column';
 import './showcase.section.scss';
 
 const ShowcaseSection: React.FC = () => {
-	return <div style={{ height: '100vh', width: '100%', border: '1px solid black' }}>Fourth section here</div>;
+	return <div className="row">This is the fourth section</div>;
 };
 
 export default ShowcaseSection;
