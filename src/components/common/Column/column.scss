@@ -3,7 +3,8 @@
 	display: flex;
 	border: 1px solid grey;
 }
-@media (max-width: 1366px) {
+
+@media (max-width: 766px) {
 	.row {
 		flex-direction: column;
 	}
@@ -20,7 +21,7 @@
 	}
 }
 
-@media (min-width: 1367px) {
+@media (min-width: 767px) {
 	.row {
 		flex-direction: row;
 	}
