@@ -4,9 +4,16 @@ import './tagline.section.scss';
 
 const TagLineSection: React.FC = () => {
 	return (
-		<div className="row">
-			<ColumnHalf></ColumnHalf>
-			<ColumnHalf></ColumnHalf>
+		<div className="tagline row">
+			<ColumnHalf className="center-xy">
+				<div className="tag-header">
+					<h1>Shalom Plaques</h1>
+					<p>Bringing Word to the ends of the world</p>
+				</div>
+			</ColumnHalf>
+			<ColumnHalf>
+				<p>Tagline will be here</p>
+			</ColumnHalf>
 		</div>
 	);
 };
