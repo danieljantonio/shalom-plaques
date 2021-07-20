@@ -8,7 +8,7 @@ const TagLineSection: React.FC = () => {
 			<ColumnHalf className="center-xy">
 				<div className="tag-header pad-y50-smo">
 					<h1>Shalom Plaques</h1>
-					<p>Bringing Word to the ends of the world</p>
+					<p>Bringing the Word to the ends of the world</p>
 				</div>
 			</ColumnHalf>
 			<ColumnHalf className="center-xy hide-sm">
