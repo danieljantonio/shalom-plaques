@@ -23,6 +23,7 @@ const CarouselSection: React.FC = () => {
 				</button>
 			);
 	};
+
 	const urls = [
 		'http://localhost:3000/sample-images/woodwork-test-1.jpeg',
 		'http://localhost:3000/sample-images/woodwork-test-2.jpeg',
@@ -30,11 +31,14 @@ const CarouselSection: React.FC = () => {
 		'http://localhost:3000/sample-images/woodwork-test-4.jpeg',
 		'http://localhost:3000/sample-images/woodwork-test-5.jpeg',
 	];
+
 	return (
 		<Carousel
 			className="carousel-section"
 			renderArrowNext={NextButton}
 			renderArrowPrev={PrevButton}
+			autoPlay={true}
+			emulateTouch={true}
 			showThumbs={false}
 			infiniteLoop={true}
 			showStatus={false}>
