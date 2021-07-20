@@ -7,9 +7,15 @@ const FeaturesSection: React.FC = () => {
 		<div className="features pad-y50-smo">
 			<div className="row container">
 				<ColumnHalf className="center-y hide-sm">
-					<div className="card mag-y50" style={{ height: '400px', width: '300px', backgroundColor: 'white' }}>
-						Image will be here
-					</div>
+					<img
+						src="http://localhost:3000/sample-images/woodwork-test-1.jpeg"
+						alt="img"
+						className="card mag-y50"
+						style={{
+							height: '250px',
+							width: '350px',
+						}}
+					/>
 				</ColumnHalf>
 				<ColumnHalf className="center-xy">
 					<div className="tag-header pad-y50-smo">
@@ -27,9 +33,15 @@ const FeaturesSection: React.FC = () => {
 				</ColumnHalf>
 
 				<ColumnHalf className="center-y hide-sm">
-					<div className="card mag-y50" style={{ height: '400px', width: '300px', backgroundColor: 'white' }}>
-						Image will be here
-					</div>
+					<img
+						src="http://localhost:3000/sample-images/woodwork-test-3.jpeg"
+						alt="img"
+						className="card mag-y50"
+						style={{
+							height: '250px',
+							width: '350px',
+						}}
+					/>
 				</ColumnHalf>
 			</div>
 		</div>
