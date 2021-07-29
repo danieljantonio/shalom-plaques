@@ -1,0 +1,12 @@
+@import '../../../styles/main.scss';
+
+.ReactModal__Content {
+	border-radius: 6px;
+	@media (min-width: 800px) {
+		width: 730px;
+		height: 550px;
+		top: 100px;
+		left: 50% !important;
+		transform: translate(-50%);
+	}
+}
