@@ -2,9 +2,12 @@
 
 .ReactModal__Content {
 	border-radius: 6px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	@media (min-width: 800px) {
-		width: 730px;
-		height: 550px;
+		width: 45.625rem;
+		height: 34.375rem;
 		top: 100px;
 		left: 50% !important;
 		transform: translate(-50%);
