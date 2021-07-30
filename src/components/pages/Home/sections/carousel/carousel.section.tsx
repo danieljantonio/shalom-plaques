@@ -14,8 +14,6 @@ const CarouselSection: React.FC = () => {
 	};
 
 	const PrevButton = (onClickHandler: any, hasPrev: boolean, label: string) => {
-		console.log(hasPrev);
-
 		if (hasPrev)
 			return (
 				<button type="button" onClick={onClickHandler} title={label} className="arrow-button left">
