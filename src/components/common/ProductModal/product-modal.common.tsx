@@ -5,11 +5,10 @@ import ColumnHalf from '../Column/half.column';
 import ModalCarousel from './components/modal-carousel.product-modal';
 
 interface ModalProps {
-	openModal: boolean;
-	setOpenModal: (value: boolean) => void;
+	modalState: boolean;
+	setModalState: any;
 }
 
-// Modal.setAppElement('#root');
 const mockProductData = {
 	wording: 'God is Love',
 	code: 'AM-02',
@@ -31,31 +30,30 @@ const textRow = (title: string, value: string | number, className: string = '') 
 	</p>
 );
 
-const ReactModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
-	// const [isOpen, setIsOpen] = useState(false);
+const ReactModal: React.FC<ModalProps> = ({ modalState, setModalState }) => {
+	Modal.setAppElement('#root');
 	const { wording, price, description, code, length, width, height, verse } = mockProductData;
 
 	return (
 		<div>
-			<button onClick={() => setOpenModal(true)}></button>
-			<Modal
-				shouldCloseOnOverlayClick={true}
-				shouldCloseOnEsc={true}
-				isOpen={openModal}
-				onRequestClose={() => setOpenModal(false)}
-				contentLabel="Example Modal">
+			<Modal shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} isOpen={modalState} onRequestClose={setModalState}>
 				<ColumnHalf style={{ marginRight: '10px' }}>
 					<ModalCarousel />
 				</ColumnHalf>
 				<ColumnHalf style={{ marginLeft: '10px' }}>
-					<h1>
-						{code}: {wording}
-					</h1>
-					{textRow('Price', price, 'top-0')}
-					{textRow('Verse', verse, 'top-0')}
-					{textRow('Dimensions', `${length}cm x ${width}cm x ${height}cm`, 'top-0')}
-					<b>Description:</b>
-					<p style={{ marginTop: 0 }}>{description}</p>
+					<div className="close-button" onClick={setModalState}>
+						X
+					</div>
+					<div>
+						<h1>
+							{code}: {wording}
+						</h1>
+						{textRow('Price', price, 'top-0')}
+						{textRow('Verse', verse, 'top-0')}
+						{textRow('Dimensions', `${length}cm x ${width}cm x ${height}cm`, 'top-0')}
+						<b>Description:</b>
+						<p style={{ marginTop: 0 }}>{description}</p>
+					</div>
 				</ColumnHalf>
 			</Modal>
 		</div>
