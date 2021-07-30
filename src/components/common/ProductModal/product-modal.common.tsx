@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './product-modal.common.scss';
 import Modal from 'react-modal';
 import ColumnHalf from '../Column/half.column';
@@ -19,20 +19,43 @@ const mockProductData = {
 	height: 0.5,
 	verse: 'Colossians 3:12',
 	price: 'RpXX,XXX',
+	links: {
+		tokopedia: 'https://www.tokopedia.com/',
+		shopee: 'https://shopee.co.id/',
+	},
 };
+
+const textRow = (title: string, value: string | number, className: string = '') => (
+	<p className={className}>
+		<b>{title}:</b> {value}
+	</p>
+);
+
 const ReactModal: React.FC<ModalProps> = ({ openModal, setOpenModal }) => {
 	// const [isOpen, setIsOpen] = useState(false);
-	const productData = mockProductData;
+	const { wording, price, description, code, length, width, height, verse } = mockProductData;
 
 	return (
 		<div>
 			<button onClick={() => setOpenModal(true)}></button>
-			<Modal isOpen={openModal} onRequestClose={() => setOpenModal(false)} contentLabel="Example Modal">
-				<ColumnHalf>
+			<Modal
+				shouldCloseOnOverlayClick={true}
+				shouldCloseOnEsc={true}
+				isOpen={openModal}
+				onRequestClose={() => setOpenModal(false)}
+				contentLabel="Example Modal">
+				<ColumnHalf style={{ marginRight: '10px' }}>
 					<ModalCarousel />
 				</ColumnHalf>
-				<ColumnHalf>
-					<h1>{productData.wording}</h1>
+				<ColumnHalf style={{ marginLeft: '10px' }}>
+					<h1>
+						{code}: {wording}
+					</h1>
+					{textRow('Price', price, 'top-0')}
+					{textRow('Verse', verse, 'top-0')}
+					{textRow('Dimensions', `${length}cm x ${width}cm x ${height}cm`, 'top-0')}
+					<b>Description:</b>
+					<p style={{ marginTop: 0 }}>{description}</p>
 				</ColumnHalf>
 			</Modal>
 		</div>

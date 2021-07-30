@@ -6,6 +6,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-family: 'Nunito', sans-serif;
 	@media (min-width: 800px) {
 		width: 45.625rem;
 		height: 34.375rem;
@@ -15,5 +16,11 @@
 	}
 	.col-half {
 		height: 100%;
+	}
+	h1 {
+		font-weight: 300;
+	}
+	.top-0 {
+		margin-top: 0px;
 	}
 }
