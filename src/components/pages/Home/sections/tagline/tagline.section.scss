@@ -2,10 +2,16 @@
 
 .tagline {
 	@media (min-width: 767px) {
-		height: 75vh;
+		max-height: 700px;
+		padding: 10% 0;
 	}
 	background-color: #e2c9be;
 	background-image: linear-gradient(315deg, #e2c9be 0%, #fbf7e9 74%);
+	img {
+		object-fit: cover;
+		width: 35vw;
+		height: calc(35vw * 0.65);
+	}
 
 	.tag-header {
 		display: flex;

@@ -23,6 +23,16 @@
 	margin: 50px auto;
 }
 
+.mh-700 {
+	max-height: 700px;
+}
+
+.pv-lg-10p {
+	@media (min-width: 766px) {
+		padding: 10% 0;
+	}
+}
+
 // These classess are only valid on smaller screens
 @media (max-width: 767px) {
 	.hide-sm {
