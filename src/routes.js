@@ -8,7 +8,7 @@ import ProductsPage from './components/pages/Products/products.page';
 
 const publicRoutes = [
 	{ component: HomePage, path: '/', exact: true },
-	{ component: ProductsPage, path: '/products', exact: true },
+	{ component: ProductsPage, path: '/products', exact: false },
 	{ component: AboutUsPage, path: '/about', exact: true },
 	{ component: ContactUsPage, path: '/contact', exact: true },
 ];
