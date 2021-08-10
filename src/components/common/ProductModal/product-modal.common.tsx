@@ -37,24 +37,26 @@ const ReactModal: React.FC<ModalProps> = ({ modalState, setModalState }) => {
 	return (
 		<div>
 			<Modal shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} isOpen={modalState} onRequestClose={setModalState}>
-				<ColumnHalf style={{ marginRight: '10px' }}>
-					<ModalCarousel />
-				</ColumnHalf>
-				<ColumnHalf style={{ marginLeft: '10px' }}>
-					<div className="close-button" onClick={setModalState}>
-						X
-					</div>
-					<div>
-						<h1>
-							{code}: {wording}
-						</h1>
-						{textRow('Price', price, 'top-0')}
-						{textRow('Verse', verse, 'top-0')}
-						{textRow('Dimensions', `${length}cm x ${width}cm x ${height}cm`, 'top-0')}
-						<b>Description:</b>
-						<p style={{ marginTop: 0 }}>{description}</p>
-					</div>
-				</ColumnHalf>
+				<div className="row">
+					<ColumnHalf style={{ marginRight: '10px' }}>
+						<ModalCarousel />
+					</ColumnHalf>
+					<ColumnHalf style={{ marginLeft: '10px' }}>
+						<div className="close-button" onClick={setModalState}>
+							X
+						</div>
+						<div>
+							<h1>
+								{code}: {wording}
+							</h1>
+							{textRow('Price', price, 'top-0')}
+							{textRow('Verse', verse, 'top-0')}
+							{textRow('Dimensions', `${length}cm x ${width}cm x ${height}cm`, 'top-0')}
+							<b>Description:</b>
+							<p style={{ marginTop: 0 }}>{description}</p>
+						</div>
+					</ColumnHalf>
+				</div>
 			</Modal>
 		</div>
 	);
