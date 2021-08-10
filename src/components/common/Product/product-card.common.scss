@@ -18,16 +18,21 @@
 	cursor: pointer;
 
 	.card-image {
-		object-fit: cover;
-		width: 100%;
+		overflow: hidden;
 		height: 70%;
-		&:hover {
-			transform: scale(1.05);
-			transition: transform ease-out 350ms;
+		img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			transition: 250ms;
+			&:hover {
+				transform: scale(1.05);
+				transition: transform ease-out 350ms;
+			}
 		}
 	}
 	.content {
-		height: 33%;
+		height: 30%;
 		h3 {
 			margin: 0;
 		}

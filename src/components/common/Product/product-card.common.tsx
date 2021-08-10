@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import ReactModal from '../ProductModal/product-modal.common';
 import './product-card.common.scss';
 
-const ProductCard: React.FC = () => {
+interface ProductCardProps {
+	product: any;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 	const [modalState, setModalState] = useState(false);
 
 	const closeModal = async () => {
@@ -12,9 +16,11 @@ const ProductCard: React.FC = () => {
 
 	return (
 		<div className="product-card card" onClick={() => setModalState(true)}>
-			<img className="card-image" src="http://localhost:3000/sample-images/woodwork-test-2.jpeg" alt="asdf" />
+			<div className="card-image">
+				<img src="http://localhost:3000/sample-images/woodwork-test-2.jpeg" alt="asdf" />
+			</div>
 			<div className="content">
-				<h3>Item 1</h3>
+				<h3>{product?.code}</h3>
 				<ReactModal modalState={modalState} setModalState={closeModal} />
 			</div>
 		</div>
