@@ -1,5 +1,4 @@
 import React from 'react';
-import ColumnHalf from '../../../../common/Column/half.column';
 import './showcase.section.scss';
 
 const ShowcaseSection: React.FC = () => {
