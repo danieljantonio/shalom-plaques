@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { groupByN } from '../../../helpers/helpers';
-import ColumnThirds from '../../common/Column/third.column';
 import ProductCard from '../../common/Product/product-card.common';
 import './products.page.scss';
 
