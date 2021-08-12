@@ -26,7 +26,7 @@ const NavigationComponents = () => (
 				</NavLink>
 			</li>
 			<li>
-				<button>Download Catalogue &gt;</button>
+				<button onClick={() => window.open('shalom-handicraft-catalogue.pdf')}>Download Catalogue &gt;</button>
 			</li>
 		</ul>
 	</div>
