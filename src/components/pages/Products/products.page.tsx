@@ -1,22 +1,25 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { groupByN } from '../../../helpers/helpers';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useParams } from 'react-router-dom';
+import { capitalize, getFileStructure, groupByN } from '../../../helpers/helpers';
 import ProductCard from '../../common/Product/product-card.common';
 import './products.page.scss';
 
-const ProductsPage: React.FC = () => {
-	const products = [
-		'Magnet',
-		'Frame',
-		'Box',
-		'Cross',
-		'Key Ring',
-		'Wall Plaque',
-		'Table Plaque',
-		'Church Supplies',
-		'Miscellaneous',
-		'New Products',
-	];
+interface ProductsParams {
+	categoryId: string | '';
+}
+
+const ProductsPage = () => {
+	const productCategories = Object.keys(getFileStructure());
+	const { categoryId } = useParams<ProductsParams>();
+	const products = getFileStructure();
+	// console.log(products[capitalize(categoryId.replace('-', ' '))]);
+	const [category, setCategory] = useState(products[capitalize(categoryId.replace('-', ' '))]);
+	// console.log(category);
+
+	useEffect(() => {
+		setCategory(products[capitalize(categoryId.replace('-', ' '))]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [categoryId]);
 
 	const mockProductData = {
 		wording: 'God is Love',
@@ -49,8 +52,8 @@ const ProductsPage: React.FC = () => {
 	const renderRows = (products: []) => {
 		return (
 			<div className="row">
-				{products.map((product) => (
-					<ProductCard product={product} />
+				{products.map((product, index) => (
+					<ProductCard key={index} product={product} />
 				))}
 			</div>
 		);
@@ -62,7 +65,7 @@ const ProductsPage: React.FC = () => {
 			<div className="row container">
 				<div className="sidenav">
 					<div className="card">
-						{products.map((product, index) => (
+						{productCategories.map((product, index) => (
 							<NavLink key={index} exact to={`/products/${product.toLowerCase().replace(' ', '-')}`}>
 								{product}
 							</NavLink>
