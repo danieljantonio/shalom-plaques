@@ -2,13 +2,14 @@ import React from 'react';
 import './carousel.section.scss';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { baseUrl } from '../../../../../helpers/helpers';
 
 const CarouselSection: React.FC = () => {
 	const NextButton = (onClickHandler: any, hasNext: boolean, label: string) => {
 		if (hasNext)
 			return (
 				<button type="button" onClick={onClickHandler} title={label} className="arrow-button right">
-					<img src="http://localhost:3000/icons/arrow-right-white.svg" alt="next" />
+					<img src={`${baseUrl}/icons/arrow-right-white.svg`} alt="next" />
 				</button>
 			);
 	};
@@ -17,17 +18,17 @@ const CarouselSection: React.FC = () => {
 		if (hasPrev)
 			return (
 				<button type="button" onClick={onClickHandler} title={label} className="arrow-button left">
-					<img src="http://localhost:3000/icons/arrow-left-white.svg" alt="prev" />
+					<img src={`${baseUrl}/icons/arrow-left-white.svg`} alt="prev" />
 				</button>
 			);
 	};
 
 	const urls = [
-		'http://localhost:3000/sample-images/woodwork-test-1.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-2.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-3.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-4.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-5.jpeg',
+		`${baseUrl}/sample-images/woodwork-test-1.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-2.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-3.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-4.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-5.jpeg`,
 	];
 
 	return (

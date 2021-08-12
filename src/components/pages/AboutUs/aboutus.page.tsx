@@ -1,4 +1,5 @@
 import React from 'react';
+import { baseUrl } from '../../../helpers/helpers';
 import ColumnHalf from '../../common/Column/half.column';
 import './aboutus.page.scss';
 
@@ -22,12 +23,12 @@ const AboutUsPage: React.FC = () => {
 				</ColumnHalf>
 
 				<ColumnHalf className="center-y hide-sm pv-lg-10p">
-					<img src="http://localhost:3000/sample-images/woodwork-test-3.jpeg" alt="img" className="card mag-y50" />
+					<img src={`${baseUrl}/sample-images/woodwork-test-3.jpeg`} alt="img" className="card mag-y50" />
 				</ColumnHalf>
 			</div>
 			<div className="row container">
 				<ColumnHalf className="center-y hide-sm pv-lg-10p">
-					<img src="http://localhost:3000/sample-images/woodwork-test-1.jpeg" alt="img" className="card mag-y50" />
+					<img src={`${baseUrl}/sample-images/woodwork-test-1.jpeg`} alt="img" className="card mag-y50" />
 				</ColumnHalf>
 				<ColumnHalf className="center-xy">
 					<div className="tag-header pad-y50-smo">

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { baseUrl } from '../../../helpers/helpers';
 import ReactModal from '../ProductModal/product-modal.common';
 import './product-card.common.scss';
 
@@ -17,7 +18,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 	return (
 		<div className="product-card card" onClick={() => setModalState(true)}>
 			<div className="card-image">
-				<img src="http://localhost:3000/sample-images/woodwork-test-2.jpeg" alt="asdf" />
+				<img src={`${baseUrl}/sample-images/woodwork-test-2.jpeg`} alt="asdf" />
 			</div>
 			<div className="content">
 				<h3>{product?.code}</h3>

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
+import { baseUrl } from '../../../../helpers/helpers';
 import './modal-carousel.product-modal.scss';
 
 const ModalCarousel: React.FC = () => {
 	const urls = [
-		'http://localhost:3000/sample-images/woodwork-test-1.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-2.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-3.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-4.jpeg',
-		'http://localhost:3000/sample-images/woodwork-test-5.jpeg',
+		`${baseUrl}/sample-images/woodwork-test-1.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-2.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-3.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-4.jpeg`,
+		`${baseUrl}/sample-images/woodwork-test-5.jpeg`,
 	];
 
 	return (

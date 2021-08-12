@@ -4,6 +4,9 @@ const groupByN = (n, data) => {
 	return result;
 };
 
+const baseUrl = 'http://localhost:3000';
+
 module.exports = {
+	baseUrl,
 	groupByN,
 };
