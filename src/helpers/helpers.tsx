@@ -10,6 +10,12 @@ interface ItemDetailProps {
 	Height?: string;
 }
 
+interface ItemCardDetail {
+	productCode: string;
+	category: string;
+	subCategory: string;
+}
+
 export const groupByN = (n: number, data: any) => {
 	let result = [];
 	for (let i = 0; i < data.length; i += n) result.push(data.slice(i, i + n));
@@ -40,19 +46,18 @@ export const getFileStructure = () => {
 	directory.forEach((subCategory: any) => {
 		itemMap[subCategory.name] = {};
 		subCategory.contents.forEach((folders: any) => {
-			itemMap[subCategory.name][folders.name] = {};
+			if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name] = [];
 			folders.contents.forEach((folderContent: any) => {
 				if (!isDirectory(folderContent)) {
 					// itemMap[subCategory.name][folders.name][folderContent.name] = [folderContent.name];
-					itemMap[subCategory.name][folders.name] = [folderContent.name];
-					return [folderContent.name];
+					if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name].push(folderContent.name);
+					else itemMap[subCategory.name][folders.name] = [folderContent.name];
 				} else {
 					const folderContents = folderContent.contents.map((content: any) => {
 						return content.name;
 					});
-					// itemMap[subCategory.name][folders.name][folderContent.name] = folderContents;
-					itemMap[subCategory.name][folders.name] = folderContents;
-					return folderContent;
+					if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name] = folderContents;
+					else itemMap[subCategory.name][folders.name].push(...folderContents);
 				}
 			});
 		});
@@ -61,38 +66,43 @@ export const getFileStructure = () => {
 	return itemMap;
 };
 
+getFileStructure();
+
 export const getItemDetails = (productCode: string): ItemDetailProps => {
 	const itemsAvailable = itemDetails.available;
 	return itemsAvailable.find((item: { ProductCode?: string }) => item.ProductCode === productCode);
 };
 
-// console.log(getItemDetails('DC03-184NZ'));
+console.log(getItemDetails('EU30M-29'));
 
 export const getItems = (category?: string) => {
-	const getCategoryItems = (categoryData: any) => {
-		const items: string[] = [];
+	const getCategoryItems = (category: string, categoryData: any) => {
+		const items: ItemCardDetail[] = [];
 		Object.values(categoryData).forEach((catData: any, index) => {
 			if (catData.length > 0) {
-				// console.log(catData);
-				catData.map((dt: string) => {
-					// console.log(`${capitalize(category.replace('-', ' '))}: ${Object.keys(categoryData)[index]}: ${dt.split('.')[0]}`);
-				});
-				items.push(...catData.map((dt: string) => dt.split('.')[0]));
+				items.push(
+					...catData.map((dt: string) => {
+						return {
+							category,
+							subCategory: Object.keys(categoryData)[index],
+							productCode: dt.split('.')[0],
+						};
+					}),
+				);
 			}
 		});
 		return items;
 	};
 	const data = getFileStructure();
 	if (!category) {
-		const allItems: string[] = [];
+		const allItems: ItemCardDetail[] = [];
 		Object.keys(data).map((category) => {
 			const categoryData = data[category];
-			allItems.push(...getCategoryItems(categoryData));
+			allItems.push(...getCategoryItems(category, categoryData));
 		});
-		console.log(allItems);
 		return allItems;
 	}
 	const categoryData = data[capitalize(category.replace('-', ' '))];
-	return getCategoryItems(categoryData);
+	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
-getItems();
+console.log(getItems('Miscellaneous'));
