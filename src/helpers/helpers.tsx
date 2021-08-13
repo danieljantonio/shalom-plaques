@@ -88,9 +88,10 @@ export const getItems = (category?: string) => {
 	const data = getFileStructure();
 	if (!category || category === 'Products') {
 		const allItems: ItemCardDetail[] = [];
-		Object.keys(data).map((category) => {
+		Object.keys(data).map((category: string) => {
 			const categoryData = data[category];
 			allItems.push(...getCategoryItems(category, categoryData));
+			return null;
 		});
 		console.log('all');
 		return allItems;
