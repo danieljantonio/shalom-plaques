@@ -66,24 +66,33 @@ export const getItemDetails = (productCode: string): ItemDetailProps => {
 	return itemsAvailable.find((item: { ProductCode?: string }) => item.ProductCode === productCode);
 };
 
-console.log(getItemDetails('DC03-184NZ'));
+// console.log(getItemDetails('DC03-184NZ'));
 
 export const getItems = (category?: string) => {
+	const getCategoryItems = (categoryData: any) => {
+		const items: string[] = [];
+		Object.values(categoryData).forEach((catData: any, index) => {
+			if (catData.length > 0) {
+				// console.log(catData);
+				catData.map((dt: string) => {
+					// console.log(`${capitalize(category.replace('-', ' '))}: ${Object.keys(categoryData)[index]}: ${dt.split('.')[0]}`);
+				});
+				items.push(...catData.map((dt: string) => dt.split('.')[0]));
+			}
+		});
+		return items;
+	};
 	const data = getFileStructure();
-	if (!category) return data;
-	// console.log(data);
+	if (!category) {
+		const allItems: string[] = [];
+		Object.keys(data).map((category) => {
+			const categoryData = data[category];
+			allItems.push(...getCategoryItems(categoryData));
+		});
+		console.log(allItems);
+		return allItems;
+	}
 	const categoryData = data[capitalize(category.replace('-', ' '))];
-	const items: string[] = [];
-	Object.values(categoryData).forEach((catData: any, index) => {
-		if (catData.length > 0) {
-			console.log(catData);
-			catData.map((dt: string) => {
-				console.log(`${capitalize(category.replace('-', ' '))}: ${Object.keys(categoryData)[index]}: ${dt.split('.')[0]}`);
-			});
-			items.push(...catData.map((dt: string) => dt.split('.')[0]));
-		}
-	});
-	console.log(items);
-	return items;
+	return getCategoryItems(categoryData);
 };
-// getItems(Miscellaneous');
+getItems();
