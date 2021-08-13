@@ -73,7 +73,7 @@ export const getItemDetails = (productCode: string): ItemDetailProps => {
 	return itemsAvailable.find((item: { ProductCode?: string }) => item.ProductCode === productCode);
 };
 
-console.log(getItemDetails('EU30M-29'));
+// console.log(getItemDetails('EU30M-29'));
 
 export const getItems = (category?: string) => {
 	const getCategoryItems = (category: string, categoryData: any) => {
@@ -105,4 +105,4 @@ export const getItems = (category?: string) => {
 	const categoryData = data[capitalize(category.replace('-', ' '))];
 	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
-console.log(getItems('Miscellaneous'));
+console.log(getItems('Wall Plaque'));
