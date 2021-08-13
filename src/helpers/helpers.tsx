@@ -1,4 +1,14 @@
-interface ItemProps {}
+interface ItemDetailProps {
+	ProductId?: string;
+	Barcode?: string;
+	ProductCode?: string;
+	Description?: string;
+	Wording?: string;
+	Dimensions?: string;
+	Length?: string;
+	Width?: string;
+	Height?: string;
+}
 
 export const groupByN = (n: number, data: any) => {
 	let result = [];
@@ -8,7 +18,8 @@ export const groupByN = (n: number, data: any) => {
 
 export const baseUrl = 'http://localhost:3000';
 
-const items = require('./test.json');
+const itemList = require('./test.json');
+const itemDetails = require('./available-products.json');
 
 export const capitalize = (text: string) => {
 	if (!text) return '';
@@ -22,7 +33,7 @@ export const capitalize = (text: string) => {
 
 export const getFileStructure = () => {
 	const isDirectory = (obj: any) => obj?.type === 'directory';
-	const directory = items[0]?.contents;
+	const directory = itemList[0]?.contents;
 
 	const itemMap: any = {};
 
@@ -50,6 +61,13 @@ export const getFileStructure = () => {
 	return itemMap;
 };
 
+export const getItemDetails = (productCode: string): ItemDetailProps => {
+	const itemsAvailable = itemDetails.available;
+	return itemsAvailable.find((item: { ProductCode?: string }) => item.ProductCode === productCode);
+};
+
+console.log(getItemDetails('DC03-184NZ'));
+
 export const getItems = (category?: string) => {
 	const data = getFileStructure();
 	if (!category) return data;
@@ -68,4 +86,4 @@ export const getItems = (category?: string) => {
 	console.log(items);
 	return items;
 };
-// getItems('UV Printer');
+// getItems(Miscellaneous');
