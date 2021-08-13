@@ -12,12 +12,16 @@ const ProductsPage = () => {
 	const productCategories = Object.keys(getFileStructure());
 	const { categoryId } = useParams<ProductsParams>();
 	const products = getFileStructure();
+	const getCategory = (categoryId?: string) => {
+		if (!categoryId) return 'Products';
+		return capitalize(categoryId?.replace('-', ' '));
+	};
 	// console.log(products[capitalize(categoryId.replace('-', ' '))]);
-	const [category, setCategory] = useState(products[capitalize(categoryId.replace('-', ' '))]);
+	const [category, setCategory] = useState(getCategory(categoryId));
 	// console.log(category);
 
 	useEffect(() => {
-		setCategory(products[capitalize(categoryId.replace('-', ' '))]);
+		setCategory(getCategory(categoryId));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [categoryId]);
 
@@ -61,7 +65,7 @@ const ProductsPage = () => {
 
 	return (
 		<div className="product-page">
-			<h1>Products</h1>
+			<h1>{getCategory(categoryId)}</h1>
 			<div className="row container">
 				<div className="sidenav">
 					<div className="card">

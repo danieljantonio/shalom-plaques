@@ -1,3 +1,5 @@
+interface ItemProps {}
+
 export const groupByN = (n: number, data: any) => {
 	let result = [];
 	for (let i = 0; i < data.length; i += n) result.push(data.slice(i, i + n));
@@ -9,6 +11,7 @@ export const baseUrl = 'http://localhost:3000';
 const items = require('./test.json');
 
 export const capitalize = (text: string) => {
+	if (!text) return '';
 	const arr = text.split(' ');
 	for (var i = 0; i < arr.length; i++) {
 		if (arr[i].length <= 2) arr[i] = arr[i].toUpperCase();
@@ -47,10 +50,22 @@ export const getFileStructure = () => {
 	return itemMap;
 };
 
-export const getItems = (category: string) => {
+export const getItems = (category?: string) => {
 	const data = getFileStructure();
-	console.log(data);
+	if (!category) return data;
+	// console.log(data);
 	const categoryData = data[capitalize(category.replace('-', ' '))];
-	console.log(Object.values(categoryData));
+	const items: string[] = [];
+	Object.values(categoryData).forEach((catData: any, index) => {
+		if (catData.length > 0) {
+			console.log(catData);
+			catData.map((dt: string) => {
+				console.log(`${capitalize(category.replace('-', ' '))}: ${Object.keys(categoryData)[index]}: ${dt.split('.')[0]}`);
+			});
+			items.push(...catData.map((dt: string) => dt.split('.')[0]));
+		}
+	});
+	console.log(items);
+	return items;
 };
-getItems('Box');
+// getItems('UV Printer');
