@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { capitalize, getFileStructure, groupByN } from '../../../helpers/helpers';
+import { capitalize, getFileStructure, getItems, groupByN } from '../../../helpers/helpers';
 import ProductCard from '../../common/Product/product-card.common';
 import './products.page.scss';
 
@@ -12,6 +12,7 @@ const ProductsPage = () => {
 	const productCategories = Object.keys(getFileStructure());
 	const { categoryId } = useParams<ProductsParams>();
 	const products = getFileStructure();
+
 	const getCategory = (categoryId?: string) => {
 		if (!categoryId) return 'Products';
 		return capitalize(categoryId?.replace('-', ' '));
@@ -22,8 +23,14 @@ const ProductsPage = () => {
 
 	useEffect(() => {
 		setCategory(getCategory(categoryId));
+		getProducts(getCategory(categoryId));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [categoryId]);
+
+	const getProducts = (category: string) => {
+		const items = getItems(category);
+		console.log(items);
+	};
 
 	const mockProductData = {
 		wording: 'God is Love',

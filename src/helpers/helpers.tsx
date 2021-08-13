@@ -49,15 +49,9 @@ export const getFileStructure = () => {
 			if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name] = [];
 			folders.contents.forEach((folderContent: any) => {
 				if (!isDirectory(folderContent)) {
-					// itemMap[subCategory.name][folders.name][folderContent.name] = [folderContent.name];
-					if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name].push(folderContent.name);
-					else itemMap[subCategory.name][folders.name] = [folderContent.name];
+					itemMap[subCategory.name][folders.name].push(folderContent.name);
 				} else {
-					const folderContents = folderContent.contents.map((content: any) => {
-						return content.name;
-					});
-					if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name] = folderContents;
-					else itemMap[subCategory.name][folders.name].push(...folderContents);
+					itemMap[subCategory.name][folders.name].push(...folderContent.contents.map((content: any) => content.name));
 				}
 			});
 		});
@@ -65,8 +59,6 @@ export const getFileStructure = () => {
 
 	return itemMap;
 };
-
-getFileStructure();
 
 export const getItemDetails = (productCode: string): ItemDetailProps => {
 	const itemsAvailable = itemDetails.available;
@@ -94,15 +86,17 @@ export const getItems = (category?: string) => {
 		return items;
 	};
 	const data = getFileStructure();
-	if (!category) {
+	if (!category || category === 'Products') {
 		const allItems: ItemCardDetail[] = [];
 		Object.keys(data).map((category) => {
 			const categoryData = data[category];
 			allItems.push(...getCategoryItems(category, categoryData));
 		});
+		console.log('all');
 		return allItems;
 	}
+	console.log(category);
 	const categoryData = data[capitalize(category.replace('-', ' '))];
 	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
-console.log(getItems('Wall Plaque'));
+console.log(getItems());
