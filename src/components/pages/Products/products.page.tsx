@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { capitalize, getFileStructure, getItems, groupByN } from '../../../helpers/helpers';
+import { capitalize, getFileStructure, getItems, groupByN, ItemCardDetail } from '../../../helpers/helpers';
 import ProductCard from '../../common/Product/product-card.common';
 import './products.page.scss';
 
@@ -12,25 +12,19 @@ interface ProductsParams {
 const ProductsPage = () => {
 	const productCategories = Object.keys(getFileStructure());
 	const { categoryId } = useParams<ProductsParams>();
-	const products = getFileStructure();
+	const [items, setItems] = useState<ItemCardDetail[] | undefined>([]);
 
 	const getCategory = (categoryId?: string) => {
 		if (!categoryId) return 'Products';
 		return capitalize(categoryId?.replace('-', ' '));
 	};
-	// console.log(products[capitalize(categoryId.replace('-', ' '))]);
-	const [category, setCategory] = useState(getCategory(categoryId));
-	// console.log(category);
 
 	useEffect(() => {
-		setCategory(getCategory(categoryId));
 		getProducts(getCategory(categoryId));
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [categoryId]);
 
 	const getProducts = (category: string) => {
-		const items = getItems(category);
-		console.log(items);
+		setItems(getItems(category));
 	};
 
 	const mockProductData = {
@@ -61,7 +55,7 @@ const ProductsPage = () => {
 		mockProductData,
 	];
 
-	const renderRows = (products: []) => {
+	const renderRows = (products: ItemCardDetail[]) => {
 		return (
 			<div className="row">
 				{products.map((product, index) => (
@@ -84,7 +78,7 @@ const ProductsPage = () => {
 						))}
 					</div>
 				</div>
-				<div className="main">{groupByN(3, productItems).map((productRow, index) => renderRows(productRow))}</div>
+				<div className="main">{groupByN(3, items).map((productRow, index) => renderRows(productRow))}</div>
 			</div>
 		</div>
 	);

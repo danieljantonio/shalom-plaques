@@ -1,4 +1,4 @@
-interface ItemDetailProps {
+export interface ItemDetailProps {
 	ProductId?: string;
 	Barcode?: string;
 	ProductCode?: string;
@@ -10,7 +10,7 @@ interface ItemDetailProps {
 	Height?: string;
 }
 
-interface ItemCardDetail {
+export interface ItemCardDetail {
 	productCode: string;
 	category: string;
 	subCategory: string;
@@ -93,11 +93,11 @@ export const getItems = (category?: string) => {
 			allItems.push(...getCategoryItems(category, categoryData));
 			return null;
 		});
-		console.log('all');
+		// console.log('all');
 		return allItems;
 	}
-	console.log(category);
+	// console.log(category);
 	const categoryData = data[capitalize(category.replace('-', ' '))];
 	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
-console.log(getItems());
+// console.log(getItems());
