@@ -13,47 +13,29 @@ const ProductsPage = () => {
 	const productCategories = Object.keys(getFileStructure());
 	const { categoryId } = useParams<ProductsParams>();
 	const [items, setItems] = useState<ItemCardDetail[] | undefined>([]);
+	const [numberOfItems, setNumberOfItems] = useState<number>(window.screen.width < 767 ? 2 : 4);
+	const [loaded, setLoaded] = useState<boolean>(false);
 
 	const getCategory = (categoryId?: string) => {
 		if (!categoryId) return 'Products';
 		return capitalize(categoryId?.replace('-', ' '));
 	};
 
-	useEffect(() => {
-		getProducts(getCategory(categoryId));
-	}, [categoryId]);
-
 	const getProducts = (category: string) => {
 		setItems(getItems(category));
+		setLoaded(true);
 	};
 
-	const mockProductData = {
-		wording: 'God is Love',
-		code: 'AM-02',
-		description: 'Hand carved rectangular shape fridge magnet',
-		length: 6.5,
-		width: 5.5,
-		height: 0.5,
-		verse: 'Colossians 3:12',
-		price: 'RpXX,XXX',
-		links: {
-			tokopedia: 'https://www.tokopedia.com/',
-			shopee: 'https://shopee.co.id/',
-		},
-	};
+	useEffect(() => {
+		getProducts(getCategory(categoryId));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [categoryId, numberOfItems]);
 
-	const productItems = [
-		mockProductData,
-		mockProductData,
-		mockProductData,
-		mockProductData,
-		mockProductData,
-		mockProductData,
-		mockProductData,
-		mockProductData,
-		mockProductData,
-		mockProductData,
-	];
+	const loadMoreItems = (): void => {
+		let appendNo = 2;
+		if (window.screen.width < 767) appendNo = 1;
+		setNumberOfItems(numberOfItems + appendNo);
+	};
 
 	const renderRows = (products: ItemCardDetail[]) => {
 		return (
@@ -78,7 +60,18 @@ const ProductsPage = () => {
 						))}
 					</div>
 				</div>
-				<div className="main">{groupByN(3, items).map((productRow, index) => renderRows(productRow))}</div>
+				<div className="main">
+					{loaded ? (
+						<>
+							{groupByN(3, items)
+								.slice(0, numberOfItems)
+								.map((productRow, index) => renderRows(productRow))}
+							<button onClick={loadMoreItems}>Load More</button>
+						</>
+					) : (
+						<div>loading...</div>
+					)}
+				</div>
 			</div>
 		</div>
 	);

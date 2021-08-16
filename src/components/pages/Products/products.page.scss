@@ -1,40 +1,3 @@
-// .sidenav {
-// 	width: 250px;
-// 	position: fixed;
-// 	z-index: 1;
-// 	top: 15rem;
-// 	left: 10px;
-// 	padding: 8px 0;
-// 	margin: auto;
-// }
-
-// .sidenav a {
-// 	padding: 6px 8px 6px 16px;
-// 	text-decoration: none;
-// 	font-size: 25px;
-// 	color: #2196f3;
-// 	display: block;
-// }
-
-// .sidenav a:hover {
-// 	color: #064579;
-// }
-
-// .main {
-// 	margin-left: 260px; /* Same width as the sidebar + left position in px */
-// 	font-size: 28px; /* Increased text to enable scrolling */
-// 	padding: 0px 10px;
-// }
-
-// @media screen and (max-height: 450px) {
-// 	.sidenav {
-// 		padding-top: 15px;
-// 	}
-// 	.sidenav a {
-// 		font-size: 18px;
-// 	}
-// }
-
 @import '../../../styles/main.scss';
 
 .product-page {
@@ -56,7 +19,9 @@
 		}
 	}
 	.sidenav {
+		// position: fixed;
 		.card {
+			background-color: $white;
 			overflow: hidden;
 			width: 90%;
 			margin: auto;
