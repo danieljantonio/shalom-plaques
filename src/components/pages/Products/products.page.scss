@@ -1,7 +1,7 @@
 @import '../../../styles/main.scss';
 
 .product-page {
-	@media (min-width: 767px) {
+	@media (min-width: 800px) {
 		.sidenav {
 			width: 20%;
 		}
@@ -9,7 +9,7 @@
 			width: 80%;
 		}
 	}
-	@media (max-width: 767px) {
+	@media (max-width: 799px) {
 		.sidenav {
 			width: 100%;
 			margin: auto;
@@ -40,8 +40,10 @@
 		}
 	}
 	.main {
-		.row {
-			margin-bottom: 3rem;
+		@media (min-width: 800px) {
+			.row {
+				margin-bottom: 3rem;
+			}
 		}
 	}
 }

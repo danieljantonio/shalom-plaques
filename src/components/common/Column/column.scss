@@ -4,7 +4,7 @@
 	// border: 1px solid grey;
 }
 
-@media (max-width: 766px) {
+@media (max-width: 799px) {
 	.row {
 		flex-direction: column;
 	}
@@ -21,7 +21,7 @@
 	}
 }
 
-@media (min-width: 767px) {
+@media (min-width: 800px) {
 	.row {
 		flex-direction: row;
 	}

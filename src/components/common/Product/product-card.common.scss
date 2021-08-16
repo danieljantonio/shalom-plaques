@@ -1,13 +1,13 @@
 @import '../../../styles/main.scss';
 
 .product-card {
-	@media (min-width: 767px) {
+	@media (min-width: 800px) {
 		width: calc((100vw - 250px) * 0.28);
 		max-width: 18.75rem;
 		max-height: 18.75rem;
 		height: 25vw;
 	}
-	@media (max-width: 767px) {
+	@media (max-width: 799px) {
 		width: 90%;
 		height: 200px;
 		margin: 1rem auto;

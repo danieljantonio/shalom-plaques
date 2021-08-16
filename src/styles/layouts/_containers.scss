@@ -27,16 +27,20 @@
 	max-height: 700px;
 }
 
-.pv-lg-10p {
-	@media (min-width: 766px) {
+// These classess are only valid on larger screens
+@media (min-width: 800px) {
+	.pv-lg-10p {
 		padding: 10% 0;
+	}
+	.hide-lg {
+		display: none !important;
 	}
 }
 
 // These classess are only valid on smaller screens
-@media (max-width: 767px) {
+@media (max-width: 799px) {
 	.hide-sm {
-		display: none;
+		display: none !important;
 	}
 
 	.mag-y50-smo {
