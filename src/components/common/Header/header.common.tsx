@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './header.common.scss';
 
 const NavigationComponents = () => (
-	<div className="navigation">
+	<div className="navigation hide-sm">
 		<ul>
 			<li>
 				<NavLink exact to="/">
@@ -32,12 +32,23 @@ const NavigationComponents = () => (
 	</div>
 );
 
+const BurgerIcon = () => (
+	<div className="burger-container hide-lg">
+		<div>
+			<div className="burger-icon"></div>
+			<div className="burger-icon"></div>
+			<div className="burger-icon"></div>
+		</div>
+	</div>
+);
+
 const Header: React.FC = () => {
 	return (
 		<nav className="navbar">
 			<Link to="/" className="navbar-brand">
 				ShalomHandicrafts
 			</Link>
+			<BurgerIcon />
 			<NavigationComponents />
 		</nav>
 	);

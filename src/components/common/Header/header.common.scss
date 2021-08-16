@@ -24,6 +24,17 @@
 			transition: 0.25s;
 		}
 	}
+	.burger-container {
+		padding: 14px 16px;
+		display: grid;
+		place-items: center;
+		.burger-icon {
+			width: 28px;
+			height: 4px;
+			background-color: black;
+			margin: 6px 0;
+		}
+	}
 	.navigation {
 		display: flex;
 		justify-content: flex-end;
