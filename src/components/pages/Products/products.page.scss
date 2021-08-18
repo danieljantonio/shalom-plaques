@@ -44,6 +44,22 @@
 			.row {
 				margin-bottom: 3rem;
 			}
+			#load-more {
+				width: 92.5% !important;
+			}
+		}
+		#load-more {
+			width: 90%;
+			background-color: $white;
+			border-radius: 5px;
+			height: 2.5rem;
+			border: none;
+			transition: all ease 0.25s;
+			&:hover {
+				cursor: pointer;
+				background-color: rgb(244, 244, 244);
+				box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+			}
 		}
 	}
 }

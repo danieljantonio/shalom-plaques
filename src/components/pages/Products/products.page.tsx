@@ -22,11 +22,14 @@ const ProductsPage = () => {
 	};
 
 	const getProducts = (category: string) => {
-		setItems(getItems(category));
-		setLoaded(true);
+		setTimeout(() => {
+			setItems(getItems(category));
+			setLoaded(true);
+		}, 200);
 	};
 
 	useEffect(() => {
+		setLoaded(false);
 		getProducts(getCategory(categoryId));
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [categoryId, numberOfItems]);
@@ -37,9 +40,9 @@ const ProductsPage = () => {
 		setNumberOfItems(numberOfItems + appendNo);
 	};
 
-	const renderRows = (products: ItemCardDetail[]) => {
+	const renderRows = (products: ItemCardDetail[], rootIndex: number) => {
 		return (
-			<div className="row">
+			<div key={rootIndex} className="row">
 				{products.map((product, index) => (
 					<ProductCard key={index} product={product} />
 				))}
@@ -65,8 +68,10 @@ const ProductsPage = () => {
 						<>
 							{groupByN(3, items)
 								.slice(0, numberOfItems)
-								.map((productRow, index) => renderRows(productRow))}
-							<button onClick={loadMoreItems}>Load More</button>
+								.map((productRow, index) => renderRows(productRow, index))}
+							<button id="load-more" className="card" onClick={loadMoreItems}>
+								Load More
+							</button>
 						</>
 					) : (
 						<div>loading...</div>
