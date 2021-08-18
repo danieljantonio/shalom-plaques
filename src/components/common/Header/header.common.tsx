@@ -46,7 +46,7 @@ const Header: React.FC = () => {
 					<div id="burger-3" className="burger-icon"></div>
 				</div>
 			</button>
-			<NavigationComponents />
+			{window.screen.width >= 800 ? <NavigationComponents /> : expand ? <NavigationComponents /> : <></>}
 		</nav>
 	);
 };

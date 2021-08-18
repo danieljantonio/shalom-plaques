@@ -63,6 +63,7 @@
 
 	.navigation {
 		font-size: $font-navbar;
+		overflow: hidden;
 		ul {
 			display: inline;
 			list-style-type: none;
@@ -77,11 +78,15 @@
 			font-size: $font-navbar;
 			border: 0px;
 			background-color: transparent;
+			&:hover {
+				cursor: pointer;
+			}
 		}
 	}
 	@media (max-width: 800px) {
 		position: relative;
 		.navigation {
+			box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 			position: absolute;
 			width: calc(100% - 20px);
 			border-radius: 5px;
@@ -93,7 +98,6 @@
 				padding: 0;
 			}
 			li {
-				padding: 8px;
 				&:hover {
 					color: white;
 					background-color: $brown-lighter;
@@ -101,9 +105,15 @@
 				}
 			}
 			a {
+				display: block;
+				width: 100%;
+				padding: 8px;
 				color: inherit;
 			}
 			button {
+				padding: 8px;
+				width: 100%;
+				display: block;
 				font-size: inherit;
 				font-weight: inherit;
 				font-family: inherit;
@@ -135,7 +145,6 @@
 			button {
 				font-size: $font-navbar;
 				border: 0px;
-				// font-family: arial;
 				font-weight: 500;
 				color: #fbf7e9;
 				transition: 0.25s;
@@ -144,7 +153,6 @@
 				border-radius: 6px;
 				margin: 0 16px;
 				&:hover {
-					cursor: pointer;
 					transition: 0.25s;
 					box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 				}
