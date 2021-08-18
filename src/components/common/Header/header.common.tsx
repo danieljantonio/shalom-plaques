@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './header.common.scss';
 
 const NavigationComponents = () => (
-	<div className="navigation hide-sm">
+	<div className="navigation">
 		<ul>
 			<li>
 				<NavLink exact to="/">
@@ -32,23 +32,20 @@ const NavigationComponents = () => (
 	</div>
 );
 
-const BurgerIcon = () => (
-	<div className="burger-container hide-lg">
-		<div>
-			<div className="burger-icon"></div>
-			<div className="burger-icon"></div>
-			<div className="burger-icon"></div>
-		</div>
-	</div>
-);
-
 const Header: React.FC = () => {
+	const [expand, setExpand] = useState<boolean>(false);
 	return (
 		<nav className="navbar">
 			<Link to="/" className="navbar-brand">
 				ShalomHandicrafts
 			</Link>
-			<BurgerIcon />
+			<button className="burger-container hide-lg" onClick={() => setExpand(!expand)}>
+				<div className={expand ? 'active' : ''}>
+					<div id="burger-1" className="burger-icon"></div>
+					<div id="burger-2" className="burger-icon"></div>
+					<div id="burger-3" className="burger-icon"></div>
+				</div>
+			</button>
 			<NavigationComponents />
 		</nav>
 	);

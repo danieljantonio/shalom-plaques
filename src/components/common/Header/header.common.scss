@@ -28,53 +28,126 @@
 		padding: 14px 16px;
 		display: grid;
 		place-items: center;
+		background-color: transparent;
+		color: none;
+		border: none;
+		&:hover {
+			background-color: $brown-lighter;
+			transition: 0.25s;
+		}
 		.burger-icon {
 			width: 28px;
 			height: 4px;
-			background-color: black;
+			background-color: $brown-dark;
+			transition: all 0.25s linear;
 			margin: 6px 0;
 		}
+		.active {
+			#burger-1 {
+				position: absolute;
+				top: 25px;
+				transform: rotate(45deg);
+				background-color: $brown-dark;
+			}
+			#burger-2 {
+				background-color: transparent;
+			}
+			#burger-3 {
+				position: absolute;
+				top: 25px;
+				transform: rotate(-45deg);
+				background-color: $brown-dark;
+			}
+		}
 	}
+
 	.navigation {
-		display: flex;
-		justify-content: flex-end;
-		float: right;
 		font-size: $font-navbar;
 		ul {
 			display: inline;
 			list-style-type: none;
 		}
-		li {
-			display: inline;
-		}
 		a {
-			// font-family: arial;
 			font-weight: 500;
-			padding: 16px;
 			text-decoration: none;
-			color: $brown;
 			transition: 0.25s;
-			&:hover {
-				color: $brown-lighter;
-				transition: 0.25s;
-				text-shadow: 1px 1px 2px lightgrey;
-			}
 		}
+
 		button {
 			font-size: $font-navbar;
 			border: 0px;
-			// font-family: arial;
-			font-weight: 500;
-			color: #fbf7e9;
-			transition: 0.25s;
-			background-color: $brown-dark;
-			padding: 9px;
-			border-radius: 6px;
-			margin: 0 16px;
-			&:hover {
-				cursor: pointer;
+			background-color: transparent;
+		}
+	}
+	@media (max-width: 800px) {
+		position: relative;
+		.navigation {
+			position: absolute;
+			width: calc(100% - 20px);
+			border-radius: 5px;
+			top: 78px;
+			background-color: white;
+			margin: 0px 10px;
+			ul {
+				margin: 0;
+				padding: 0;
+			}
+			li {
+				padding: 8px;
+				&:hover {
+					color: white;
+					background-color: $brown-lighter;
+					transition: 0.25s;
+				}
+			}
+			a {
+				color: inherit;
+			}
+			button {
+				font-size: inherit;
+				font-weight: inherit;
+				font-family: inherit;
+				color: inherit;
+			}
+		}
+	}
+
+	@media (min-width: 799px) {
+		.navigation {
+			display: flex;
+			justify-content: flex-end;
+			float: right;
+			a {
+				font-weight: 500;
+				padding: 16px;
+				text-decoration: none;
+				color: $brown;
 				transition: 0.25s;
-				box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+				&:hover {
+					color: $brown-lighter;
+					transition: 0.25s;
+					text-shadow: 1px 1px 2px lightgrey;
+				}
+			}
+			li {
+				display: inline;
+			}
+			button {
+				font-size: $font-navbar;
+				border: 0px;
+				// font-family: arial;
+				font-weight: 500;
+				color: #fbf7e9;
+				transition: 0.25s;
+				background-color: $brown-dark;
+				padding: 9px;
+				border-radius: 6px;
+				margin: 0 16px;
+				&:hover {
+					cursor: pointer;
+					transition: 0.25s;
+					box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+				}
 			}
 		}
 	}
