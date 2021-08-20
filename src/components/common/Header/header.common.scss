@@ -29,7 +29,6 @@
 		font-size: $font-navbar;
 		overflow: hidden;
 		ul {
-			display: inline;
 			list-style-type: none;
 		}
 		a {
@@ -62,6 +61,7 @@
 			background-color: white;
 			margin: 0px 10px;
 			ul {
+				display: inline;
 				margin: 0;
 				padding: 0;
 			}
@@ -132,7 +132,6 @@
 		}
 		.navigation {
 			display: flex;
-			justify-content: flex-end;
 			float: right;
 			a {
 				font-weight: 500;
@@ -145,6 +144,10 @@
 					transition: 0.25s;
 					text-shadow: 1px 1px 2px lightgrey;
 				}
+			}
+			ul {
+				display: flex;
+				align-items: center;
 			}
 			li {
 				display: inline;
