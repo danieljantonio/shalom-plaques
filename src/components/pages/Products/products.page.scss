@@ -19,7 +19,6 @@
 		}
 	}
 	.sidenav {
-		// position: fixed;
 		.card {
 			background-color: $white;
 			overflow: hidden;
@@ -42,7 +41,8 @@
 	.main {
 		@media (min-width: 800px) {
 			.row {
-				margin-bottom: 3rem;
+				margin: 0px auto 3rem;
+				width: 80%;
 			}
 			#load-more {
 				width: 92.5% !important;
