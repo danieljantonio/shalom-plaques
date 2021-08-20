@@ -96,6 +96,7 @@
 			color: none;
 			border: none;
 			&:hover {
+				cursor: pointer;
 				background-color: $brown-lighter;
 				transition: 0.25s;
 			}
