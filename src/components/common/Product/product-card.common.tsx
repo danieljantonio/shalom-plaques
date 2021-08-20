@@ -25,6 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 			</div>
 			<div className="content">
 				<h3>{product?.productCode}</h3>
+				<h3>{product?.subCategory}</h3>
 				<ReactModal modalState={modalState} setModalState={closeModal} />
 			</div>
 		</div>
