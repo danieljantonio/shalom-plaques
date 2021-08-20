@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { capitalize, getFileStructure, getItems, groupByN, ItemCardDetail } from '../../../helpers/helpers';
 import ProductCard from '../../common/Product/product-card.common';
+import Spinner from '../../common/Spinner/spinner.common';
 import './products.page.scss';
 
 interface ProductsParams {
@@ -13,7 +14,8 @@ const ProductsPage = () => {
 	const productCategories = Object.keys(getFileStructure());
 	const { categoryId } = useParams<ProductsParams>();
 	const [items, setItems] = useState<ItemCardDetail[] | undefined>([]);
-	const [numberOfItems, setNumberOfItems] = useState<number>(window.screen.width < 767 ? 2 : 4);
+	const initialNumOfItems = window.screen.width < 767 ? 2 : 4;
+	const [numberOfItems, setNumberOfItems] = useState<number>(initialNumOfItems);
 	const [loaded, setLoaded] = useState<boolean>(false);
 
 	const getCategory = (categoryId?: string) => {
@@ -23,14 +25,17 @@ const ProductsPage = () => {
 
 	const getProducts = (category: string) => {
 		setItems(getItems(category));
-		setLoaded(true);
+		setNumberOfItems(initialNumOfItems);
+		setTimeout(() => {
+			setLoaded(true);
+		}, 500);
 	};
 
 	useEffect(() => {
-		setLoaded(false);
 		getProducts(getCategory(categoryId));
+		return () => setLoaded(false);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [categoryId, numberOfItems]);
+	}, [categoryId]);
 
 	const loadMoreItems = (): void => {
 		let appendNo = 2;
@@ -72,7 +77,9 @@ const ProductsPage = () => {
 							</button>
 						</>
 					) : (
-						<div>loading...</div>
+						<div className="spinner-container">
+							<Spinner />
+						</div>
 					)}
 				</div>
 			</div>

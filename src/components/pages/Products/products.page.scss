@@ -42,6 +42,7 @@
 		}
 	}
 	.main {
+		min-height: 80vh;
 		@media (min-width: 800px) {
 			.row {
 				margin: 0px auto 3rem;
@@ -63,6 +64,11 @@
 				background-color: rgb(244, 244, 244);
 				box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 			}
+		}
+		.spinner-container {
+			height: 70%;
+			display: grid;
+			place-items: center;
 		}
 	}
 }
