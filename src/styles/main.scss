@@ -1,3 +1,7 @@
 @import './abstract/variables';
 @import './layouts/containers';
 @import './fonts/fonts';
+
+body {
+	background-color: $white;
+}
