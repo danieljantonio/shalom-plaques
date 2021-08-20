@@ -22,10 +22,8 @@ const ProductsPage = () => {
 	};
 
 	const getProducts = (category: string) => {
-		setTimeout(() => {
-			setItems(getItems(category));
-			setLoaded(true);
-		}, 200);
+		setItems(getItems(category));
+		setLoaded(true);
 	};
 
 	useEffect(() => {

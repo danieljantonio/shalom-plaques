@@ -4,6 +4,9 @@
 	@media (min-width: 800px) {
 		.sidenav {
 			width: 20%;
+			max-width: 250px;
+			min-width: 200px;
+			margin-left: 25px;
 		}
 		.main {
 			width: 80%;
@@ -42,7 +45,7 @@
 		@media (min-width: 800px) {
 			.row {
 				margin: 0px auto 3rem;
-				width: 80%;
+				width: 90%;
 			}
 			#load-more {
 				width: 92.5% !important;
