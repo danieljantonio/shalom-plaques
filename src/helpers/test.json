@@ -25,8 +25,8 @@
 								"type": "directory",
 								"name": "BEP1",
 								"contents": [
-									{ "type": "file", "name": "BEP1-179a brown size.jpg" },
-									{ "type": "file", "name": "BEP1-179a white size.jpg" }
+									{ "type": "file", "name": "BEP1-179a brown.jpg" },
+									{ "type": "file", "name": "BEP1-179a white.jpg" }
 								]
 							},
 							{
