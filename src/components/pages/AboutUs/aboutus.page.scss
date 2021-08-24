@@ -7,8 +7,12 @@
 		flex-direction: column;
 		padding: 50px 0;
 	}
+	h1 {
+		font-size: 2.5rem;
+	}
 	p {
-		width: 80%;
+		text-align: center;
+		width: 90%;
 		font-size: 22px;
 		letter-spacing: 2px;
 		line-height: 1.2;
@@ -19,6 +23,20 @@
 		object-fit: cover;
 		width: 35vw;
 		height: calc(35vw * 0.65);
+	}
+	.img-container {
+		position: relative;
+		width: 35vw;
+		height: calc(35vw * 0.65);
+		overflow: hidden;
+	}
+	.darken {
+		z-index: 100;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.2);
+		top: 0;
 	}
 	.tag-header {
 		display: flex;
