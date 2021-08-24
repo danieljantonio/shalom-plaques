@@ -3,26 +3,14 @@ import './product-modal.common.scss';
 import Modal from 'react-modal';
 import ColumnHalf from '../Column/half.column';
 import ModalCarousel from './components/modal-carousel.product-modal';
+import { getItemDetails } from '../../../helpers/helpers';
 
 interface ModalProps {
 	modalState: boolean;
 	setModalState: any;
+	productCode: string;
+	imgUrls: string[];
 }
-
-const mockProductData = {
-	wording: 'God is Love',
-	code: 'AM-02',
-	description: 'Hand carved rectangular shape fridge magnet',
-	length: 6.5,
-	width: 5.5,
-	height: 0.5,
-	verse: 'Colossians 3:12',
-	price: 'RpXX,XXX',
-	links: {
-		tokopedia: 'https://www.tokopedia.com/',
-		shopee: 'https://shopee.co.id/',
-	},
-};
 
 const textRow = (title: string, value: string | number, className: string = '') => (
 	<p className={className}>
@@ -30,16 +18,16 @@ const textRow = (title: string, value: string | number, className: string = '') 
 	</p>
 );
 
-const ReactModal: React.FC<ModalProps> = ({ modalState, setModalState }) => {
+const ReactModal: React.FC<ModalProps> = ({ modalState, setModalState, productCode, imgUrls }) => {
 	Modal.setAppElement('#root');
-	const { wording, price, description, code, length, width, height, verse } = mockProductData;
+	const { Description, Dimensions, Height, Length, ProductCode, Width, Wording } = getItemDetails(productCode) || {};
 
 	return (
 		<div>
 			<Modal shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} isOpen={modalState} onRequestClose={setModalState}>
 				<div className="row">
 					<ColumnHalf style={{ marginRight: '10px' }}>
-						<ModalCarousel />
+						<ModalCarousel imgUrls={imgUrls} />
 					</ColumnHalf>
 					<ColumnHalf style={{ marginLeft: '10px' }}>
 						<div className="close-button" onClick={setModalState}>
@@ -47,13 +35,17 @@ const ReactModal: React.FC<ModalProps> = ({ modalState, setModalState }) => {
 						</div>
 						<div>
 							<h1>
-								{code}: {wording}
+								<b>{ProductCode}</b>: {Wording}
 							</h1>
-							{textRow('Price', price, 'top-0')}
-							{textRow('Verse', verse, 'top-0')}
-							{textRow('Dimensions', `${length}cm x ${width}cm x ${height}cm`, 'top-0')}
+							{Height && Width && Length ? (
+								textRow('Dimensions', `${Length}cm x ${Width}cm x ${Height}cm`, 'top-0')
+							) : Dimensions ? (
+								textRow('Dimensions', `${Dimensions}cm`)
+							) : (
+								<></>
+							)}
 							<b>Description:</b>
-							<p style={{ marginTop: 0 }}>{description}</p>
+							<p style={{ marginTop: 0 }}>{Description}</p>
 						</div>
 					</ColumnHalf>
 				</div>

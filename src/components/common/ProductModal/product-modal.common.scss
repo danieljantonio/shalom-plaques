@@ -10,15 +10,20 @@
 	@media (min-width: 800px) {
 		width: 45.625rem;
 		height: 34.375rem;
-		top: 100px;
+		top: 15vh !important;
 		left: 50% !important;
 		transform: translate(-50%);
+		.col-half {
+			height: 100%;
+		}
 	}
 	.row {
 		height: 100%;
 	}
-	.col-half {
-		height: 100%;
+	@media (max-width: 799px) {
+		.col-half {
+			height: 50%;
+		}
 	}
 	h1 {
 		font-weight: 300;

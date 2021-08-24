@@ -10,10 +10,19 @@
 		height: 100%;
 	}
 
+	.carousel-container.img-cover {
+		overflow: scroll;
+	}
+
 	.bg-img {
-		object-fit: cover;
+		object-fit: contain;
+		image-rendering: auto;
 		height: 100%;
-		width: auto;
+		width: 100%;
+	}
+
+	.bg-img.img-cover {
+		transform: scale(1.5);
 	}
 
 	.control-dots {
