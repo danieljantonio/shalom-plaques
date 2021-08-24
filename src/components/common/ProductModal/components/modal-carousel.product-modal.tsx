@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a loader
-import { baseUrl } from '../../../../helpers/helpers';
 import './modal-carousel.product-modal.scss';
 
 const ModalCarousel: React.FC<{ imgUrls: string[] }> = ({ imgUrls: urls }) => {
