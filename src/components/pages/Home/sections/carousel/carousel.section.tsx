@@ -24,11 +24,11 @@ const CarouselSection: React.FC = () => {
 	};
 
 	const urls = [
-		`${baseUrl}/sample-images/woodwork-test-1.jpeg`,
-		`${baseUrl}/sample-images/woodwork-test-2.jpeg`,
-		`${baseUrl}/sample-images/woodwork-test-3.jpeg`,
-		`${baseUrl}/sample-images/woodwork-test-4.jpeg`,
-		`${baseUrl}/sample-images/woodwork-test-5.jpeg`,
+		`${baseUrl}/production/working-1.JPG`,
+		`${baseUrl}/production/machine-1.JPG`,
+		`${baseUrl}/production/machine-2.JPG`,
+		`${baseUrl}/production/machine-3.JPG`,
+		`${baseUrl}/production/working-3.JPG`,
 	];
 
 	return (

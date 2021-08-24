@@ -13,7 +13,7 @@ const TagLineSection: React.FC = () => {
 				</div>
 			</ColumnHalf>
 			<ColumnHalf className="center-xy hide-sm">
-				<img src={`${baseUrl}/sample-images/woodwork-test-2.jpeg`} alt="img" className="card mag-y50" />
+				<img src={`${baseUrl}/production/cross-spray.JPG`} alt="img" className="card mag-y50" />
 			</ColumnHalf>
 		</div>
 	);
