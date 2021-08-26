@@ -3,7 +3,7 @@
 .tagline {
 	@media (min-width: 800px) {
 		max-height: 700px;
-		padding: 10% 0;
+		padding: 7% 0;
 	}
 	img {
 		object-fit: cover;
@@ -32,6 +32,22 @@
 			line-height: 1.2;
 			margin: 0 auto;
 			margin-top: 10px;
+		}
+		.view-products {
+			text-decoration: none;
+			color: $white;
+			background-color: $brown-light;
+			border: 1px solid $brown-light;
+			padding: 1rem 3rem;
+			border-radius: 5px;
+			margin-top: 1.5rem;
+			transition: all ease 300ms;
+			font-size: 1.2rem;
+			&:hover {
+				color: $brown-light;
+				background-color: $white;
+				box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+			}
 		}
 	}
 }
