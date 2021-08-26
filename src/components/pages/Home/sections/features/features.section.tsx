@@ -13,7 +13,7 @@ const FeaturesSection: React.FC = () => {
 				<ColumnHalf className="center-xy">
 					<div className="tag-header pad-y50-smo">
 						<h1 className="">High quality wood</h1>
-						<p>Bringing Word to the ends of the world</p>
+						<h2>Bringing Word to the ends of the world</h2>
 					</div>
 				</ColumnHalf>
 			</div>
@@ -21,7 +21,7 @@ const FeaturesSection: React.FC = () => {
 				<ColumnHalf className="center-xy">
 					<div className="tag-header pad-y50-smo">
 						<h1 className="">Shalom Plaques</h1>
-						<p>Bringing Word to the ends of the world</p>
+						<h2>Bringing Word to the ends of the world</h2>
 					</div>
 				</ColumnHalf>
 
