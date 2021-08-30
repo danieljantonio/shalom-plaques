@@ -16,6 +16,11 @@ export interface ItemCardDetail {
 	subCategory: string;
 }
 
+export interface Dictionary<T> {
+    [Key: string]: T;
+}
+
+
 export const groupByN = (n: number, data: any) => {
 	let result = [];
 	for (let i = 0; i < data.length; i += n) result.push(data.slice(i, i + n));
@@ -101,3 +106,10 @@ export const getItems = (category?: string) => {
 	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
 // console.log(getItems());
+
+export const socialLinks: Dictionary<React.FC> = {
+	instagram: () => <a href="https://instagram.com/maranathahandicraft" target="_blank" rel="noreferrer" key="Instagram">Instagram</a>,
+	tokopedia: () => <a href="https://tokopedia.link/GHd4ZyWiQib" target="_blank" rel="noreferrer" key="Tokopedia">Tokopedia</a>,
+	whatsapp: () => (<a href="https://wa.me/6282311135240?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products" target="_blank" rel="noreferrer" key="Whatsapp">Whatsapp</a>),
+	email: () => <a href="mailto:info@shalomplaques.com?subject=Product Inquiry&body=Hi, I'd like to inquire about your products." key="Email">Email</a>,
+}
