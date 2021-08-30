@@ -9,6 +9,7 @@ const TagLineSection: React.FC = () => {
 		<div className="tagline row pad-y50-smo">
 			<ColumnHalf className="center-xy">
 				<div className="tag-header pad-y50-smo">
+					<h2>Est. 1989</h2>
 					<h1>Shalom Plaques</h1>
 					<p>Bringing the Word to the ends of the world</p>
 					<Link to="/products" className="view-products">
