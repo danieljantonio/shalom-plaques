@@ -1,6 +1,6 @@
 import React from 'react';
-import { baseUrl } from '../../../../../helpers/helpers';
-import ColumnHalf from '../../../../common/Column/half.column';
+// import { baseUrl } from '../../../../../helpers/helpers';
+// import ColumnHalf from '../../../../common/Column/half.column';
 import './features.section.scss';
 
 const FeaturesSection: React.FC = () => {
