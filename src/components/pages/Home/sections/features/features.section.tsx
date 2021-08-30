@@ -6,7 +6,7 @@ import './features.section.scss';
 const FeaturesSection: React.FC = () => {
 	return (
 		<div className="features pad-y50-smo">
-			<div className="row container">
+			{/* <div className="row container">
 				<ColumnHalf className="center-y hide-sm">
 					<img src={`${baseUrl}/sample-images/woodwork-test-1.jpeg`} alt="img" className="card mag-y50" />
 				</ColumnHalf>
@@ -28,7 +28,7 @@ const FeaturesSection: React.FC = () => {
 				<ColumnHalf className="center-y hide-sm">
 					<img src={`${baseUrl}/sample-images/woodwork-test-3.jpeg`} alt="img" className="card mag-y50" />
 				</ColumnHalf>
-			</div>
+			</div> */}
 		</div>
 	);
 };
