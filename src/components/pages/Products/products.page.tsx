@@ -28,7 +28,7 @@ const ProductsPage = () => {
 		setNumberOfItems(initialNumOfItems);
 		setTimeout(() => {
 			setLoaded(true);
-		}, 500);
+		}, 400);
 	};
 
 	useEffect(() => {
