@@ -19,13 +19,15 @@
 		font-size: 2.5rem;
 		float: left;
 		font-weight: 700;
-		padding: 14px 16px;
+		// padding: 14px 16px;
 		text-decoration: none;
 		color: $brown;
 		transition: 0.25s;
-		&:hover {
-			color: $brown-lighter;
-			transition: 0.25s;
+		display: grid;
+		place-items: center;
+		height: 70px;
+		img {
+			max-height: 60px;
 		}
 	}
 	.navigation {

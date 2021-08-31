@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { baseUrl } from '../../../helpers/helpers';
 import './header.common.scss';
 
 const NavigationComponents: React.FC<{ expand: boolean }> = ({ expand }) => {
@@ -39,7 +40,7 @@ const Header: React.FC = () => {
 	return (
 		<nav className="navbar">
 			<Link to="/" className="navbar-brand">
-				ShalomHandicrafts
+				<img src={`${baseUrl}/icons/shalom-brand.png`} alt="ShalomHandicrafts" />
 			</Link>
 			<button className="burger-container hide-lg" onClick={() => setExpand(!expand)}>
 				<div className={expand ? 'active' : ''}>
