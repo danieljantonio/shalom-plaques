@@ -1,6 +1,6 @@
 import React from 'react';
 import { baseUrl, socialLinks } from '../../../helpers/helpers';
-import './scroll-top.common.scss';
+import './bottom-utils.common.scss';
 
 const ScrollToTop: React.FC = () => {
 	return (
