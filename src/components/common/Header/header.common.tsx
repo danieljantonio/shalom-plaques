@@ -23,7 +23,7 @@ const NavigationComponents: React.FC<{ expand: boolean }> = ({ expand }) => {
 				</li>
 				<li>
 					<NavLink exact to="/contact">
-						Contact
+						Contact Us
 					</NavLink>
 				</li>
 				<li>
