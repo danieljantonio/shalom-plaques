@@ -70,8 +70,6 @@ export const getItemDetails = (productCode: string): ItemDetailProps => {
 	return itemsAvailable.find((item: { ProductCode?: string }) => item.ProductCode === productCode);
 };
 
-// console.log(getItemDetails('EU30M-29'));
-
 export const getItems = (category?: string) => {
 	const getCategoryItems = (category: string, categoryData: any) => {
 		const items: ItemCardDetail[] = [];
@@ -98,14 +96,11 @@ export const getItems = (category?: string) => {
 			allItems.push(...getCategoryItems(category, categoryData));
 			return null;
 		});
-		// console.log('all');
 		return allItems;
 	}
-	// console.log(category);
 	const categoryData = data[capitalize(category.replace('-', ' '))];
 	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
-// console.log(getItems());
 
 export const socialAnchors: Dictionary<React.FC> = {
 	instagram: () => <a href="https://instagram.com/maranathahandicraft" target="_blank" rel="noreferrer" key="Instagram">Instagram</a>,
