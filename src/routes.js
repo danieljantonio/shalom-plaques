@@ -1,7 +1,7 @@
 import { Route } from 'react-router-dom';
 import Footer from './components/common/Footer/footer.common';
 import Header from './components/common/Header/header.common';
-import ScrollToTop from './components/common/ScrollToTop/scroll-top.common';
+import ScrollToTop from './components/common/ScrollToTop/bottom-utils.common';
 import AboutUsPage from './components/pages/AboutUs/aboutus.page';
 import ContactUsPage from './components/pages/ContactUs/contactus.page';
 import HomePage from './components/pages/Home/home.page';
