@@ -1,5 +1,5 @@
 import React from 'react';
-import { socialLinks } from '../../../helpers/helpers';
+import { socialAnchors } from '../../../helpers/helpers';
 import ColumnHalf from '../Column/half.column';
 import './footer.common.scss';
 
@@ -9,7 +9,7 @@ const Footer: React.FC = () => (
 			<h2>Shalom Handicrafts</h2>
 		</ColumnHalf>
 		<ColumnHalf className="footer-right">
-			{Object.values(socialLinks).map((socialAnchor: any) => socialAnchor())}
+			{Object.values(socialAnchors).map((socialAnchor: any) => socialAnchor())}
 		</ColumnHalf>
 	</div>
 );

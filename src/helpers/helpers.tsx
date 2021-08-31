@@ -107,7 +107,7 @@ export const getItems = (category?: string) => {
 };
 // console.log(getItems());
 
-export const socialLinks: Dictionary<React.FC> = {
+export const socialAnchors: Dictionary<React.FC> = {
 	instagram: () => <a href="https://instagram.com/maranathahandicraft" target="_blank" rel="noreferrer" key="Instagram">Instagram</a>,
 	tokopedia: () => <a href="https://tokopedia.link/GHd4ZyWiQib" target="_blank" rel="noreferrer" key="Tokopedia">Tokopedia</a>,
 	whatsapp: () => (<a href="https://wa.me/6282311135240?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products" target="_blank" rel="noreferrer" key="Whatsapp">Whatsapp</a>),
