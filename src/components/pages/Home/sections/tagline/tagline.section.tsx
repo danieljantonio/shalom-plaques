@@ -18,7 +18,9 @@ const TagLineSection: React.FC = () => {
 				</div>
 			</ColumnHalf>
 			<ColumnHalf className="center-xy hide-sm">
-				<img src={`${baseUrl}/production/cross-spray.JPG`} alt="img" className="card mag-y50" />
+				<img src={`${baseUrl}/product-banner/product-banner-1.png`} alt="img" className="mag-y50" />
+				{/* <img src={`${baseUrl}/product-banner/product-banner-1.png`} alt="img" className="" /> */}
+				{/* <img src={`${baseUrl}/product-banner/product-banner-2.png`} alt="img" className="" /> */}
 			</ColumnHalf>
 		</div>
 	);

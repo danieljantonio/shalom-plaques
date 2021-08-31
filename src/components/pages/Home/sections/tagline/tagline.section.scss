@@ -6,11 +6,14 @@
 		padding: 7% 0;
 	}
 	img {
-		object-fit: cover;
+		object-fit: contain;
 		width: 35vw;
 		height: calc(35vw * 0.65);
+		max-width: 600px;
 	}
-
+	.hide-sm {
+		flex-direction: column;
+	}
 	.tag-header {
 		display: flex;
 		flex-direction: column;
