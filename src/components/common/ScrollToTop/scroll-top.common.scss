@@ -3,18 +3,24 @@
 .bottom-utils {
 	position: fixed;
 	bottom: 20px;
-	right: 30px;
 	z-index: 99;
+	@media (min-width: 800px) {
+		right: 20px;
+	}
+	@media (max-width: 799px) {
+		right: 10px;
+	}
 	.util-icon {
 		cursor: pointer;
 		height: 3rem;
 		width: 3rem;
 		background-color: $white;
-		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.19);
 		border-radius: 50%;
 		display: grid;
 		place-items: center;
 		margin-top: 1rem;
+		transition: all ease 250ms;
 		img {
 			height: 1.2rem;
 			width: 1.2rem;
@@ -27,6 +33,8 @@
 			height: 2rem;
 			width: 2rem;
 		}
+		&:hover {
+			box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 10px 0 rgba(0, 0, 0, 0.19);
+		}
 	}
-	
 }
