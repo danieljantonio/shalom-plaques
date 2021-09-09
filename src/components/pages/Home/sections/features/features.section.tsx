@@ -1,34 +1,21 @@
 import React from 'react';
-// import { baseUrl } from '../../../../../helpers/helpers';
-// import ColumnHalf from '../../../../common/Column/half.column';
+import { baseUrl } from '../../../../../helpers/helpers';
+import div from '../../../../common/Column/third.column';
 import './features.section.scss';
 
 const FeaturesSection: React.FC = () => {
 	return (
 		<div className="features pad-y50-smo">
-			{/* <div className="row container">
-				<ColumnHalf className="center-y hide-sm">
-					<img src={`${baseUrl}/sample-images/woodwork-test-1.jpeg`} alt="img" className="card mag-y50" />
-				</ColumnHalf>
-				<ColumnHalf className="center-xy">
-					<div className="tag-header">
-						<h1 className="">High quality wood</h1>
-						<h2>Bringing Word to the ends of the world</h2>
-					</div>
-				</ColumnHalf>
+			<div className="production">
+				<img src={`${baseUrl}/production/material-wood-2.JPG`} alt="img" className="card" />
 			</div>
-			<div className="row container">
-				<ColumnHalf className="center-xy">
-					<div className="tag-header">
-						<h1 className="">Shalom Plaques</h1>
-						<h2>Bringing Word to the ends of the world</h2>
-					</div>
-				</ColumnHalf>
-
-				<ColumnHalf className="center-y hide-sm">
-					<img src={`${baseUrl}/sample-images/woodwork-test-3.jpeg`} alt="img" className="card mag-y50" />
-				</ColumnHalf>
-			</div> */}
+			<div className="arrows">
+				<img src={`${baseUrl}/icons/arrow-diagonal-black.png`} alt="arrow" className="arrow-icon" />
+				<img src={`${baseUrl}/icons/arrow-diagonal-black.png`} alt="arrow" className="arrow-icon reverse" />
+			</div>
+			<div className="production">
+				<img src={`${baseUrl}/product-banner/product-banner-2.png`} alt="img" className="card" />
+			</div>
 		</div>
 	);
 };

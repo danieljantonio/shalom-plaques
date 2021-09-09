@@ -1,10 +1,11 @@
 @import '../../../../../styles/main.scss';
 
 .features {
+	display: flex;
 	img {
 		object-fit: cover;
-		width: 35vw;
-		height: calc(35vw * 0.65);
+		width: 30vw;
+		height: calc(30vw * 0.65);
 	}
 	@media (min-width: 800px) {
 		padding: 5% 0;
@@ -19,30 +20,25 @@
 			margin-bottom: 10%;
 		}
 	}
-
-	.tag-header {
+	.production {
+		width: 35%;
+		display: grid;
+		place-items: center;
+	}
+	.card {
+		background-color: $white;
+	}
+	.arrows {
+		width: 30%;
 		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		max-width: 700px;
-		width: 100%;
-		h1 {
-			font-family: 'Nunito', sans-serif;
-			font-weight: 700;
-			letter-spacing: 2px;
-			line-height: 1.2;
-			margin: 0;
-			width: 80%;
+		justify-content: space-between;
+		.arrow-icon {
+			max-height: 130px;
+			height: 10vw;
+			width: auto;
 		}
-		h2 {
-			width: 80%;
-			font-size: 22px;
-			letter-spacing: 2px;
-			line-height: 1.2;
-			margin: 0;
-			font-weight: 400;
-			margin-top: 10px;
+		.reverse {
+			transform: scaleX(-1);
 		}
 	}
 }
