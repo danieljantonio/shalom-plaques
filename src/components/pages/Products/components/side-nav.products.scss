@@ -1,0 +1,47 @@
+@import '../../../../styles/main.scss';
+
+.product-page {
+	@media (min-width: 800px) {
+		.sidenav {
+			width: 20%;
+			max-width: 250px;
+			min-width: 200px;
+			margin-left: 25px;
+		}
+	}
+	@media (max-width: 799px) {
+		.sidenav {
+			width: 100%;
+			margin: auto;
+		}
+	}
+	.sidenav {
+		.card {
+			background-color: $white;
+			overflow: hidden;
+			width: 90%;
+			margin: auto;
+		}
+		.header {
+			padding: 12px 10px;
+			text-decoration: none;
+			font-size: $font-navbar;
+			color: $brown-dark;
+			display: flex;
+			justify-content: space-between;
+			border-bottom: 1px grey solid;
+			p {
+				margin: 0;
+			}
+			img {
+				height: 20px;
+				width: auto;
+			}
+			&:hover {
+				transition: 0.25s;
+				cursor: pointer;
+				background-color: rgba($color: #fbf7e9, $alpha: 1.0);
+			}
+		}
+	}
+}

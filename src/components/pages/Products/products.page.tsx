@@ -4,6 +4,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import { capitalize, getFileStructure, getItems, groupByN, ItemCardDetail } from '../../../helpers/helpers';
 import ProductCard from '../../common/Product/product-card.common';
 import Spinner from '../../common/Spinner/spinner.common';
+import SideNav from './components/side-nav.products';
 import './products.page.scss';
 
 interface ProductsParams {
@@ -57,15 +58,7 @@ const ProductsPage = () => {
 		<div className="product-page">
 			<h1>{getCategory(categoryId)}</h1>
 			<div className="row container">
-				<div className="sidenav">
-					<div className="card">
-						{productCategories.map((product, index) => (
-							<NavLink key={index} exact to={`/products/${product.toLowerCase().replace(' ', '-')}`}>
-								{product}
-							</NavLink>
-						))}
-					</div>
-				</div>
+				<SideNav productCategories={productCategories}/>
 				<div className="main">
 					{loaded ? (
 						<>
