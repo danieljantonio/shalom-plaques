@@ -4,8 +4,10 @@
 	display: flex;
 	img {
 		object-fit: cover;
-		width: 30vw;
-		height: calc(30vw * 0.65);
+		width: 25vw;
+		height: calc(25vw * 0.65);
+		max-width: 400px;
+		max-height: 260px;
 	}
 	@media (min-width: 800px) {
 		padding: 5% 0;
@@ -21,24 +23,23 @@
 		}
 	}
 	.production {
-		width: 35%;
+		// width: 35%;
 		display: grid;
 		place-items: center;
 	}
 	.card {
 		background-color: $white;
 	}
-	.arrows {
-		width: 30%;
-		display: flex;
-		justify-content: space-between;
-		.arrow-icon {
-			max-height: 130px;
-			height: 10vw;
-			width: auto;
-		}
-		.reverse {
-			transform: scaleX(-1);
-		}
-	}
+	// .arrows {
+	// 	display: flex;
+	// 	justify-content: space-between;
+	// 	.arrow-icon {
+	// 		max-height: 130px;
+	// 		height: 10vw;
+	// 		width: auto;
+	// 	}
+	// 	.reverse {
+	// 		transform: scaleX(-1);
+	// 	}
+	// }
 }
