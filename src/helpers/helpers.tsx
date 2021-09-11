@@ -103,14 +103,14 @@ export const getItems = (category?: string) => {
 };
 
 export const socialAnchors: Dictionary<React.FC> = {
-	instagram: () => <a href="https://instagram.com/maranathahandicraft" target="_blank" rel="noreferrer" key="Instagram">Instagram</a>,
-	tokopedia: () => <a href="https://tokopedia.link/GHd4ZyWiQib" target="_blank" rel="noreferrer" key="Tokopedia">Tokopedia</a>,
-	whatsapp: () => (<a href="https://wa.me/6282311135240?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products" target="_blank" rel="noreferrer" key="Whatsapp">Whatsapp</a>),
-	email: () => <a href="mailto:info@shalomplaques.com?subject=Product Inquiry&body=Hi, I'd like to inquire about your products." key="Email">Email</a>,
+	instagram: () => <a href={socialLinks['instagram']} target="_blank" rel="noreferrer" key="Instagram">Instagram</a>,
+	tokopedia: () => <a href={socialLinks['tokopedia']} target="_blank" rel="noreferrer" key="Tokopedia">Tokopedia</a>,
+	whatsapp: () => (<a href={socialLinks['whatsapp']} target="_blank" rel="noreferrer" key="Whatsapp">Whatsapp</a>),
+	email: () => <a href={socialLinks['email']} key="Email">Email</a>,
 }
 
 export const socialLinks: Dictionary<string> = {
-	instagram: "https://instagram.com/maranathahandicraft",
+	instagram: "https://www.instagram.com/info.shalom/",
 	tokopedia: "https://tokopedia.link/GHd4ZyWiQib",
 	whatsapp: "https://wa.me/6282311135240?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products",
 	email: "mailto:info@shalomplaques.com?subject=Product Inquiry&body=Hi, I'd like to inquire about your products.",
