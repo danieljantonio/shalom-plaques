@@ -4,9 +4,9 @@
 	@media (min-width: 800px) {
 		.sidenav {
 			width: 20%;
-			max-width: 250px;
+			max-width: 350px;
 			min-width: 200px;
-			margin-left: 25px;
+			margin-left: 5%;
 		}
 	}
 	@media (max-width: 799px) {
@@ -19,7 +19,7 @@
 		.card {
 			background-color: $white;
 			overflow: hidden;
-			width: 90%;
+			// width: 90%;
 			margin: auto;
 		}
 		.header {
@@ -40,7 +40,7 @@
 			&:hover {
 				transition: 0.25s;
 				cursor: pointer;
-				background-color: rgba($color: #fbf7e9, $alpha: 1.0);
+				background-color: rgba($color: #fbf7e9, $alpha: 1);
 			}
 		}
 	}
