@@ -4,10 +4,10 @@
 	.main {
 		min-height: 80vh;
 		@media (min-width: 800px) {
-			width: 80%;
+			width: 90%;
 			.row {
 				margin: 0px auto 3rem;
-				width: 90%;
+				// width: 90%;
 			}
 			#load-more {
 				width: 92.5% !important;

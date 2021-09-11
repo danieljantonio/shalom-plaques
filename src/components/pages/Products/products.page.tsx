@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { capitalize, getFileStructure, getItems, groupByN, ItemCardDetail } from '../../../helpers/helpers';
+import { capitalize, getFileStructure, getItems, getSubCategories, groupByN, ItemCardDetail } from '../../../helpers/helpers';
 import ProductCard from '../../common/Product/product-card.common';
 import Spinner from '../../common/Spinner/spinner.common';
 import SideNav from './components/side-nav.products';
@@ -12,7 +12,7 @@ interface ProductsParams {
 }
 
 const ProductsPage = () => {
-	const productCategories = Object.keys(getFileStructure());
+	const productCategories = getSubCategories();
 	const { categoryId } = useParams<ProductsParams>();
 	const [items, setItems] = useState<ItemCardDetail[] | undefined>([]);
 	const initialNumOfItems = window.screen.width < 767 ? 2 : 4;
@@ -57,9 +57,9 @@ const ProductsPage = () => {
 	return (
 		<div className="product-page">
 			<h1>{getCategory(categoryId)}</h1>
-			<div className="row container">
+			<div className="row">
 				<SideNav productCategories={productCategories}/>
-				<div className="main">
+				<div className="main container">
 					{loaded ? (
 						<>
 							{groupByN(3, items)
