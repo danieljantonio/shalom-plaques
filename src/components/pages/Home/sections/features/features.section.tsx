@@ -6,7 +6,7 @@ import './features.section.scss';
 
 const FeaturesSection: React.FC = () => {
 	return (
-		<div className="container features pad-y50-smo">
+		<div className="features pad-y50-smo">
 			<ColumnThird className="production hide-sm">
 				<img src={`${baseUrl}/production/material-wood-2.JPG`} alt="img" className="card" />
 			</ColumnThird>
