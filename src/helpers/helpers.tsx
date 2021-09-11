@@ -102,6 +102,19 @@ export const getItems = (category?: string) => {
 	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
 
+
+export const getSubCategories = (subCategory?: string) => {
+	const data = getFileStructure();
+	// console.log(Object.keys(data))
+	const categoryMap: Dictionary<string[]> = {}
+	Object.keys(data).map(category => {categoryMap[category] = Object.keys(data[category])})
+	console.log(categoryMap)
+	return categoryMap
+};
+
+// getSubCategories()
+
+
 export const socialAnchors: Dictionary<React.FC> = {
 	instagram: () => <a href={socialLinks['instagram']} target="_blank" rel="noreferrer" key="Instagram">Instagram</a>,
 	tokopedia: () => <a href={socialLinks['tokopedia']} target="_blank" rel="noreferrer" key="Tokopedia">Tokopedia</a>,
