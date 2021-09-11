@@ -16,8 +16,12 @@ const SideNav: React.FC<Props> = ({productCategories: categories}) => {
 	
 	const updateStatus = (index: number): void => {
 		// console.log(`click ${index}: ${isExpand[index]}`);
-		const expand = isExpand;
+		let expand = isExpand;
 		expand[index] = !isExpand[index];
+		expand = expand.map((_, i) => {
+			if (i !== index) return false
+			else return expand[index]
+		})
 		setExpand(expand);
 		setUpdated(!update);
 		setSubCategories(Object.values(categories)[index])
@@ -33,7 +37,7 @@ const SideNav: React.FC<Props> = ({productCategories: categories}) => {
 							<p>{product}</p>
 							<img src={`/icons/icon_${isExpand[index] ? 'minus' : 'plus'}.svg`} alt="expand" />
 						</div>
-						<div className="content">
+						<div className={`content${isExpand[index] ? '' : ' hide'}`}>
 							{subCategories.map((subCategory: string) => <p>{subCategory}</p>)}
 						</div>
 					</div>
