@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { NavLink } from 'react-router-dom';
 import './side-nav.products.scss'
 
 interface Props {
@@ -15,7 +14,6 @@ const SideNav: React.FC<Props> = ({productCategories: categories}) => {
 	useEffect(() => {}, [update]);
 	
 	const updateStatus = (index: number): void => {
-		// console.log(`click ${index}: ${isExpand[index]}`);
 		let expand = isExpand;
 		expand[index] = !isExpand[index];
 		expand = expand.map((_, i) => {
