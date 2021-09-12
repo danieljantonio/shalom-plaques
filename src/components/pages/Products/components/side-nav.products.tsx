@@ -27,22 +27,22 @@ const SideNav: React.FC<Props> = ({productCategories: categories}) => {
 
 	const getSubCategory = (index: number): any => Object.values(categories)[index]
 
-	const changeDisplay = (subCategory: string): void => {
-		console.log(subCategory)
+	const changeDisplay = (category: string, subCategory: string): void => {
+		console.log(`${category} - ${subCategory}`)
 	}
 					
 
 	return (
 		<div className="sidenav">
 			<div className="card">
-				{productCategories.map((product: any, index: any) => (
+				{productCategories.map((category: string, index: number) => (
 					<div className="sidenav-item">
 						<div className="header" onClick={() => updateStatus(index)}>
-							<p>{product}</p>
+							<p>{category}</p>
 							<img src={`/icons/icon_${isExpand[index] ? 'minus' : 'plus'}.svg`} alt="expand" />
 						</div>
 						<div className={`content${isExpand[index] ? '' : ' hide'}`}>
-							{getSubCategory(index).map((subCategory: string) => <p className="content-link" onClick={() => changeDisplay(subCategory)}>{subCategory}</p>)}
+							{getSubCategory(index).map((subCategory: string) => <p className="content-link" onClick={() => changeDisplay(category, subCategory)}>{subCategory}</p>)}
 						</div>
 					</div>
 				))}
