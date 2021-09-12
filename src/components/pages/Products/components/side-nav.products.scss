@@ -11,7 +11,7 @@
 	}
 	@media (max-width: 799px) {
 		.sidenav {
-			width: 100%;
+			width: 90%;
 			margin: auto;
 		}
 	}
@@ -32,7 +32,7 @@
 			color: $brown-dark;
 			display: flex;
 			justify-content: space-between;
-			border-bottom: 1px grey solid;
+				border-bottom: 0.5px solid rgba($color: #000000, $alpha: 0.4);
 			img {
 				height: 20px;
 				width: auto;
@@ -44,8 +44,10 @@
 			}
 		}
 		.content {
-			p {
+			.content-link {
+				color: $brown;
 				padding: 12px;
+				border-bottom: 0.5px solid rgba($color: #000000, $alpha: 0.1);
 				&:hover {
 					transition: 0.25s;
 					cursor: pointer;
@@ -55,7 +57,10 @@
 
 		}
 		.hide {
-			display: none;
+			max-height: 0;
+			overflow: hidden;
+			transition: 1.5s ease;
 		}
 	}
 }
+
