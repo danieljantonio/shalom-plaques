@@ -17,9 +17,8 @@ export interface ItemCardDetail {
 }
 
 export interface Dictionary<T> {
-    [Key: string]: T;
+	[Key: string]: T;
 }
-
 
 export const groupByN = (n: number, data: any) => {
 	let result = [];
@@ -102,29 +101,45 @@ export const getItems = (category?: string) => {
 	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
 };
 
-
 export const getSubCategories = (subCategory?: string) => {
 	const data = getFileStructure();
 	// console.log(Object.keys(data))
-	const categoryMap: Dictionary<string[]> = {}
-	Object.keys(data).map(category => {categoryMap[category] = Object.keys(data[category])})
-	console.log(categoryMap)
-	return categoryMap
+	const categoryMap: Dictionary<string[]> = {};
+	Object.keys(data).map((category) => {
+		categoryMap[category] = Object.keys(data[category]);
+	});
+	console.log(categoryMap);
+	return categoryMap;
 };
 
 // getSubCategories()
 
-
 export const socialAnchors: Dictionary<React.FC> = {
-	instagram: () => <a href={socialLinks['instagram']} target="_blank" rel="noreferrer" key="Instagram">Instagram</a>,
-	tokopedia: () => <a href={socialLinks['tokopedia']} target="_blank" rel="noreferrer" key="Tokopedia">Tokopedia</a>,
-	whatsapp: () => (<a href={socialLinks['whatsapp']} target="_blank" rel="noreferrer" key="Whatsapp">Whatsapp</a>),
-	email: () => <a href={socialLinks['email']} key="Email">Email</a>,
-}
+	instagram: () => (
+		<a href={socialLinks['instagram']} target="_blank" rel="noreferrer" key="Instagram">
+			Instagram
+		</a>
+	),
+	tokopedia: () => (
+		<a href={socialLinks['tokopedia']} target="_blank" rel="noreferrer" key="Tokopedia">
+			Tokopedia
+		</a>
+	),
+	whatsapp: () => (
+		<a href={socialLinks['whatsapp']} target="_blank" rel="noreferrer" key="Whatsapp">
+			Whatsapp
+		</a>
+	),
+	email: () => (
+		<a href={socialLinks['email']} key="Email">
+			Email
+		</a>
+	),
+};
 
 export const socialLinks: Dictionary<string> = {
-	instagram: "https://www.instagram.com/info.shalom/",
-	tokopedia: "https://tokopedia.link/GHd4ZyWiQib",
-	whatsapp: "https://wa.me/6282311135240?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products",
+	instagram: 'https://www.instagram.com/info.shalom/',
+	tokopedia: 'https://tokopedia.link/GHd4ZyWiQib',
+	whatsapp: 'https://wa.me/6282311135240?text=Hi%2C%20I%20would%20like%20to%20inquire%20about%20your%20products',
 	email: "mailto:info@shalomplaques.com?subject=Product Inquiry&body=Hi, I'd like to inquire about your products.",
-}
+};
