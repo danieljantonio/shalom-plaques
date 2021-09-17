@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { baseUrl, getItemDetails, ItemCardDetail } from '../../../helpers/helpers';
+import { baseUrl, fetchThumbnail, getItemDetails, NewItemCardDetail } from '../../../helpers/helpers';
 import ReactModal from '../ProductModal/product-modal.common';
 import './product-card.common.scss';
 
 interface ProductCardProps {
-	product: ItemCardDetail;
+	product: NewItemCardDetail
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 	const [modalState, setModalState] = useState(false);
 
-	const productExists: boolean = getItemDetails(product.productCode) ? true : false;
+	const productExists: boolean = getItemDetails(product?.series) ? true : false;
 
 	const openModal = () => {
-		if (!productExists) return;
+		// if (!productExists) return;
 		setModalState(true);
 	};
 
@@ -24,23 +24,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 	return (
 		<div className="product-card card" onClick={openModal}>
-			<div className="card-image">
 				<img
-					src={`${baseUrl}/product-images/${product?.category}/${product?.subCategory}/${product?.productCode}.jpg`}
-					alt={product?.productCode}
+					src={fetchThumbnail(product)}
+					alt={product?.series}
 				/>
-			</div>
-			<div className="content">
-				<h3>{product?.productCode}</h3>
-				<h3>{product?.subCategory}</h3>
-				<ReactModal
-					modalState={modalState}
-					setModalState={closeModal}
-					productCode={product.productCode}
-					imgUrls={[`${baseUrl}/product-images/${product?.category}/${product?.subCategory}/${product?.productCode}.jpg`]}
-				/>
-			</div>
-			{!productExists ? <div className="card-dark">Out of Stock</div> : <></>}
 		</div>
 	);
 };

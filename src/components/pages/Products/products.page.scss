@@ -1,13 +1,23 @@
 @import '../../../styles/main.scss';
 
 .product-page {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	.product-container {
+		width: 90%;
+		@media (min-width: 800px) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
 	.main {
 		min-height: 80vh;
 		@media (min-width: 800px) {
-			width: 90%;
+			width: 80%;
 			.row {
 				margin: 0px auto 3rem;
-				// width: 90%;
+				max-width: 1000px;
 			}
 			#load-more {
 				width: 92.5% !important;
@@ -34,5 +44,8 @@
 			display: grid;
 			place-items: center;
 		}
+	}
+	.sidenav {
+		margin-right: 2%;
 	}
 }

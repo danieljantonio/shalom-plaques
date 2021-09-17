@@ -16,6 +16,12 @@ export interface ItemCardDetail {
 	subCategory: string;
 }
 
+export interface NewItemCardDetail {
+	series: string;
+	category: string;
+	subCategory: string;
+}
+
 export interface Dictionary<T> {
 	[Key: string]: T;
 }
@@ -42,25 +48,21 @@ export const capitalize = (text: string) => {
 };
 
 export const getFileStructure = () => {
-	const isDirectory = (obj: any) => obj?.type === 'directory';
 	const directory = itemList[0]?.contents;
-
 	const itemMap: any = {};
 
 	directory.forEach((subCategory: any) => {
 		itemMap[subCategory.name] = {};
 		subCategory.contents.forEach((folders: any) => {
-			if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name] = [];
+			if (!itemMap[subCategory.name][folders.name]) itemMap[subCategory.name][folders.name] = {};
 			folders.contents.forEach((folderContent: any) => {
-				if (!isDirectory(folderContent)) {
-					itemMap[subCategory.name][folders.name].push(folderContent.name);
-				} else {
-					itemMap[subCategory.name][folders.name].push(...folderContent.contents.map((content: any) => content.name));
+				itemMap[subCategory.name][folders.name][folderContent.name] = [];
+				if (subCategory.name === 'Magnet') {
 				}
+				itemMap[subCategory.name][folders.name][folderContent.name].push(...folderContent.contents.map((content: any) => content.name));
 			});
 		});
 	});
-
 	return itemMap;
 };
 
@@ -69,50 +71,61 @@ export const getItemDetails = (productCode: string): ItemDetailProps => {
 	return itemsAvailable.find((item: { ProductCode?: string }) => item.ProductCode === productCode);
 };
 
-export const getItems = (category?: string) => {
-	const getCategoryItems = (category: string, categoryData: any) => {
-		const items: ItemCardDetail[] = [];
-		Object.values(categoryData).forEach((catData: any, index) => {
-			if (catData.length > 0) {
-				items.push(
-					...catData.map((dt: string) => {
-						return {
-							category,
-							subCategory: Object.keys(categoryData)[index],
-							productCode: dt.split('.')[0],
-						};
-					}),
-				);
-			}
-		});
+// get the items based on params. no params gives all items, category gives all items within that category, subcat gives all items in the subcat
+export const getItems = (category: string, subCategory?: string) => {
+	console.log(`newGetItems: ${category} - ${subCategory}`);
+	const rawData = getFileStructure();
+	const getSubCatItems = (categoryData: any, category: string, subCategory: string) => {
+		const items = [];
+		const subCatData = categoryData[subCategory];
+		for (const series in subCatData) {
+			items.push({
+				category,
+				subCategory: subCategory,
+				series,
+			});
+		}
 		return items;
 	};
-	const data = getFileStructure();
+
+	const getCategoryItems = (category: string) => {
+		const categoryData = rawData[category];
+		const items = [];
+		for (const subCategory in categoryData) {
+			items.push(...getSubCatItems(categoryData, category, subCategory));
+		}
+		// console.log(items);
+		return items;
+	};
+
 	if (!category || category === 'Products') {
-		const allItems: ItemCardDetail[] = [];
-		Object.keys(data).map((category: string) => {
-			const categoryData = data[category];
-			allItems.push(...getCategoryItems(category, categoryData));
-			return null;
-		});
-		return allItems;
+		console.log('here');
+		const allItems = Object.keys(rawData).map((_category: string) => getCategoryItems(_category));
+		return allItems.flat();
 	}
-	const categoryData = data[capitalize(category.replace('-', ' '))];
-	return getCategoryItems(capitalize(category.replace('-', ' ')), categoryData);
+	if (subCategory) {
+		console.log(getSubCatItems(rawData[category], category, subCategory));
+		return getSubCatItems(rawData[category], category, subCategory);
+	}
+	return getCategoryItems(category);
 };
 
-export const getSubCategories = (subCategory?: string) => {
+// getItems('Magnet', 'Carved');
+
+// used for side nav, getting the categories and the sub categories under it
+export const getSubCategories = () => {
 	const data = getFileStructure();
-	// console.log(Object.keys(data))
 	const categoryMap: Dictionary<string[]> = {};
-	Object.keys(data).map((category) => {
+	Object.keys(data).forEach((category) => {
 		categoryMap[category] = Object.keys(data[category]);
 	});
-	console.log(categoryMap);
 	return categoryMap;
 };
 
-// getSubCategories()
+// fetch the thumbnail url using item data
+export const fetchThumbnail = ({ category, subCategory, series }: NewItemCardDetail): string => {
+	return `${baseUrl}/product-images/${category}/${subCategory}/${series}/${series}-Series 001.jpg`;
+};
 
 export const socialAnchors: Dictionary<React.FC> = {
 	instagram: () => (

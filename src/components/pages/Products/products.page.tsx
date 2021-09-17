@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
-import { capitalize, getFileStructure, getItems, getSubCategories, groupByN, ItemCardDetail } from '../../../helpers/helpers';
+import { capitalize, getSubCategories, groupByN, NewItemCardDetail, getItems } from '../../../helpers/helpers';
 import ProductCard from '../../common/Product/product-card.common';
 import Spinner from '../../common/Spinner/spinner.common';
 import SideNav from './components/side-nav.products';
@@ -12,20 +11,30 @@ interface ProductsParams {
 }
 
 const ProductsPage = () => {
-	const productCategories = getSubCategories();
-	const { categoryId } = useParams<ProductsParams>();
-	const [items, setItems] = useState<ItemCardDetail[] | undefined>([]);
+	const productCategories = getSubCategories(); // Product categories and sub categories for sidenav
+	const [items, setItems] = useState<any>({}); // this stores all of the items
 	const initialNumOfItems = window.screen.width < 767 ? 2 : 4;
 	const [numberOfItems, setNumberOfItems] = useState<number>(initialNumOfItems);
 	const [loaded, setLoaded] = useState<boolean>(false);
+	const [category, setCategory] = useState<string>('');
+	const [subCategory, setSubCategory] = useState<string>('');
 
-	const getCategory = (categoryId?: string) => {
-		if (!categoryId) return 'Products';
-		return capitalize(categoryId?.replace('-', ' '));
+	// const getCategory = (categoryId?: string) => {
+	// 	if (!categoryId) return 'Products';
+	// 	return capitalize(categoryId?.replace('-', ' '));
+	// };
+
+	const updateProducts = (category: string, subCategory: string): void => {
+		console.log(`updateProducts: ${category} - ${subCategory}`);
+		setLoaded(false);
+		setCategory(category);
+		setSubCategory(subCategory);
+		getSubCategories();
+		getProducts(category, subCategory);
 	};
 
-	const getProducts = (category: string) => {
-		setItems(getItems(category));
+	const getProducts = (category: string, subCategory?: string) => {
+		setItems(getItems(category, subCategory));
 		setNumberOfItems(initialNumOfItems);
 		setTimeout(() => {
 			setLoaded(true);
@@ -33,10 +42,10 @@ const ProductsPage = () => {
 	};
 
 	useEffect(() => {
-		getProducts(getCategory(categoryId));
+		getProducts(category, subCategory);
 		return () => setLoaded(false);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [categoryId]);
+	}, [category]);
 
 	const loadMoreItems = (): void => {
 		let appendNo = 2;
@@ -44,7 +53,7 @@ const ProductsPage = () => {
 		setNumberOfItems(numberOfItems + appendNo);
 	};
 
-	const renderRows = (products: ItemCardDetail[], rootIndex: number) => {
+	const renderRows = (products: NewItemCardDetail[], rootIndex: number) => {
 		return (
 			<div key={rootIndex} className="row">
 				{products.map((product, index) => (
@@ -56,9 +65,12 @@ const ProductsPage = () => {
 
 	return (
 		<div className="product-page">
-			<h1>{getCategory(categoryId)}</h1>
-			<div className="row">
-				<SideNav productCategories={productCategories}/>
+			<h1>
+				{category}
+				{subCategory.length > 0 ? ` - ${subCategory}` : null}
+			</h1>
+			<div className="product-container">
+				<SideNav productCategories={productCategories} updateProducts={updateProducts} />
 				<div className="main container">
 					{loaded ? (
 						<>
