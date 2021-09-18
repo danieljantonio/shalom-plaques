@@ -16,7 +16,7 @@ const ProductsPage = () => {
 	const initialNumOfItems = window.screen.width < 767 ? 2 : 4;
 	const [numberOfItems, setNumberOfItems] = useState<number>(initialNumOfItems);
 	const [loaded, setLoaded] = useState<boolean>(false);
-	const [category, setCategory] = useState<string>('');
+	const [category, setCategory] = useState<string>('Products');
 	const [subCategory, setSubCategory] = useState<string>('');
 
 	// const getCategory = (categoryId?: string) => {
