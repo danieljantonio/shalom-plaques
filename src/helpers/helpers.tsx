@@ -17,6 +17,7 @@ export interface ItemCardDetail {
 }
 
 export interface NewItemCardDetail {
+	imgCount: number;
 	series: string;
 	category: string;
 	subCategory: string;
@@ -83,6 +84,7 @@ export const getItems = (category: string, subCategory?: string) => {
 				category,
 				subCategory: subCategory,
 				series,
+				imgCount: subCatData[series].length,
 			});
 		}
 		return items;
@@ -125,6 +127,15 @@ export const getSubCategories = () => {
 // fetch the thumbnail url using item data
 export const fetchThumbnail = ({ category, subCategory, series }: NewItemCardDetail): string => {
 	return `${baseUrl}/product-images/${category}/${subCategory}/${series}/${series}-Series 001.jpg`;
+};
+
+// fetch the thumbnail url using item data
+export const fetchImageUrls = ({ category, subCategory, series, imgCount }: NewItemCardDetail): string[] => {
+	const imgUrls = [];
+	for (let i = 0; i < imgCount; i++) {
+		imgUrls.push(`${baseUrl}/product-images/${category}/${subCategory}/${series}/${series}-Series 00${i + 1}.jpg`);
+	}
+	return imgUrls;
 };
 
 export const socialAnchors: Dictionary<React.FC> = {

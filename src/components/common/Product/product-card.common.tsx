@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import { baseUrl, fetchThumbnail, getItemDetails, NewItemCardDetail } from '../../../helpers/helpers';
+import { baseUrl, fetchImageUrls, fetchThumbnail, getItemDetails, NewItemCardDetail } from '../../../helpers/helpers';
 import ReactModal from '../ProductModal/product-modal.common';
 import './product-card.common.scss';
 
 interface ProductCardProps {
-	product: NewItemCardDetail
+	product: NewItemCardDetail;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 	const [modalState, setModalState] = useState(false);
 
-	const productExists: boolean = getItemDetails(product?.series) ? true : false;
-
 	const openModal = () => {
-		// if (!productExists) return;
 		setModalState(true);
 	};
 
@@ -24,10 +21,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 	return (
 		<div className="product-card card" onClick={openModal}>
-				<img
-					src={fetchThumbnail(product)}
-					alt={product?.series}
-				/>
+			<img src={fetchThumbnail(product)} alt={product?.series} />
+			<ReactModal modalState={modalState} setModalState={closeModal} product={product} />
 		</div>
 	);
 };

@@ -9,36 +9,29 @@
 	justify-content: center;
 	align-items: center;
 	font-family: 'Nunito', sans-serif;
+	top: 15vh !important;
+	left: 50% !important;
+	transform: translate(-50%);
 	@media (min-width: 800px) {
 		width: 45.625rem;
 		height: 34.375rem;
-		top: 15vh !important;
-		left: 50% !important;
-		transform: translate(-50%);
 		.col-half {
 			height: 100%;
 		}
 	}
+	@media (max-width: 799px) {
+		width: 80%;
+		height: fit-content;
+		padding: 2rem;
+	}
+
 	.row {
 		height: 100%;
 	}
-	@media (max-width: 799px) {
-		.col-half {
-			height: 50%;
-		}
-	}
-	h1 {
-		font-weight: 300;
-	}
-	.top-0 {
-		margin-top: 0px;
-	}
 	.close-button {
 		position: absolute;
-		right: 20px;
+		top: 15px;
+		right: 15px;
 		cursor: pointer;
-	}
-	h1 {
-		font-size: $font-medium;
 	}
 }
