@@ -6,7 +6,7 @@
 			width: 20%;
 			max-width: 350px;
 			min-width: 200px;
-			// margin-left: 5%;
+			margin-right: 2%;
 		}
 	}
 	@media (max-width: 799px) {
@@ -19,7 +19,6 @@
 		.card {
 			background-color: $white;
 			overflow: hidden;
-			// width: 90%;
 			margin: auto;
 		}
 		p {
