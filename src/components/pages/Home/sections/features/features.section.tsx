@@ -11,7 +11,7 @@ const FeaturesSection: React.FC = () => {
 				<img src={`${baseUrl}/production/material-wood-2.JPG`} alt="img" className="card" />
 			</ColumnThird>
 			<ColumnThird className="production">
-				<h1>High Quality Handicrafts</h1>
+				<img src={`${baseUrl}/icons/shalom-brand.png`} className="shalom-brand" alt="ShalomHandicrafts" />
 			</ColumnThird>
 			<ColumnThird className="production hide-sm">
 				<img src={`${baseUrl}/product-banner/product-banner-2.png`} alt="img" className="card" />

@@ -26,20 +26,12 @@
 		// width: 35%;
 		display: grid;
 		place-items: center;
+		.shalom-brand {
+			width: 100%;
+			object-fit: contain !important;
+		}
 	}
 	.card {
 		background-color: $white;
 	}
-	// .arrows {
-	// 	display: flex;
-	// 	justify-content: space-between;
-	// 	.arrow-icon {
-	// 		max-height: 130px;
-	// 		height: 10vw;
-	// 		width: auto;
-	// 	}
-	// 	.reverse {
-	// 		transform: scaleX(-1);
-	// 	}
-	// }
 }
