@@ -18,6 +18,7 @@ const ContactUsPage: React.FC = () => {
 		// console.log(country);
 		console.log(message);
 		console.log(encodedMsg);
+		window.location.href = `mailto:info@shalomplaques.com?subject=Product Inquiry&body=${encodedMsg}`;
 	};
 
 	return (
