@@ -5,18 +5,15 @@ const ContactUsPage: React.FC = () => {
 	const [name, setName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [phone, setPhone] = useState<string>('');
-	// const [country, setCountry] = useState<string>('');
+	const [country, setCountry] = useState<string>('');
 	const [message, setMessage] = useState<string>('');
 
 	// to consider https://medium.com/@dmccoy/how-to-submit-an-html-form-to-google-sheets-without-google-forms-b833952cc175
 
 	const submitForm = () => {
-		if (!email || !name || !phone || /*!country ||*/ !message) alert('Please fill in all fields');
-		const encodedMsg = encodeURI(`Hi, ${message}. \nContact me through: ${email} / ${phone}`);
-		console.log(name);
-		console.log(email);
-		// console.log(country);
-		console.log(message);
+		if (!email || !name || !phone || !country || !message) alert('Please fill in all fields');
+		const encodedMsg = encodeURI(`Hi, I'm ${name} from ${country}. \n${message}. \nContact me through: ${email} / ${phone}`);
+		console.log(`Hi, I'm ${name} from ${country}. \n${message}. \nContact me through: ${email} / ${phone}`);
 		console.log(encodedMsg);
 		window.location.href = `mailto:info@shalomplaques.com?subject=Product Inquiry&body=${encodedMsg}`;
 	};
@@ -36,10 +33,10 @@ const ContactUsPage: React.FC = () => {
 				<label htmlFor="phone">Phone Number: </label>
 				<input id="phone" type="phone" placeholder="+62 812 xxx xxx" value={phone} onChange={(e) => setPhone(e.target.value)} />
 			</div>
-			{/* <div className="input-container">
+			<div className="input-container">
 				<label htmlFor="country">Country: </label>
 				<input id="country" type="text" placeholder="Indonesia" value={country} onChange={(e) => setCountry(e.target.value)} />
-			</div> */}
+			</div>
 			<div className="input-container">
 				<label htmlFor="message">Message: </label>
 				<textarea
