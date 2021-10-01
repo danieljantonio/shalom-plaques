@@ -10,7 +10,7 @@ const FeaturesSection: React.FC = () => {
 			<ColumnThird className="production hide-sm">
 				<img src={`${baseUrl}/production/material-wood-2.JPG`} alt="img" className="card" />
 			</ColumnThird>
-			<ColumnThird className="production">
+			<ColumnThird className="production brand">
 				<img src={`${baseUrl}/icons/shalom-brand.png`} className="shalom-brand" alt="ShalomHandicrafts" />
 			</ColumnThird>
 			<ColumnThird className="production hide-sm">

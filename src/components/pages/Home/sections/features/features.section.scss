@@ -9,6 +9,11 @@
 		max-width: 440px;
 		max-height: 300px;
 	}
+	.brand {
+		img {
+			max-width: 600px;
+		}
+	}
 	@media (min-width: 800px) {
 		padding: 5% 0;
 		.row {
