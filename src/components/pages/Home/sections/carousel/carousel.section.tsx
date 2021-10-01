@@ -4,7 +4,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { baseUrl } from '../../../../../helpers/helpers';
 
-const CarouselSection: React.FC = () => {
+const CarouselSection: React.FC<{ urls?: string[] }> = ({ urls }) => {
 	const NextButton = (onClickHandler: any, hasNext: boolean, label: string) => {
 		if (hasNext)
 			return (
@@ -23,17 +23,19 @@ const CarouselSection: React.FC = () => {
 			);
 	};
 
-	const urls = [
-		`${baseUrl}/production/machine-1.JPG`,
-		`${baseUrl}/production/machine-2.JPG`,
-		`${baseUrl}/production/working-1.JPG`,
-		`${baseUrl}/production/working-2.JPG`,
-		`${baseUrl}/production/working-3.JPG`,
-		`${baseUrl}/production/working-4.JPG`,
-		`${baseUrl}/production/working-5.JPG`,
-		`${baseUrl}/production/working-6.JPG`,
-		`${baseUrl}/production/working-7.JPG`,
-	];
+	if (!urls) {
+		urls = [
+			`${baseUrl}/production/machine-1.JPG`,
+			`${baseUrl}/production/machine-2.JPG`,
+			`${baseUrl}/production/working-1.JPG`,
+			`${baseUrl}/production/working-2.JPG`,
+			`${baseUrl}/production/working-3.JPG`,
+			`${baseUrl}/production/working-4.JPG`,
+			`${baseUrl}/production/working-5.JPG`,
+			`${baseUrl}/production/working-6.JPG`,
+			`${baseUrl}/production/working-7.JPG`,
+		];
+	}
 
 	return (
 		<Carousel
