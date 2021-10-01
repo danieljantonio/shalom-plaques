@@ -3,8 +3,9 @@
 .product-card {
 	@media (min-width: 800px) {
 		width: calc((100vw - 250px) * 0.28);
-		max-width: 22.5rem;
-		max-height: 22.5rem;
+		max-width: 30%;
+		max-height: 30%;
+		margin: 1rem auto;
 	}
 	@media (max-width: 799px) {
 		width: 90%;
