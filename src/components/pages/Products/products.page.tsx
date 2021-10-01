@@ -18,6 +18,7 @@ const ProductsPage = () => {
 	const [loaded, setLoaded] = useState<boolean>(false);
 	const [category, setCategory] = useState<string>('Products');
 	const [subCategory, setSubCategory] = useState<string>('');
+	const [allLoaded, setAllLoaded] = useState<boolean>(false);
 
 	// const getCategory = (categoryId?: string) => {
 	// 	if (!categoryId) return 'Products';
@@ -34,8 +35,10 @@ const ProductsPage = () => {
 	};
 
 	const getProducts = (category: string, subCategory?: string) => {
-		setItems(getItems(category, subCategory));
+		const items = getItems(category, subCategory);
+		setItems(items);
 		setNumberOfItems(initialNumOfItems);
+		if (Math.floor(items.length / 3) <= initialNumOfItems) setAllLoaded(true);
 		setTimeout(() => {
 			setLoaded(true);
 		}, 400);
@@ -45,17 +48,18 @@ const ProductsPage = () => {
 		getProducts(category, subCategory);
 		return () => setLoaded(false);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [category]);
+	}, [category, allLoaded]);
 
 	const loadMoreItems = (): void => {
 		let appendNo = 2;
 		if (window.screen.width < 767) appendNo = 1;
 		setNumberOfItems(numberOfItems + appendNo);
+		if (Math.floor(items.length / 3) <= numberOfItems + appendNo) setAllLoaded(true);
 	};
 
 	const renderRows = (products: NewItemCardDetail[], rootIndex: number) => {
 		return (
-			<div key={rootIndex} className="row">
+			<div key={rootIndex} className="row product-row">
 				{products.map((product, index) => (
 					<ProductCard key={index} product={product} />
 				))}
@@ -77,9 +81,11 @@ const ProductsPage = () => {
 							{groupByN(3, items)
 								.slice(0, numberOfItems)
 								.map((productRow, index) => renderRows(productRow, index))}
-							<button id="load-more" className="card" onClick={loadMoreItems}>
-								Load More
-							</button>
+							{!allLoaded ? (
+								<button id="load-more" className="card" onClick={loadMoreItems}>
+									Load More
+								</button>
+							) : null}
 						</>
 					) : (
 						<div className="spinner-container">
