@@ -9,7 +9,7 @@ const Header = () => {
 		setOpen(!prev);
 	};
 	return (
-		<div className="flex flex-col">
+		<div className="relative flex flex-col">
 			<div className="fixed flex justify-between shadow-sm w-full h-fit">
 				<div className="w-2/3 p-2">
 					<Image src="/icons/shalom-brand.png" layout="responsive" width={1059} height={239.25} />
@@ -24,7 +24,7 @@ const Header = () => {
 					}
 				/>
 			</div>
-			<div className={open ? 'flex flex-col text-center shadow-sm text-amber-800 text-xl' : 'scale-0 '}>
+			<div className={open ? 'fixed flex flex-col text-center shadow-sm text-amber-800 text-xl' : 'fixed scale-0 '}>
 				<Link href="/">
 					<a>Home</a>
 				</Link>
