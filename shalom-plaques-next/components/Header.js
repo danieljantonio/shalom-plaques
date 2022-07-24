@@ -11,7 +11,7 @@ const Header = () => {
 	return (
 		<div className="fixed top-0 left-0 w-full h-head overflow-hidden">
 			<div className="flex justify-between  w-full h-head m-0 z-50">
-				<div className="w-2/3 p-2 lg:w-1/6">
+				<div className="h-16 aspect-logo my-auto">
 					<Image src="/icons/shalom-brand.png" layout="responsive" width={1059} height={239.25} />
 				</div>
 
@@ -28,7 +28,7 @@ const Header = () => {
 				className={
 					open
 						? 'fixed right-0 flex flex-col text-left shadow-sm text-amber-800 text-xl bg-white'
-						: 'absolute top-0 right-0 w-1/2 h-fit scale-0 lg:flex lg:scale-100 lg:justify-end lg:text-3xl lg:text-center z-50'
+						: 'absolute top-0 right-0 w-1/2 h-fit scale-0 lg:flex lg:scale-100 lg:justify-end lg:text-2xl lg:text-center z-50'
 				}
 			>
 				<Link href="/">

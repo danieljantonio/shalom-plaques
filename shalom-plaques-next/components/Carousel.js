@@ -17,8 +17,7 @@ const Carousel = () => {
 				grabCursor={true}
 				centeredSlides={true}
 				rewind={true}
-				navigation={true}
-				modules={[Navigation, Autoplay]}
+				modules={[Autoplay]}
 				slidesPerView={1}
 			>
 				<SwiperSlide>

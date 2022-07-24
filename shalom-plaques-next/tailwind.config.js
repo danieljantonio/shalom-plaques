@@ -14,6 +14,9 @@ module.exports = {
 				toph: 'rgba(0,0,0,0.8)',
 				topb: 'rgba(0,0,0,0.4)',
 			},
+			aspectRatio: {
+				logo: '4236/957',
+			},
 		},
 	},
 	plugins: [],
