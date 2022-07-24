@@ -5,6 +5,14 @@ module.exports = {
 		extend: {
 			spacing: {
 				'15%': '12%',
+				head: '5rem',
+				car: '4.5%',
+				'1/2': '50%',
+				'1/10': '10%',
+			},
+			colors: {
+				toph: 'rgba(0,0,0,0.8)',
+				topb: 'rgba(0,0,0,0.4)',
 			},
 		},
 	},
