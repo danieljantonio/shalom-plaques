@@ -9,7 +9,7 @@ const Header = () => {
 		setOpen(!prev);
 	};
 	return (
-		<div className="fixed top-0 left-0 w-full h-head overflow-hidden bg-amber-100">
+		<div className="fixed top-0 left-0 w-full h-head overflow-hidden bg-white">
 			<div className="flex justify-between  w-full h-head m-0 z-50">
 				<div className="w-2/3 p-2 lg:w-1/6">
 					<Image src="/icons/shalom-brand.png" layout="responsive" width={1059} height={239.25} />

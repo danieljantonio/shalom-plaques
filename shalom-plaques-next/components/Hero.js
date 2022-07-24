@@ -2,7 +2,7 @@ import React from 'react';
 
 const Hero = () => {
 	return (
-		<div className="absolute z-50 h-fit  lg:h-full lg:w-full bg-gradient-to-b from-toph to-topb">
+		<div className="lg:absolute z-50 h-fit  lg:h-full lg:w-full bg-amber-400 lg:bg-transparent lg:bg-gradient-to-b lg:from-toph lg:to-topb">
 			<div className="w-full h-full text-center text-white p-1/10 font-serif">
 				<div className=" text-3xl font-extralight">Est. 1989</div>
 				<div className="font-semibold text-5xl lg:text-7xl pb-5">
