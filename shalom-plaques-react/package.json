@@ -13,7 +13,6 @@
     "@types/react-modal": "^3.12.1",
     "@types/react-router-dom": "^5.1.8",
     "fs": "^0.0.1-security",
-    "node-sass": "5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-modal": "^3.14.3",
@@ -47,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "node-sass": "^7.0.1"
   }
 }
