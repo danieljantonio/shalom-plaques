@@ -1,6 +1,31 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-	content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+	daisyui: {
+		themes: [
+			{
+				mytheme: {
+					primary: '#92400e',
+
+					secondary: '#fef3c7',
+
+					accent: '#CAFC03',
+
+					neutral: '#f3f4f6',
+
+					'base-100': '#fff',
+
+					info: '#3194F6',
+
+					success: '#5EC992',
+
+					warning: '#F7E02B',
+
+					error: '#E60400',
+				},
+			},
+		],
+	},
+	content: ['./src/pages/**/*.{js,ts,jsx,tsx}', './src/components/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {
 			spacing: {
@@ -11,13 +36,13 @@ module.exports = {
 				'1/10': '10%',
 			},
 			colors: {
-				toph: 'rgba(0,0,0,0.8)',
-				topb: 'rgba(0,0,0,0.4)',
+				toph: 'rgb(146, 64, 14,0.3)',
+				topb: 'rgb(146, 64, 14,1)',
 			},
 			aspectRatio: {
 				logo: '4236/957',
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require('daisyui')],
 };

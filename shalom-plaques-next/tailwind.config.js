@@ -12,7 +12,7 @@ module.exports = {
 			},
 			colors: {
 				toph: 'rgba(0,0,0,0.8)',
-				topb: 'rgba(0,0,0,0.4)',
+				topb: 'rgba(0,0,0,1)',
 			},
 			aspectRatio: {
 				logo: '4236/957',
