@@ -1,6 +1,7 @@
 interface IProduct {
 	_id: string;
 	series: string;
+	description: string;
 	images: string[];
 	category: ICategory;
 	subCategory: ISubCategory;
