@@ -36,8 +36,8 @@ module.exports = {
 				'1/10': '10%',
 			},
 			colors: {
-				toph: 'rgb(146, 64, 14,0.3)',
-				topb: 'rgb(146, 64, 14,1)',
+				toph: 'rgb(0,0,0,0.3)',
+				topb: 'rgb(0,0,0,0.9)',
 			},
 			aspectRatio: {
 				logo: '4236/957',
