@@ -13,7 +13,9 @@ const Home: NextPage = ({ categories }: any) => {
 				<Hero />
 				<Carousel />
 			</div>
-			<Sidebar categories={categories} />
+			<div className='h-full flex'>
+				<Sidebar categories={categories} />
+			</div>
 		</div>
 	);
 };
