@@ -19,8 +19,8 @@ const Sidebar = ({ categories }: any) => {
 				<AiOutlineSearch className='absolute top-1/2 -translate-y-1/2 left-8 h-5 w-5 cursor-text' />
 				<input type='search' className='input w-full input-bordered input-sm pl-9' placeholder='Search...' />
 			</div>
+			{/* Checkbox */}
 			<div className='grow shrink basis-auto'>
-				{/* Checkbox */}
 				{categories.map((category: ICategory, i: number) => {
 					return (
 						<label key={i} className='flex justify-between px-2 py-1 cursor-pointer btn-ghost'>
@@ -30,6 +30,7 @@ const Sidebar = ({ categories }: any) => {
 					);
 				})}
 			</div>
+			{/* footer */}
 			<Link href='/#'>
 				<a className='grow-0 shrink auto text-center'>back to top</a>
 			</Link>
