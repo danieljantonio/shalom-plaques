@@ -21,7 +21,7 @@ const AboutUs: NextPage = () => {
 	return (
 		<div className='flex flex-col'>
 			<div className='flex overflow-hidden'>
-				<div className='fixed left-1/2 top-0 h-2/3 w-1/2 p-40 font-serif backdrop-invert -z-10'></div>
+				<motion.div initial={{ x: '100%' }} animate={{ x: '0%' }} className='fixed left-1/2 bottom-0 h-1/3 w-1/2 p-40 font-serif backdrop-invert -z-10'></motion.div>
 				<div className='basis-1/2 grow-0'>
 					<div className='fixed h-full w-1/2 left-0 top-0 -z-10'>
 						<Image src='/images/about/wood4darken.jpg' layout='fill' objectFit='cover' />
@@ -31,21 +31,47 @@ const AboutUs: NextPage = () => {
 							<Image src='/images/about/about.JPG' layout='responsive' width={2000} height={2000} />
 						</div>
 					</div>
-					<div className='pb-96'>
+					<div className=''>
 						<div className=' max-w-2xl m-auto rounded-xl overflow-hidden mt-32'>
 							<Image src='/images/about/people-1.JPG' layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
-					<div className='h-screen'>
+					<div className=''>
 						<div className=' max-w-2xl m-auto rounded-xl overflow-hidden mt-32'>
 							<Image src='/images/about/people-2.JPG' layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
+					<div className=''>
+						<div className=' max-w-2xl m-auto rounded-xl overflow-hidden mt-32'>
+							<Image src='/images/about/people-3.JPG' layout='responsive' width={3456} height={2304} />
+						</div>
+					</div>
+					<div className=''>
+						<div className=' max-w-2xl m-auto rounded-xl overflow-hidden mt-32'>
+							<Image src='/images/about/people-4.JPG' layout='responsive' width={2304} height={3456} />
+						</div>
+					</div>
+					<div className=''>
+						<div className=' max-w-2xl m-auto rounded-xl overflow-hidden mt-32'>
+							<Image src='/images/about/people-5.JPG' layout='responsive' width={3456} height={2304} />
+						</div>
+					</div>
+					<div className=''>
+						<div className=' max-w-2xl m-auto rounded-xl overflow-hidden mt-32'>
+							<Image src='/images/about/people-6.JPG' layout='responsive' width={3456} height={2304} />
+						</div>
+						``
+					</div>
+					<div className='pb-32'>
+						<div className=' max-w-2xl m-auto rounded-xl overflow-hidden mt-32'>
+							<Image src='/images/about/people-7.JPG' layout='responsive' width={3456} height={2304} />
+						</div>
+					</div>
 				</div>
-				<div className='flex flex-col basis-1/2 grow-0 -z-20'>
+				<div className='flex flex-col basis-1/2 grow-0 -z-20 text-black'>
 					<div className='h-screen p-40 font-serif'>
 						<div className='text-9xl'>About Us</div>
-						<div className='text-lg'>
+						<div className='text-lg font-extralight'>
 							For over 30 years, Shalom Handicrafts have produced high quality products made from locally selected woods. Exporting Indonesian woodwork to over 23 countries all around the world and providing training and jobs to less
 							fortunate individuals.
 						</div>
@@ -53,7 +79,7 @@ const AboutUs: NextPage = () => {
 					<div ref={ref} className={isFixed ? 'fixed w-1/2  h-screen bg-black text-white font-serif' : 'h-screen bg-black text-white font-serif'}>
 						<div className='p-40'>
 							<div className='text-9xl'>Workers</div>
-							<div className='text-lg'>Enabling people of lower-class to provide for their families through permanent employment. Many of which have been with us for over 25 years.</div>
+							<div className='text-lg font-extralight'>Enabling people of lower-class to provide for their families through permanent employment. Many of which have been with us for over 25 years.</div>
 						</div>
 					</div>
 				</div>
