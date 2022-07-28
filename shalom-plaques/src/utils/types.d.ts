@@ -14,6 +14,7 @@ interface ISubCategory {
 }
 
 interface ICategory {
+	_id: string;
 	name: string;
 	subCategories: ISubCategory[];
 }
