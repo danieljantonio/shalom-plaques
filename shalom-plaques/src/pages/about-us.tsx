@@ -21,7 +21,7 @@ const AboutUs: NextPage = () => {
 	return (
 		<div className='flex flex-col'>
 			<div className='flex overflow-hidden'>
-				<motion.div initial={{ x: '100%' }} animate={{ x: '0%' }} className='fixed left-1/2 bottom-0 h-1/3 w-1/2 p-40 font-serif backdrop-invert -z-10'></motion.div>
+				<motion.div initial={{ y: '-150%' }} animate={{ y: '0%' }} className='fixed left-1/2 bottom-0 h-1/3 w-1/2 p-40 font-serif backdrop-invert -z-10'></motion.div>
 				<div className='basis-1/2 grow-0'>
 					<div className='fixed h-full w-1/2 left-0 top-0 -z-10'>
 						<Image src='/images/about/wood4darken.jpg' layout='fill' objectFit='cover' />
