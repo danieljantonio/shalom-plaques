@@ -6,8 +6,8 @@ const Navbar = () => {
 		<div className='navbar bg-base-100 shadow-md z-50'>
 			<div className='navbar-start'>
 				<Link href='/'>
-					<div className='h-11 aspect-logo hover:cursor-pointer'>
-						<Image src='/icons/shalom-brand.png' width={4236} height={957} layout='responsive' />
+					<div className='h-11 aspect-logo hover:cursor-pointer btn-ghost rounded-md'>
+						<Image src='/icons/shalom-brand2.png' width={4236} height={957} layout='responsive' />
 					</div>
 				</Link>
 			</div>
