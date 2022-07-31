@@ -75,7 +75,7 @@ const AboutUs: NextPage = () => {
 							opacity: isFixed ? 0 : 1,
 							transition: 'all 0.2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s',
 						}}
-						className='h-screen align-middle p-5 font-serif sm:p-20 xl:p-35 xl:pt-40'>
+						className='h-screen align-middle p-5 font-serif  sm:p-20 xl:p-40'>
 						<div className='text-5xl sm:text-7xl xl:text-8xl  align-middle mb-5'>About Us</div>
 						<div className='text-lg font-extralight'>
 							For over 30 years, Shalom Handicrafts have produced high quality products made from locally selected woods. Exporting Indonesian woodwork to over 23 countries all around the world and providing training and jobs to less
