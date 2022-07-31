@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 const Navbar = () => {
 	return (
-		<div className='navbar bg-base-100 shadow-md z-50'>
+		<div className='flex flex-col sm:flex-row navbar bg-base-100 shadow-md z-50'>
 			<div className='navbar-start'>
 				<Link href='/'>
 					<div className='h-11 aspect-logo hover:cursor-pointer btn-ghost rounded-md'>
@@ -11,11 +11,7 @@ const Navbar = () => {
 					</div>
 				</Link>
 			</div>
-			<Link href='/' className='navbar-center'>
-				<a className='btn btn-ghost normal-case text-xl text-primary'>Shalom Plaques</a>
-			</Link>
-
-			<div className='navbar-end'>
+			<div className='sm:navbar-end'>
 				<Link href='/products' className='navbar-end'>
 					<a className='btn btn-ghost normal-case text-xl text-primary'>Products</a>
 				</Link>
