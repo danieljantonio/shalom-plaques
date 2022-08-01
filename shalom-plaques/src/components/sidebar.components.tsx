@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 type Props = {
 	categories: ICategory[];
 	setCategoryId: React.Dispatch<React.SetStateAction<string | null>>;
-	setSubCategoryId: React.Dispatch<React.SetStateAction<string | null>>;
+	setSubCategoryIds: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 const Sidebar = ({ categories }: Props) => {

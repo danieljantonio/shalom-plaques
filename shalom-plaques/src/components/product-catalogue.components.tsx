@@ -13,27 +13,27 @@ type Props = {
 const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	const [productsState, setProducts] = useState<IProduct[]>(products);
 	const [categoryId, setCategoryId] = useState<string | null>(null);
-	const [subCategoryId, setSubCategoryId] = useState<string | null>(null);
+	const [subCategoryIds, setSubCategoryIds] = useState<string[]>([]);
 
 	const renderProducts = () => {
-		if (!categoryId && !subCategoryId) return products;
+		if (!categoryId && subCategoryIds.length > 0) return products;
 		if (categoryId) return products.filter((products) => products.category._id === categoryId);
-		return products.filter((products) => products.subCategory._id === subCategoryId);
+		return products.filter((products) => subCategoryIds.includes(products.subCategory._id));
 	};
 
 	useEffect(() => {
 		setProducts(renderProducts());
-	}, [categoryId, subCategoryId]);
+	}, [categoryId, subCategoryIds]);
 
 	return (
 		<>
 			<div>
-				<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryId={setSubCategoryId} />
+				<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryIds={setSubCategoryIds} />
 			</div>
 			<div className='w-full md:w-4/5 mx-auto'>
 				<div className='grid 3xl:grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1'>
-					{productsState.map((product) => (
-						<Card product={product} />
+					{productsState.map((product, index) => (
+						<Card product={product} key={index} />
 					))}
 				</div>
 			</div>
