@@ -9,7 +9,7 @@ type Props = {
 	setSubCategoryIds: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
-const Sidebar = ({ categories }: Props) => {
+const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 	const [active, setActive] = useState<number | null>(null);
 	const [checks, setChecks] = useState<boolean[][]>(
 		categories.map((category) => {
@@ -73,6 +73,22 @@ const Sidebar = ({ categories }: Props) => {
 			);
 		}
 	};
+	useEffect(() => {
+		if (active) {
+			setCategoryId(categories[active]._id);
+			const temp = setSubCategoryIds(
+				categories[active].subCategories
+					.map((sub, index) => {
+						if (checks[active][index] === true) return sub._id;
+						return '';
+					})
+					.filter((subId) => {
+						if (subId === '') return false;
+						return true;
+					})
+			);
+		}
+	}, [checks, active]);
 	useEffect(() => {
 		setChecks(
 			categories.map((category) => {

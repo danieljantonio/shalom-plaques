@@ -23,6 +23,8 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 
 	useEffect(() => {
 		setProducts(renderProducts());
+		console.log(categoryId);
+		console.log(subCategoryIds);
 	}, [categoryId, subCategoryIds]);
 
 	return (
