@@ -3,10 +3,16 @@ import Card from '../components/card.components';
 import Carousel from '../components/carousel.components';
 import Hero from '../components/hero.components';
 import Sidebar from '../components/sidebar.components';
+type Props = {
+	categories: ICategory[];
+	subCategories: ISubCategory[];
+	products: IProduct[];
+};
 
 //local
 import { GetStaticProps } from 'next';
-const Home: NextPage = ({ categories }: any) => {
+import ProductCatalogue from '../components/product-catalogue.components';
+const Home: NextPage<Props> = ({ categories, subCategories, products }) => {
 	return (
 		<div>
 			<div className='relative overflow-hidden h-fit bg-red-300'>
@@ -15,20 +21,22 @@ const Home: NextPage = ({ categories }: any) => {
 			</div>
 			<div className='h-full flex'>
 				<Sidebar categories={categories} />
+				<ProductCatalogue categories={categories} subCategories={subCategories} products={products} />
 			</div>
 		</div>
 	);
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-	const categories = [
-		{ _id: '62dea17e11d4f579211dfb89', name: 'Box', subCategories: ['62dea19711d4f579211dfb98', '62dea1af11d4f579211dfba4'], __v: 2 },
-		{ _id: '62dea18f11d4f579211dfb8f', name: 'Carved', subCategories: ['62dea19e11d4f579211dfb9e', '62dea1b611d4f579211dfbaa'], __v: 2 },
-	];
+	const { categories } = await fetch('http://localhost:5000/category').then((data) => data.json());
+	const { subCategories } = await fetch('http://localhost:5000/subcategory').then((data) => data.json());
+	const { products } = await fetch('http://localhost:5000/product').then((data) => data.json());
 
 	return {
 		props: {
-			categories,
+			categories: categories,
+			subCategories: subCategories,
+			products: products,
 		},
 	};
 };
