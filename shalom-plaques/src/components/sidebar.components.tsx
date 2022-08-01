@@ -37,7 +37,8 @@ const Sidebar = ({ categories }: Props) => {
 			})
 		);
 	};
-	const handleReset = () => {
+	const handleClear = () => {
+		setActive(null);
 		setChecks(
 			categories.map((category) => {
 				return category.subCategories.map(() => {
@@ -92,7 +93,7 @@ const Sidebar = ({ categories }: Props) => {
 				<input type='search' className='input w-full input-bordered input-sm pl-9' placeholder='Search...' />
 			</div>
 			{/* Checkbox */}
-			<button onClick={handleReset}>Reset</button>
+			<button onClick={handleClear}>Clear</button>
 			<div className='grow shrink basis-auto'>
 				{categories.map((category, i) => (
 					<>
