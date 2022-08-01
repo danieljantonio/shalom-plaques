@@ -18,7 +18,7 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	const renderProducts = () => {
 		if (!categoryId && subCategoryIds.length > 0) return products;
 		if (categoryId) return products.filter((products) => products.category._id === categoryId);
-		return products.filter((products) => subCategoryIds.includes(products.subCategory._id));
+		return products.filter((product) => subCategoryIds.includes(product.subCategory._id));
 	};
 
 	useEffect(() => {
