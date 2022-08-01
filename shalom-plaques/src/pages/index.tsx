@@ -3,15 +3,17 @@ import Card from '../components/card.components';
 import Carousel from '../components/carousel.components';
 import Hero from '../components/hero.components';
 import Sidebar from '../components/sidebar.components';
+
+//local
+import { GetStaticProps } from 'next';
+import ProductCatalogue from '../components/product-catalogue.components';
+
 type Props = {
 	categories: ICategory[];
 	subCategories: ISubCategory[];
 	products: IProduct[];
 };
 
-//local
-import { GetStaticProps } from 'next';
-import ProductCatalogue from '../components/product-catalogue.components';
 const Home: NextPage<Props> = ({ categories, subCategories, products }) => {
 	return (
 		<div>
