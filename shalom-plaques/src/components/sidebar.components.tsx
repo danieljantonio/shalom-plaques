@@ -1,11 +1,14 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineSearch, AiOutlineLeft } from 'react-icons/ai';
+import { motion } from 'framer-motion';
+
 type Props = {
 	categories: ICategory[];
 };
 
 const Sidebar = ({ categories }: Props) => {
+	const [active, setActive] = useState<number | null>(null);
 	const [checks, setChecks] = useState<boolean[][]>(
 		categories.map((category) => {
 			return category.subCategories.map(() => {
@@ -42,18 +45,30 @@ const Sidebar = ({ categories }: Props) => {
 		);
 	};
 	const handleClickCategory = (index: number) => {
-		setChecks(
-			categories.map((category, i) => {
-				if (i === index) {
+		if (active === index) {
+			setActive(null);
+			setChecks(
+				categories.map((category, i) => {
 					return category.subCategories.map(() => {
-						return true;
+						return false;
 					});
-				}
-				return category.subCategories.map(() => {
-					return false;
-				});
-			})
-		);
+				})
+			);
+		} else {
+			setActive(index);
+			setChecks(
+				categories.map((category, i) => {
+					if (i === index) {
+						return category.subCategories.map(() => {
+							return true;
+						});
+					}
+					return category.subCategories.map(() => {
+						return false;
+					});
+				})
+			);
+		}
 	};
 	useEffect(() => {
 		setChecks(
@@ -65,8 +80,8 @@ const Sidebar = ({ categories }: Props) => {
 		);
 	}, []);
 	useEffect(() => {
-		console.log(checks);
-	}, [checks]);
+		console.log(active);
+	}, [active]);
 	return (
 		<div className='flex flex-col w-80 shadow-md min-h-full mb-0'>
 			{/* Search */}
@@ -78,17 +93,22 @@ const Sidebar = ({ categories }: Props) => {
 			<button onClick={handleReset}>Reset</button>
 			<div className='grow shrink basis-auto'>
 				{categories.map((category, i) => (
-					<div key={category._id} className='flex flex-col justify-between px-2 py-1 cursor-pointer'>
-						<p onClick={() => handleClickCategory(i)} className='text-lg btn-ghost px-2'>
-							{category.name}
-						</p>
-						{category.subCategories.map((subCategory, j) => (
-							<label className='ml-3 btn-ghost flex justify-between px-2 cursor-pointer'>
-								<p className='text-lg'>{subCategory.name}</p>
-								<input type='checkbox' checked={checks[i][j]} onClick={(e) => changeState(i, j, e.currentTarget.checked)} />
-							</label>
-						))}
-					</div>
+					<>
+						<div key={category._id} className='flex flex-col justify-between px-2 py-1 cursor-pointer'>
+							<p onClick={() => handleClickCategory(i)} className='relative text-lg btn-ghost px-2'>
+								{category.name}
+								<AiOutlineLeft className={active === i ? 'absolute right-1.5 top-1.5 -rotate-90 transition-transform' : 'absolute right-1.5 top-1.5 transition-transform'} />
+							</p>
+							{active === i &&
+								category.subCategories.map((subCategory, j) => (
+									<label className='ml-3 btn-ghost flex justify-between px-2 cursor-pointer'>
+										<p className='text-lg'>{subCategory.name}</p>
+										<input type='checkbox' onChange={(e) => (e.currentTarget.checked = checks[i][j])} onClick={(e) => changeState(i, j, e.currentTarget.checked)} />
+									</label>
+								))}
+						</div>
+						<div className='divider'></div>
+					</>
 				))}
 			</div>
 			{/* footer */}
