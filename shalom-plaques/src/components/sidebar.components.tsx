@@ -12,14 +12,14 @@ type Props = {
 const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 	const [active, setActive] = useState<number | null>(null);
 	const [subIds, setSubIds] = useState<string[]>([]);
+
 	const changeSub = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.currentTarget) {
 			const val = e.currentTarget.value;
-			if (e.currentTarget.checked && !subIds.includes(val)) {
-				setSubIds((old) => {
-					return [...old, val];
-				});
-			} else if (!e.currentTarget.checked && subIds.includes(val)) {
+
+			if (e.currentTarget.checked && !subIds.includes(val)) setSubIds((old) => [...old, val]);
+
+			if (!e.currentTarget.checked && subIds.includes(val)) {
 				setSubIds((old) => {
 					return old.filter((id) => {
 						if (id === val) return false;
@@ -29,29 +29,33 @@ const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 			}
 		}
 	};
+
 	const handleClear = () => {
 		setActive(null);
 		setSubIds([]);
 	};
+
 	const handleClickCategory = (index: number) => {
 		if (active === index) {
 			setActive(null);
 			setSubIds([]);
-		} else {
-			setActive(index);
-			setSubIds(
-				categories[index].subCategories.map((sub) => {
-					return sub._id;
-				})
-			);
+			return;
 		}
+		setActive(index);
+		setSubIds(
+			categories[index].subCategories.map((sub) => {
+				return sub._id;
+			})
+		);
 	};
+
 	useEffect(() => {
 		if (active !== null) {
 			setCategoryId(categories[active]._id);
 			setSubCategoryIds(subIds);
 		}
 	}, [active, subIds]);
+
 	return (
 		<div className='flex flex-col w-80 shadow-md min-h-full mb-0'>
 			{/* Search */}
