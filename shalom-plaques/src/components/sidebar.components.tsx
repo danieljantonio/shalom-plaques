@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSearch, AiOutlineLeft } from 'react-icons/ai';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 type Props = {
 	categories: ICategory[];
@@ -101,10 +101,10 @@ const Sidebar = ({ categories }: Props) => {
 							</p>
 							{active === i &&
 								category.subCategories.map((subCategory, j) => (
-									<label className='ml-3 btn-ghost flex justify-between px-2 cursor-pointer'>
+									<motion.label key={subCategory._id} initial={{ opacity: 0, y: '-50%' }} animate={{ opacity: 1, y: 0 }} className='ml-3 btn-ghost flex justify-between px-2 cursor-pointer'>
 										<p className='text-lg'>{subCategory.name}</p>
-										<input type='checkbox' onChange={(e) => (e.currentTarget.checked = checks[i][j])} onClick={(e) => changeState(i, j, e.currentTarget.checked)} />
-									</label>
+										<input type='checkbox' checked={checks[i][j]} onChange={(e) => changeState(i, j, e.currentTarget.checked)} />
+									</motion.label>
 								))}
 						</div>
 						<div className='divider'></div>
