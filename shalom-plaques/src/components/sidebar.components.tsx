@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineSearch, AiOutlineLeft } from 'react-icons/ai';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 type Props = {
 	categories: ICategory[];
@@ -11,96 +11,47 @@ type Props = {
 
 const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 	const [active, setActive] = useState<number | null>(null);
-	const [checks, setChecks] = useState<boolean[][]>(
-		categories.map((category) => {
-			return category.subCategories.map(() => {
-				return false;
-			});
-		})
-	);
-	const changeState = (index: number, index2: number, checked: boolean) => {
-		console.log(index, index2, checked);
-		const temp = [...checks[index]];
-		setChecks(
-			categories.map((category, i) => {
-				if (i === index) {
-					return category.subCategories.map((sub, j) => {
-						if (j === index2) {
-							return checked;
-						}
-						return temp[j];
-					});
-				}
-				return category.subCategories.map(() => {
-					return false;
+	const [subIds, setSubIds] = useState<string[]>([]);
+	const changeSub = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (e.currentTarget) {
+			const val = e.currentTarget.value;
+			if (e.currentTarget.checked && !subIds.includes(val)) {
+				setSubIds((old) => {
+					return [...old, val];
 				});
-			})
-		);
+			} else if (!e.currentTarget.checked && subIds.includes(val)) {
+				setSubIds((old) => {
+					return old.filter((id) => {
+						if (id === val) return false;
+						return true;
+					});
+				});
+			}
+		}
 	};
 	const handleClear = () => {
 		setActive(null);
-		setChecks(
-			categories.map((category) => {
-				return category.subCategories.map(() => {
-					return false;
-				});
-			})
-		);
+		setSubIds([]);
 	};
 	const handleClickCategory = (index: number) => {
 		if (active === index) {
 			setActive(null);
-			setChecks(
-				categories.map((category, i) => {
-					return category.subCategories.map(() => {
-						return false;
-					});
-				})
-			);
+			setSubIds([]);
 		} else {
 			setActive(index);
-			setChecks(
-				categories.map((category, i) => {
-					if (i === index) {
-						return category.subCategories.map(() => {
-							return true;
-						});
-					}
-					return category.subCategories.map(() => {
-						return false;
-					});
+			setSubIds(
+				categories[index].subCategories.map((sub) => {
+					return sub._id;
 				})
 			);
 		}
 	};
 	useEffect(() => {
-		if (active) {
+		if (active !== null) {
 			setCategoryId(categories[active]._id);
-			const temp = setSubCategoryIds(
-				categories[active].subCategories
-					.map((sub, index) => {
-						if (checks[active][index] === true) return sub._id;
-						return '';
-					})
-					.filter((subId) => {
-						if (subId === '') return false;
-						return true;
-					})
-			);
+			setSubCategoryIds(subIds);
 		}
-	}, [checks, active]);
-	useEffect(() => {
-		setChecks(
-			categories.map((category) => {
-				return category.subCategories.map(() => {
-					return false;
-				});
-			})
-		);
-	}, []);
-	useEffect(() => {
-		console.log(active);
-	}, [active]);
+	}, [active, subIds]);
 	return (
 		<div className='flex flex-col w-80 shadow-md min-h-full mb-0'>
 			{/* Search */}
@@ -122,7 +73,7 @@ const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 								category.subCategories.map((subCategory, j) => (
 									<motion.label key={subCategory._id} initial={{ opacity: 0, y: '-50%' }} animate={{ opacity: 1, y: 0 }} className='ml-3 btn-ghost flex justify-between px-2 cursor-pointer'>
 										<p className='text-lg'>{subCategory.name}</p>
-										<input type='checkbox' checked={checks[i][j]} onChange={(e) => changeState(i, j, e.currentTarget.checked)} />
+										<input type='checkbox' defaultChecked={true} value={subCategory._id} onChange={changeSub} />
 									</motion.label>
 								))}
 						</div>
