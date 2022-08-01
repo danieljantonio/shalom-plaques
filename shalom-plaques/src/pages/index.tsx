@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Card from '../components/card.components';
 import Carousel from '../components/carousel.components';
 import Hero from '../components/hero.components';
 import Sidebar from '../components/sidebar.components';
@@ -22,7 +21,6 @@ const Home: NextPage<Props> = ({ categories, subCategories, products }) => {
 				<Carousel />
 			</div>
 			<div className='h-full flex'>
-				<Sidebar categories={categories} />
 				<ProductCatalogue categories={categories} subCategories={subCategories} products={products} />
 			</div>
 		</div>

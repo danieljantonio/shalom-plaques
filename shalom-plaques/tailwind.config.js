@@ -48,6 +48,9 @@ module.exports = {
 			aspectRatio: {
 				logo: '4236/957',
 			},
+			screens: {
+				'3xl': '2000px',
+			},
 		},
 	},
 	plugins: [require('daisyui')],

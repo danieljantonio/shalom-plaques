@@ -1,29 +1,41 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Card from './card.components';
+import Sidebar from './sidebar.components';
 
 type Props = {
 	categories: ICategory[];
-	subCategories: ISubCategory[];
+	subCategories?: ISubCategory[];
 	products: IProduct[];
 };
 
+// To query and render specific products, enter either the categoryId for category based filters
+// and enter subCategoryId for subCategory based filters
 const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
+	const [productsState, setProducts] = useState<IProduct[]>(products);
+	const [categoryId, setCategoryId] = useState<string | null>(null);
+	const [subCategoryId, setSubCategoryId] = useState<string | null>(null);
+
+	const renderProducts = () => {
+		if (!categoryId && !subCategoryId) return products;
+		if (categoryId) return products.filter((products) => products.category._id === categoryId);
+		return products.filter((products) => products.subCategory._id === subCategoryId);
+	};
+
+	useEffect(() => {
+		setProducts(renderProducts());
+	}, [categoryId, subCategoryId]);
+
 	return (
 		<>
 			<div>
-				<div>Categories</div>
-				{categories.map((category) => (
-					<div className='collapse border border-black mb-1'>
-						<input type='checkbox' className='peer' />
-						<div className='collapse-title bg-secondary text-primary'>{category.name}</div>
-						<div className='collapse-content bg-secondary text-primary'>
-							{category.subCategories.map((subCategory) => (
-								<div className='p-2 hover:bg-primary'>
-									<p>{subCategory.name}</p>
-								</div>
-							))}
-						</div>
-					</div>
-				))}
+				<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryId={setSubCategoryId} />
+			</div>
+			<div className='w-full md:w-4/5 mx-auto'>
+				<div className='grid 3xl:grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1'>
+					{productsState.map((product) => (
+						<Card product={product} />
+					))}
+				</div>
 			</div>
 		</>
 	);
