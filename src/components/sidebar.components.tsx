@@ -9,6 +9,9 @@ type Props = {
 	setSubCategoryIds: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
+// TODO: Could try and simplify the code, don't use your own state but pass it over from the parent
+// TODO: The function used is inconsistent, some use your own useState, some use the parent's setState function
+// TODO: The code's readability could be improved.
 const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 	const [active, setActive] = useState<number | null>(null);
 	const [subIds, setSubIds] = useState<string[]>([]);
@@ -32,6 +35,7 @@ const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 
 	const handleClear = () => {
 		setActive(null);
+		setCategoryId(null);
 		setSubIds([]);
 	};
 
@@ -53,50 +57,54 @@ const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 		if (active !== null) {
 			setCategoryId(categories[active]._id);
 			setSubCategoryIds(subIds);
+		} else {
+			// cannot use handleClear as the dependency array is updated
+			setCategoryId(null);
+			setSubCategoryIds([]);
 		}
 	}, [active, subIds]);
 
 	return (
-		<div className='collapse'>
-			<input type='checkbox' className='sm:hidden' />
-			<div className='collapse-title text-xl sm:hidden flex w-full pl-5 justify-center btn'>
-				<AiOutlineFilter className='my-auto' />
-				Filter
-			</div>
-			<div className='smax:collapse-content'>
-				{/* SideBar */}
-				<div className='flex flex-col shadow-md min-h-full mb-0 border-r-2 w-full sm:w-80'>
-					{/* Search */}
-					<div className='relative px-5 py-5 grow-0 shrink basis-auto shadow-sm'>
-						<AiOutlineSearch className='absolute top-1/2 -translate-y-1/2 left-8 h-5 w-5 cursor-text' />
-						<input type='search' className='input w-full input-bordered input-sm pl-9' placeholder='Search...' />
-					</div>
-					{/* Checkbox */}
-					<button onClick={handleClear}>Clear</button>
-					<div className='grow shrink basis-auto'>
-						{categories.map((category, i) => (
-							<>
-								<div key={category._id} className='flex flex-col justify-between px-2 py-1 cursor-pointer'>
-									<p onClick={() => handleClickCategory(i)} className='relative text-lg btn-ghost px-2'>
-										{category.name}
-										<AiOutlineLeft className={active === i ? 'absolute right-1.5 top-1.5 -rotate-90 transition-transform' : 'absolute right-1.5 top-1.5 transition-transform'} />
-									</p>
-									{active === i &&
-										category.subCategories.map((subCategory, j) => (
-											<motion.label key={subCategory._id} initial={{ opacity: 0, y: '-50%' }} animate={{ opacity: 1, y: 0 }} className='ml-3 btn-ghost flex justify-between px-2 cursor-pointer'>
-												<p className='text-lg'>{subCategory.name}</p>
-												<input type='checkbox' defaultChecked={true} value={subCategory._id} onChange={changeSub} />
-											</motion.label>
-										))}
+		<div className='px-6'>
+			<div className='card shadow-lg border border-primary border-opacity-20 mt-4 collapse w-full'>
+				<input type='checkbox' className='sm:hidden' />
+				<div className='collapse-title text-xl sm:hidden flex w-full pl-5 justify-center btn'>
+					<AiOutlineFilter className='my-auto' />
+					Filter
+				</div>
+				<div className='smax:collapse-content'>
+					{/* SideBar */}
+					<div className='flex flex-col min-h-full mb-0 w-full'>
+						{/* Search */}
+						<div className='relative px-5 py-5 grow-0 shrink basis-auto shadow-sm'>
+							<AiOutlineSearch className='absolute top-1/2 -translate-y-1/2 left-8 h-5 w-5 cursor-text' />
+							<input type='search' className='input w-full input-bordered input-sm pl-9' placeholder='Search Product...' />
+						</div>
+						{/* Checkbox */}
+						<div className='grow shrink basis-auto'>
+							{categories.map((category, i) => (
+								<div key={i}>
+									<div key={category._id} className='flex flex-col justify-between px-2 py-1 cursor-pointer'>
+										<p onClick={() => handleClickCategory(i)} className='relative p-3 text-lg btn-ghost px-2'>
+											{category.name}
+											<AiOutlineLeft className={`absolute right-1.5 top-4 transition-transform ${active === i ? '-rotate-90' : ''}`} />
+										</p>
+										{active === i &&
+											category.subCategories.map((subCategory, j) => (
+												<motion.label key={subCategory._id} initial={{ opacity: 0, y: '-50%' }} animate={{ opacity: 1, y: 0 }} className='ml-3 btn-ghost flex justify-between px-2 cursor-pointer'>
+													<p className='text-lg p-1'>{subCategory.name}</p>
+													<input type='checkbox' defaultChecked={true} value={subCategory._id} onChange={changeSub} />
+												</motion.label>
+											))}
+									</div>
+									<div className='divider my-1'></div>
 								</div>
-								<div className='divider'></div>
-							</>
-						))}
+							))}
+						</div>
+						<button onClick={handleClear} className='btn p-4 mx-2 -mt-1 mb-2'>
+							Clear Selection
+						</button>
 					</div>
-					{/* footer */}
-					<Link href='/#'>
-						<a className='grow-0 shrink auto text-center'>back to top</a>
-					</Link>
 				</div>
 			</div>
 		</div>

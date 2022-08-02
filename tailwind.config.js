@@ -49,7 +49,7 @@ module.exports = {
 				logo: '4236/957',
 			},
 			screens: {
-				'3xl': '2000px',
+				mdl: '880px',
 			},
 		},
 	},

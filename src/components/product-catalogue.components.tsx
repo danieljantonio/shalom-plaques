@@ -17,21 +17,21 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 
 	const renderProducts = () => {
 		if (!categoryId && subCategoryIds.length <= 0) return products;
-		if (categoryId) return products.filter((products) => products.category._id === categoryId);
-		return products.filter((product) => subCategoryIds.includes(product.subCategory._id));
+		if (subCategoryIds.length > 0) return products.filter((product) => subCategoryIds.includes(product.subCategory._id));
+		return products.filter((products) => products.category._id === categoryId);
 	};
 
 	useEffect(() => {
 		setProducts(renderProducts());
-		console.log(categoryId);
-		console.log(subCategoryIds);
 	}, [categoryId, subCategoryIds]);
 
 	return (
-		<div className='flex flex-col sm:flex-row w-full'>
-			<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryIds={setSubCategoryIds} />
-			<div className='w-full md:w-4/5 mx-auto'>
-				<div className='grid 3xl:grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1'>
+		<div className='flex flex-col mdl:flex-row w-full justify-between'>
+			<div className='mdl:w-1/5'>
+				<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryIds={setSubCategoryIds} />
+			</div>
+			<div className='mdl:w-4/5'>
+				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1'>
 					{productsState.map((product, index) => (
 						<Card product={product} key={index} />
 					))}
