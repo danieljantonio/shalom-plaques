@@ -1,5 +1,6 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
+import ProductCatalogue from '../components/product-catalogue.components';
 
 type Props = {
 	categories: ICategory[];
@@ -9,24 +10,10 @@ type Props = {
 
 const Products: NextPage<Props> = ({ categories, subCategories, products }) => {
 	return (
-		<>
-			<div>
-				<div>Categories</div>
-				{categories.map((category) => (
-					<div className='collapse border border-black mb-1'>
-						<input type='checkbox' className='peer' />
-						<div className='collapse-title bg-secondary text-primary'>{category.name}</div>
-						<div className='collapse-content bg-secondary text-primary'>
-							{category.subCategories.map((subCategory) => (
-								<div className='p-2 hover:bg-primary'>
-									<p>{subCategory.name}</p>
-								</div>
-							))}
-						</div>
-					</div>
-				))}
-			</div>
-		</>
+		<div className='w-10/12 mx-auto mt-8'>
+			<p className='text-2xl mx-auto w-full'>Product Catalogue</p>
+			<ProductCatalogue categories={categories} subCategories={subCategories} products={products} />
+		</div>
 	);
 };
 
