@@ -16,7 +16,7 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	const [subCategoryIds, setSubCategoryIds] = useState<string[]>([]);
 
 	const renderProducts = () => {
-		if (!categoryId && subCategoryIds.length > 0) return products;
+		if (!categoryId && subCategoryIds.length <= 0) return products;
 		if (categoryId) return products.filter((products) => products.category._id === categoryId);
 		return products.filter((product) => subCategoryIds.includes(product.subCategory._id));
 	};
