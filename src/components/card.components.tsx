@@ -10,8 +10,7 @@ const Card = ({ product }: { product: IProduct }) => {
 				<h2 className='card-title'>{product.series}</h2>
 				<p>{product.description}</p>
 				<div className='card-actions justify-end'>
-					<div className='badge badge-outline'>{product.category.name}</div>
-					<div className='badge badge-outline'>{product.subCategory.name}</div>
+					<div className='badge badge-outline badge-primary'>{product.subCategory.name}</div>
 				</div>
 			</div>
 		</div>
