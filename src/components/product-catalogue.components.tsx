@@ -28,10 +28,8 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	}, [categoryId, subCategoryIds]);
 
 	return (
-		<>
-			<div>
-				<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryIds={setSubCategoryIds} />
-			</div>
+		<div className='flex flex-col sm:flex-row w-full'>
+			<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryIds={setSubCategoryIds} />
 			<div className='w-full md:w-4/5 mx-auto'>
 				<div className='grid 3xl:grid-cols-4 2xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1'>
 					{productsState.map((product, index) => (
@@ -39,7 +37,7 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 					))}
 				</div>
 			</div>
-		</>
+		</div>
 	);
 };
 
