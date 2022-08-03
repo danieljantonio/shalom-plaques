@@ -6,24 +6,24 @@ import { motion } from 'framer-motion';
 type Props = {
 	categories: ICategory[];
 	setCategoryId: React.Dispatch<React.SetStateAction<string | null>>;
+	subCategoryIds: string[];
 	setSubCategoryIds: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
 // TODO: Could try and simplify the code, don't use your own state but pass it over from the parent
 // TODO: The function used is inconsistent, some use your own useState, some use the parent's setState function
 // TODO: The code's readability could be improved.
-const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
+const Sidebar = ({ categories, setCategoryId, subCategoryIds, setSubCategoryIds }: Props) => {
 	const [active, setActive] = useState<number | null>(null);
-	const [subIds, setSubIds] = useState<string[]>([]);
 
 	const changeSub = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.currentTarget) {
 			const val = e.currentTarget.value;
 
-			if (e.currentTarget.checked && !subIds.includes(val)) setSubIds((old) => [...old, val]);
+			if (e.currentTarget.checked && !subCategoryIds.includes(val)) setSubCategoryIds((old) => [...old, val]);
 
-			if (!e.currentTarget.checked && subIds.includes(val)) {
-				setSubIds((old) => {
+			if (!e.currentTarget.checked && subCategoryIds.includes(val)) {
+				setSubCategoryIds((old) => {
 					return old.filter((id) => {
 						if (id === val) return false;
 						return true;
@@ -36,17 +36,17 @@ const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 	const handleClear = () => {
 		setActive(null);
 		setCategoryId(null);
-		setSubIds([]);
+		setSubCategoryIds([]);
 	};
 
 	const handleClickCategory = (index: number) => {
 		if (active === index) {
 			setActive(null);
-			setSubIds([]);
+			setSubCategoryIds([]);
 			return;
 		}
 		setActive(index);
-		setSubIds(
+		setSubCategoryIds(
 			categories[index].subCategories.map((sub) => {
 				return sub._id;
 			})
@@ -56,13 +56,11 @@ const Sidebar = ({ categories, setCategoryId, setSubCategoryIds }: Props) => {
 	useEffect(() => {
 		if (active !== null) {
 			setCategoryId(categories[active]._id);
-			setSubCategoryIds(subIds);
 		} else {
-			// cannot use handleClear as the dependency array is updated
 			setCategoryId(null);
 			setSubCategoryIds([]);
 		}
-	}, [active, subIds]);
+	}, [active]);
 
 	return (
 		<div className='px-6'>

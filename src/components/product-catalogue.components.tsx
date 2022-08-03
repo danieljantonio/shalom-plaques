@@ -26,9 +26,9 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	}, [categoryId, subCategoryIds]);
 
 	return (
-		<div className='flex flex-col mdl:flex-row w-full justify-between'>
-			<div className='mdl:w-1/5'>
-				<Sidebar categories={categories} setCategoryId={setCategoryId} setSubCategoryIds={setSubCategoryIds} />
+		<div className='flex flex-col mdl:flex-row w-full justify-between mt-14'>
+			<div className=' w-full mdl:w-96'>
+				<Sidebar categories={categories} setCategoryId={setCategoryId} subCategoryIds={subCategoryIds} setSubCategoryIds={setSubCategoryIds} />
 			</div>
 			<div className='mdl:w-4/5'>
 				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1'>
