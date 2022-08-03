@@ -44,12 +44,16 @@ module.exports = {
 			colors: {
 				toph: 'rgb(0,0,0,0.3)',
 				topb: 'rgb(0,0,0,0.9)',
+				quote: 'rgb(0,0,0,0.5)',
 			},
 			aspectRatio: {
 				logo: '4236/957',
 			},
 			screens: {
 				mdl: '880px',
+			},
+			fontFamily: {
+				uchen: ['Uchen', 'serif'],
 			},
 		},
 	},

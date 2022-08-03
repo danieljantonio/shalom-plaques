@@ -27,8 +27,16 @@ const AboutUs: NextPage = () => {
 						<Image src='/images/about/wood4darken.jpg' layout='fill' objectFit='cover' />
 					</div>
 					<div className='h-screen'>
-						<div className='max-w-sm lg:max-w-md m-auto rounded-full overflow-hidden mt-10 sm:mt-32'>
+						<div className='w-full mdl:w-96 mt-10 mdl:mt-10 mdl:mr-10  rounded-full overflow-hidden mx-auto float-right'>
 							<Image src='/images/about/about.JPG' layout='responsive' width={2000} height={2000} />
+						</div>
+						<div className='bg-quote text-3xl mdl:text-5xl text-white font-uchen font p-10 rounded-3xl mdl:w-3/4 mx-auto mt-40'>
+							<q className=' tracking-wide leading-normal'>
+								A SHOUT OF <span className='text-yellow-500'> PRAISE AND GRATITUDE</span> IS THE BEST WAY TO HANDLE <span className=' text-red-500'> THE IMPOSSIBLE</span>
+							</q>
+							{/* <q className=' tracking-wide leading-normal>
+								A Shout of <span className='text-yellow-500'>Praise and Gratitude</span> Is the Best Way to Handle <span className='whitespace-nowrap text-red-500'>The Impossible</span>
+							</q> */}
 						</div>
 					</div>
 					<div className=''>
@@ -37,12 +45,12 @@ const AboutUs: NextPage = () => {
 						</div>
 					</div>
 					<div className=''>
-						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
+						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-2.JPG' layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
 					<div className=''>
-						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
+						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-3.JPG' layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
@@ -52,7 +60,7 @@ const AboutUs: NextPage = () => {
 						</div>
 					</div>
 					<div className=''>
-						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
+						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-5.JPG' layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
@@ -62,7 +70,7 @@ const AboutUs: NextPage = () => {
 						</div>
 					</div>
 					<div className='pb-32'>
-						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32 mb-52'>
+						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32 mb-52'>
 							<Image src='/images/about/people-7.JPG' layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
