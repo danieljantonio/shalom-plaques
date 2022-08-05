@@ -11,7 +11,7 @@ type Props = {
 
 const Products: NextPage<Props> = ({ categories, subCategories, products }) => {
 	return (
-		<div className='w-10/12 mx-auto mt-8'>
+		<div className='mx-auto max-w-full'>
 			<ProductHero />
 			<p className='text-2xl mx-auto w-full'>Product Catalogue</p>
 			<ProductCatalogue categories={categories} subCategories={subCategories} products={products} />

@@ -40,6 +40,7 @@ module.exports = {
 				'1/2w': '50vw',
 				'2/5h': '40vh',
 				'3/5h': '60vh',
+				100: '28rem',
 			},
 			colors: {
 				toph: 'rgb(0,0,0,0.3)',
@@ -50,7 +51,7 @@ module.exports = {
 				logo: '4236/957',
 			},
 			screens: {
-				mdl: '880px',
+				mdl: '940px',
 			},
 			fontFamily: {
 				uchen: ['Uchen', 'serif'],
