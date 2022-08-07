@@ -24,11 +24,11 @@ const AboutUs: NextPage = () => {
 				<motion.div initial={{ y: '-150%' }} animate={{ y: '0%' }} className='fixed left-1/2 bottom-0 w-1/2 h-1/5 font-serif backdrop-invert -z-10'></motion.div>
 				<div className='flex flex-col basis-1/2 grow-0 px-5'>
 					<div className='fixed h-full w-full sm:w-1/2 left-0 top-0 -z-10'>
-						<Image src='/images/about/wood4darken.jpg' layout='fill' objectFit='cover' />
+						<Image src='/images/about/wood4dsr.jpg' layout='fill' objectFit='cover' />
 					</div>
 					<div className='h-screen'>
 						<div className='w-full mdl:w-96 mt-10 mdl:mt-10 mdl:mr-10  rounded-full overflow-hidden mx-auto float-right'>
-							<Image src='/images/about/about.JPG' layout='responsive' width={2000} height={2000} />
+							<Image src='/images/about/aboutscale.JPG' layout='responsive' width={2000} height={2000} />
 						</div>
 						<div className='bg-quote text-3xl mdl:text-5xl text-white font-uchen font p-10 rounded-3xl mdl:w-3/4 mx-auto mt-40'>
 							<q className=' tracking-wide leading-normal'>
