@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Card from './card.components';
+import Card from './product-card.components';
 import Sidebar from './sidebar.components';
+import { useAutoAnimate } from '@formkit/auto-animate/react';
 
 type Props = {
 	categories: ICategory[];
@@ -14,6 +15,7 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	const [productsState, setProducts] = useState<IProduct[]>(products);
 	const [categoryId, setCategoryId] = useState<string | null>(null);
 	const [subCategoryIds, setSubCategoryIds] = useState<string[]>([]);
+	const [listRef] = useAutoAnimate<HTMLDivElement>({ duration: 250, easing: 'ease-in-out' });
 
 	const renderProducts = () => {
 		if (!categoryId && subCategoryIds.length <= 0) return products;
@@ -31,7 +33,7 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 				<Sidebar categories={categories} setCategoryId={setCategoryId} subCategoryIds={subCategoryIds} setSubCategoryIds={setSubCategoryIds} />
 			</div>
 			<div className='mdl:w-4/5'>
-				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1'>
+				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1' ref={listRef}>
 					{productsState.map((product, index) => (
 						<Card product={product} key={index} />
 					))}
