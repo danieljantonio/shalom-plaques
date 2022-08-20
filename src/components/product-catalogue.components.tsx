@@ -28,12 +28,12 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	}, [categoryId, subCategoryIds]);
 
 	return (
-		<div className='flex flex-col mdl:flex-row w-full justify-between mdl:mt-14'>
-			<div className=' w-full mdl:w-96'>
+		<div className='flex flex-col mdl:flex-row w-full justify-between mdl:mt-14 2xl:px-24'>
+			<div className='w-full mdl:w-100 mx-auto'>
 				<Sidebar categories={categories} setCategoryId={setCategoryId} subCategoryIds={subCategoryIds} setSubCategoryIds={setSubCategoryIds} />
 			</div>
 			<div className='mdl:w-4/5'>
-				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1' ref={listRef}>
+				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1'>
 					{productsState.map((product, index) => (
 						<Card product={product} key={index} />
 					))}
