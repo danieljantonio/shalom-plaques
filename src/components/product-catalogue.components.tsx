@@ -33,7 +33,7 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 				<Sidebar categories={categories} setCategoryId={setCategoryId} subCategoryIds={subCategoryIds} setSubCategoryIds={setSubCategoryIds} />
 			</div>
 			<div className='mdl:w-4/5'>
-				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 grid-cols-1'>
+				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 md:grid-cols-2 grid-cols-1'>
 					{productsState.map((product, index) => (
 						<Card product={product} key={index} />
 					))}
