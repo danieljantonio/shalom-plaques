@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from 'next';
 import React from 'react';
-import ProductCatalogue from '../components/product-catalogue.components';
-import ProductHero from '../components/producthero.components';
+import ProductCatalogue from '../../components/product-catalogue.components';
+import ProductHero from '../../components/producthero.components';
 
 type Props = {
 	categories: ICategory[];
