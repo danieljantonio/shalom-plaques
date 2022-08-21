@@ -14,7 +14,6 @@ const Products: NextPage<Props> = ({ categories, subCategories, products }) => {
 	return (
 		<div className='mx-auto max-w-full'>
 			<ProductHero />
-			<p className='text-2xl mx-auto w-full'>Product Catalogue</p>
 			<ProductCatalogue categories={categories} subCategories={subCategories} products={products} />
 		</div>
 	);
