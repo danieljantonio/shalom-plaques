@@ -18,7 +18,13 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	const [listRef] = useAutoAnimate<HTMLDivElement>({ duration: 250, easing: 'ease-in-out' });
 
 	const renderProducts = () => {
+		console.log(categoryId);
+		console.log(subCategoryIds.length);
+
+		console.log(!categoryId && subCategoryIds.length <= 0);
+
 		if (!categoryId && subCategoryIds.length <= 0) return products;
+		if (subCategoryIds.length === 0) return [];
 		if (subCategoryIds.length > 0) return products.filter((product) => subCategoryIds.includes(product.subCategory._id));
 		return products.filter((products) => products.category._id === categoryId);
 	};
