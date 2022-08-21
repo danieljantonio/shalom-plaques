@@ -29,7 +29,7 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	}, [categoryId, subCategoryIds]);
 
 	return (
-		<div className='flex flex-col mdl:flex-row w-full justify-between mdl:mt-14 2xl:px-24'>
+		<div className='flex flex-col mdl:flex-row w-full justify-between mdl:mt-14 2xl:px-24' style={{ minHeight: '70vh' }}>
 			<div className='w-full mdl:w-100 mx-auto'>
 				<Sidebar categories={categories} setCategoryId={setCategoryId} subCategoryIds={subCategoryIds} setSubCategoryIds={setSubCategoryIds} />
 			</div>

@@ -4,7 +4,7 @@ import React from 'react';
 const Card = ({ product }: { product: IProduct }) => {
 	return (
 		<Link href={`/products/${product._id}`}>
-			<div className='card m-4 mx-auto w-4/5 md:w-80 bg-base-100 shadow-lg hover:cursor-pointer hover:shadow-2xl hover:scale-105 transition-all'>
+			<div className='card m-4 mx-auto w-4/5 md:w-80 bg-base-100 shadow-lg hover:cursor-pointer hover:shadow-2xl hover:scale-105 transition-all h-fit'>
 				<figure>
 					<img src='https://placeimg.com/400/225/arch' className='object-cover md:w-full h-56' alt='Shoes' />
 				</figure>
