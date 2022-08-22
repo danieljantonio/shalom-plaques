@@ -35,6 +35,6 @@ export const getAllProductIds = async () => {
 
 		return allProductIds;
 	} catch (error) {
-		console.error(error);
+		return [];
 	}
 };
