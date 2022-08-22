@@ -6,7 +6,8 @@ import Sidebar from '../components/sidebar.components';
 //local
 import { GetStaticProps } from 'next';
 import ProductCatalogue from '../components/product-catalogue.components';
-import { fetchData } from '../utils/fetch.utils';
+import { fetchData } from '../lib/products';
+import { getAllProductIds } from '../lib/products';
 
 type Props = {
 	categories: ICategory[];
@@ -27,7 +28,7 @@ const Home: NextPage<Props> = ({ categories, subCategories, products }) => {
 		</div>
 	);
 };
-
+getAllProductIds();
 export const getStaticProps: GetStaticProps = async (ctx) => fetchData();
 
 export default Home;

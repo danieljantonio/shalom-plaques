@@ -20,3 +20,21 @@ export const fetchData = async () => {
 		};
 	}
 };
+
+export const getAllProductIds = async () => {
+	try {
+		const { products }: { products: IProduct[] } = await fetch(`${process.env.API_URL}/product`).then((data) => data.json());
+
+		const allProductIds = products.map((product) => {
+			return {
+				params: {
+					id: product._id,
+				},
+			};
+		});
+
+		return allProductIds;
+	} catch (error) {
+		console.error(error);
+	}
+};
