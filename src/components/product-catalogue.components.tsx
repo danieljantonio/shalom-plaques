@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from './product-card.components';
 import Sidebar from './sidebar.components';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
+import ProductModal from './modal.components';
 
 type Props = {
 	categories: ICategory[];
@@ -16,12 +17,19 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	const [categoryId, setCategoryId] = useState<string | null>(null);
 	const [subCategoryIds, setSubCategoryIds] = useState<string[]>([]);
 	const [listRef] = useAutoAnimate<HTMLDivElement>({ duration: 250, easing: 'ease-in-out' });
+	const [showModal, setShowModal] = useState<boolean>(false);
+	const [selectedProduct, setSelectedProduct] = useState<any>();
 
 	const renderProducts = () => {
 		if (!categoryId && subCategoryIds.length <= 0) return products;
 		if (subCategoryIds.length === 0) return [];
 		if (subCategoryIds.length > 0) return products.filter((product) => subCategoryIds.includes(product.subCategory._id));
 		return products.filter((products) => products.category._id === categoryId);
+	};
+
+	const onClickProduct = (product: IProduct) => {
+		setSelectedProduct(product);
+		setShowModal(true);
 	};
 
 	useEffect(() => {
@@ -36,10 +44,11 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 			<div className='mdl:w-4/5'>
 				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 md:grid-cols-2 grid-cols-1' ref={listRef}>
 					{productsState.map((product, index) => (
-						<Card product={product} key={index} />
+						<Card product={product} key={index} onClick={() => onClickProduct(product)} />
 					))}
 				</div>
 			</div>
+			<ProductModal product={selectedProduct} closeModal={() => setShowModal(false)} showModal={showModal} />
 		</div>
 	);
 };

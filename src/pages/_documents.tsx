@@ -1,6 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+import ReactModal from 'react-modal';
 
 export default function Document() {
+	ReactModal.setAppElement('#__next');
+
 	return (
 		<Html>
 			<Head>

@@ -18,7 +18,7 @@ type Props = {
 const Home: NextPage<Props> = ({ categories, subCategories, products }) => {
 	return (
 		<div>
-			<div className='relative overflow-hidden h-fit bg-red-300'>
+			<div className='relative overflow-hidden h-fit bg-red-300 z-0'>
 				<Hero />
 				<Carousel />
 			</div>
