@@ -18,6 +18,7 @@
 		"react-dom": "18.2.0",
 		"react-icons": "^4.4.0",
 		"react-modal": "^3.15.1",
+		"react-photo-collage": "^1.0.9",
 		"swiper": "^8.3.1"
 	},
 	"devDependencies": {
