@@ -39,8 +39,16 @@ export const getAllProductIds = async () => {
 	}
 };
 
-export const getProductImageUrl = (product: IProduct) => {
+export const getProductImageUrls = (product: IProduct) => {
 	const productImages = product.images;
-	if (productImages.length < 1) return null;
+	if (productImages.length < 1) return [];
 	return productImages.map((imgUrl) => `${process.env.NEXT_PUBLIC_API_URL}/${imgUrl}`);
+};
+
+export const getCollageImageUrls = (product: IProduct) => {
+	const productImages = product.images;
+	if (productImages.length < 1) return [];
+	return productImages.map((imgUrl) => {
+		return { source: `${process.env.NEXT_PUBLIC_API_URL}/${imgUrl}` };
+	});
 };

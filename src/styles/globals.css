@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.react-images__view-image {
+	max-height: 80vh !important;
+}

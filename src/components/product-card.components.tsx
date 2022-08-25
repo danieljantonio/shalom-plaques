@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import { getProductImageUrl } from '../lib/products';
+import { getProductImageUrls } from '../lib/products';
 /* 
 	<Link href={`/products/${product._id}`}>
 	</Link>
@@ -11,13 +11,8 @@ type Props = {
 	onClick: () => void;
 };
 
-const Card: React.FC<Props> = ({ product, onClick: _onClick }) => {
-	const onClick = () => {
-		console.log(getProductImageUrl(product));
-		_onClick();
-	};
-
-	const imageUrl = product.images.length > 0 ? `${process.env.NEXT_PUBLIC_API_URL}/${product.images[0]}` : 'https://placeimg.com/400/225/arch';
+const Card: React.FC<Props> = ({ product, onClick }) => {
+	const imageUrl = product.images.length > 0 ? getProductImageUrls(product)[0] : 'https://placeimg.com/400/225/arch';
 
 	return (
 		<div className='card m-4 mx-auto w-4/5 md:w-80 bg-base-100 shadow-lg hover:cursor-pointer hover:shadow-2xl hover:scale-105 transition-all h-fit' onClick={onClick}>

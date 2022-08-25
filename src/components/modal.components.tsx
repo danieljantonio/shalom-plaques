@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { ReactPhotoCollage } from 'react-photo-collage';
+import { getCollageImageUrls } from '../lib/products';
 
 type Props = {
 	product: IProduct;
@@ -28,13 +30,25 @@ const modalStyle: Modal.Styles = {
 
 const ProductModal: React.FC<Props> = ({ product, showModal, closeModal }) => {
 	if (!product) return <></>;
+
+	const photos = getCollageImageUrls(product);
+
+	const collageSetting = {
+		width: '650px',
+		height: ['500px', '225px'],
+		layout: [1, 2],
+		showNumOfRemainingPhotos: true,
+		photos: photos,
+		style: { padding: '4px', backgroundSize: 'contain' },
+	};
+
 	return (
 		<>
 			<Modal isOpen={showModal} shouldCloseOnOverlayClick={true} onRequestClose={closeModal} style={modalStyle}>
-				<div className='flex flex-column justify-between h-full'>
-					<div className='w-1/2 border-r-4'>left</div>
-					<div className='w-1/2'>
-						<h1>{product.series}</h1>
+				<div className='flex lg:flex-column justify-between h-full'>
+					<div className='w-1/2 flex items-center pr-5 justify-center'>{photos.length > 0 ? <ReactPhotoCollage {...collageSetting} /> : <>No Image Found</>}</div>
+					<div className='w-1/2 pl-5 border-l-2'>
+						<h1 className=''>{product.series}</h1>
 						<p>
 							{product.category.name} - {product.category.name}
 						</p>
