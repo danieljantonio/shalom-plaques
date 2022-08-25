@@ -1,8 +1,8 @@
 export const fetchData = async () => {
 	try {
-		const { categories } = await fetch(`${process.env.API_URL}/category`).then((data) => data.json());
-		const { subCategories } = await fetch(`${process.env.API_URL}/subcategory`).then((data) => data.json());
-		const { products } = await fetch(`${process.env.API_URL}/product`).then((data) => data.json());
+		const { categories } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/category`).then((data) => data.json());
+		const { subCategories } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/subcategory`).then((data) => data.json());
+		const { products } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`).then((data) => data.json());
 		return {
 			props: {
 				categories: categories,
@@ -23,7 +23,7 @@ export const fetchData = async () => {
 
 export const getAllProductIds = async () => {
 	try {
-		const { products }: { products: IProduct[] } = await fetch(`${process.env.API_URL}/product`).then((data) => data.json());
+		const { products }: { products: IProduct[] } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`).then((data) => data.json());
 
 		const allProductIds = products.map((product) => {
 			return {
@@ -37,4 +37,11 @@ export const getAllProductIds = async () => {
 	} catch (error) {
 		return [];
 	}
+};
+
+export const getProductImageUrl = (product: IProduct) => {
+	const productImages = product.images;
+	if (productImages.length < 1) return null;
+	let photos = [];
+	return productImages.map((imgUrl) => `${process.env.NEXT_PUBLIC_API_URL}/${imgUrl}`);
 };

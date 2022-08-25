@@ -35,7 +35,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-	const { product } = await fetch(`${process.env.API_URL}/product/${params?.id}`).then((data) => data.json());
+	const { product } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/${params?.id}`).then((data) => data.json());
 
 	return { props: { product } };
 };
