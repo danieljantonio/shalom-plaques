@@ -5,3 +5,8 @@
 .react-images__view-image {
 	max-height: 80vh !important;
 }
+
+#modal-content div {
+	background-position: initial;
+	background-size: cover !important;
+}

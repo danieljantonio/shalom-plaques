@@ -1,10 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
 import { getProductImageUrls } from '../lib/products';
-/* 
-	<Link href={`/products/${product._id}`}>
-	</Link>
-*/
 
 type Props = {
 	product: IProduct;
@@ -19,7 +15,7 @@ const Card: React.FC<Props> = ({ product, onClick }) => {
 			<Image src={`${imageUrl}`} className='object-cover md:w-full h-56' alt={product.series} layout='fill'></Image>
 			<div className='text-white card-body p-4 bg-gradient-to-t from-black absolute -right-0 w-full bottom-0'>
 				<h2 className='card-title'>{product.series}</h2>
-				{/* <p>{product.description}</p> */}
+				<p>{product.description}</p>
 				<div className='card-actions justify-end'>
 					<div className='badge badge-outline'>{product.subCategory.name}</div>
 				</div>
