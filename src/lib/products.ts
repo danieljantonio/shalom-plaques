@@ -42,6 +42,5 @@ export const getAllProductIds = async () => {
 export const getProductImageUrl = (product: IProduct) => {
 	const productImages = product.images;
 	if (productImages.length < 1) return null;
-	let photos = [];
 	return productImages.map((imgUrl) => `${process.env.NEXT_PUBLIC_API_URL}/${imgUrl}`);
 };
