@@ -7,6 +7,6 @@
 }
 
 #modal-content div {
-	background-position: initial;
-	background-size: cover !important;
+	background-position: center;
+	background-size: contain !important;
 }

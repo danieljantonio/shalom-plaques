@@ -42,8 +42,7 @@ const ProductModal: React.FC<Props> = ({ product, showModal, closeModal }) => {
 		style: { padding: '4px', backgroundSize: 'contain' },
 	};
 	const collageSettingSmall = {
-		width: '650px',
-		height: ['350px', '125px'],
+		height: ['350px', '150px'],
 		layout: [1, 2],
 		showNumOfRemainingPhotos: true,
 		photos: photos,
@@ -56,14 +55,16 @@ const ProductModal: React.FC<Props> = ({ product, showModal, closeModal }) => {
 				<div id='modal-content' className='flex flex-col lg:flex-row justify-between h-full'>
 					<div className='h-full w-1/2 items-center lg:pr-5 justify-center hidden lg:flex'>{photos.length > 0 ? <ReactPhotoCollage {...collageSetting} /> : <>No Image Found</>}</div>
 					<div className='w-full h-4/6 flex items-center lg:pr-5 justify-center lg:hidden'>{photos.length > 0 ? <ReactPhotoCollage {...collageSettingSmall} /> : <>No Image Found</>}</div>
-					<div className='w-full h-2/6 lg:h-full lg:w-1/2 pl-5 border-none lg:border-l-2'>
-						<h1 className='text-6xl font-bold mb-4'>{product.series}</h1>
-						<div className='pl-2'>
-							<div className='absolute bottom-6 right-6 flex space-x-4'>
-								<div className='border border-orange-600 rounded-full px-4 py-1'>{product.category.name}</div>
-								<div className='border border-orange-600 rounded-full px-4 py-1'>{product.subCategory.name}</div>
+					<div className='w-full h-2/6 lg:w-1/2 pl-5 lg:h-full lg:border-l-2'>
+						<div className='lg:my-20'>
+							<h1 className='text-6xl font-bold mb-4'>{product.series}</h1>
+							<div className='pl-2'>
+								<div className='absolute bottom-6 right-6 flex space-x-4'>
+									<div className='border border-orange-600 rounded-full px-4 py-1'>{product.category.name}</div>
+									<div className='border border-orange-600 rounded-full px-4 py-1'>{product.subCategory.name}</div>
+								</div>
+								<div className='italic text-gray-500'>{product.description ? product.description : 'No description added.'}</div>
 							</div>
-							<div className='italic text-gray-500'>{product.description ? product.description : 'No description added.'}</div>
 						</div>
 					</div>
 				</div>
