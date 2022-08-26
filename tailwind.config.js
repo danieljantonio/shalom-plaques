@@ -51,7 +51,7 @@ module.exports = {
 				logo: '4236/957',
 			},
 			screens: {
-				mdl: '940px',
+				mdl: '1020px',
 			},
 			fontFamily: {
 				uchen: ['Uchen', 'serif'],
