@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 const AboutUs: NextPage = () => {
 	const [isFixed, setIsFixed] = useState(false);
 	const ref = useRef<HTMLDivElement>(null);
+	
 	useEffect(() => {
 		const onscroll = () => {
 			if (ref.current?.scrollHeight) {
@@ -18,7 +19,7 @@ const AboutUs: NextPage = () => {
 		};
 		window.addEventListener('scroll', onscroll);
 	}, []);
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+
 	return (
 		<div className='flex flex-col'>
 			<div className='flex flex-col sm:flex-row overflow-hidden'>
@@ -39,37 +40,37 @@ const AboutUs: NextPage = () => {
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-1.JPG`} layout='responsive' width={864} height={576} />
+							<Image src='/images/about/people-1.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-2.JPG`} layout='responsive' width={864} height={576} />
+							<Image src='/images/about/people-2.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-3.JPG`} layout='responsive' width={864} height={576} />
+							<Image src='/images/about/people-3.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-4.JPG`} layout='responsive' width={576} height={864} />
+							<Image src='/images/about/people-4.JPG' layout='responsive' width={576} height={864} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-5.JPG`} layout='responsive' width={864} height={576} />
+							<Image src='/images/about/people-5.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-6.JPG`} layout='responsive' width={864} height={576} />
+							<Image src='/images/about/people-6.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className='pb-32'>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32 mb-52'>
-							<Image src={`${baseUrl}/images/about/people-7.JPG`} layout='responsive' width={864} height={576} />
+							<Image src='/images/about/people-7.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 				</div>
