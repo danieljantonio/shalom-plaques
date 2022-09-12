@@ -8,7 +8,7 @@ const App: React.FC = () => {
 	const isAuthenticated = useSelector((state: RootState) => state.user.isAuthenticated);
 	return (
 		<div className='App'>
-			<Router>
+			<Router basename='/'> {/* set basename='/admin' for production builds*/}
 				<Routes>
 					{renderRoutes(isAuthenticated).map((route) => {
 						return route;
