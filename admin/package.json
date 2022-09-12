@@ -31,7 +31,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"prod": "pm2 serve build 3000 --spa --name 'admin'"
+		"prod": "pm2 serve build 3001 --spa --name 'admin'"
 	},
 	"proxy": "http://localhost:5000",
 	"eslintConfig": {
