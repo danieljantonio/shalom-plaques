@@ -33,7 +33,7 @@
 		"eject": "react-scripts eject",
 		"prod": "pm2 serve build 3001 --spa --name 'admin'"
 	},
-	"proxy": "http://localhost:5000",
+	"proxy": "http://157.230.38.3:5000",
 	"eslintConfig": {
 		"extends": [
 			"react-app",
