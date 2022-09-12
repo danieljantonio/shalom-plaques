@@ -12,7 +12,7 @@ export const fetchCategories = () => {
 	return async (dispatch: Dispatch) => {
 		try {
 			dispatch({ type: 'LOADING_START' });
-			const { data } = await axios.get('/category');
+			const { data } = await axios.get(`${process.env.REACT_APP_API_URL}/category`);
 			const { categories } = data;
 
 			const action: CategoryAction = {
@@ -55,7 +55,7 @@ export const deleteCategory = (categoryId: string) => {
 		try {
 			dispatch({ type: 'LOADING_START' });
 			message.success('Product deleted', 1);
-			const { data } = await axios.delete(`/category/${categoryId}`);
+			const { data } = await axios.delete(`${process.env.REACT_APP_API_URL}/category/${categoryId}`);
 
 			const action: CategoryAction = {
 				type: actionTypes.DELETE_CATEGORY_SUCCESS,

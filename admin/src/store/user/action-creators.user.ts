@@ -21,7 +21,7 @@ export const login = (credentials: LoginCredentials) => {
 		try {
 			dispatch({ type: 'LOADING_START' });
 			message.loading('Logging in...', 1);
-			const { data } = await axios.post(`/auth/login`, credentials);
+			const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, credentials);
 			const { status, token, user } = data;
 
 			if (status !== 200) throw Error('Failed to login');
@@ -47,7 +47,7 @@ export const register = (credentials: RegisterCredentials) => {
 		try {
 			dispatch({ type: 'LOADING_START' });
 			message.loading('Registering...', 1);
-			const {data} = await axios.post(`/auth/register`, credentials)
+			const {data} = await axios.post(`${process.env.REACT_APP_API_URL}/auth/register`, credentials)
 			const { status, token, user } = data;
 
 			if (status !== 200) throw Error('Failed to register');

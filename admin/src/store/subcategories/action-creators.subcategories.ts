@@ -56,7 +56,7 @@ export const deleteSubCategory = (subCategoryId: string) => {
 		try {
 			dispatch({ type: 'LOADING_START' });
 			message.success('Product deleted', 1);
-			const { data } = await axios.delete(`/subcategory/${subCategoryId}`);
+			const { data } = await axios.delete(`${process.env.REACT_APP_API_URL}/subcategory/${subCategoryId}`);
 
 			const action: SubCategoryAction = {
 				type: actionTypes.DELETE_SUBCATEGORY_SUCCESS,

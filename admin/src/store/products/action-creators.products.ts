@@ -72,7 +72,7 @@ export const createProduct = (newProduct: CreateProduct) => {
 				}
 			}
 
-			const { data } = await axios.post('/product', formData, { headers: { 'Content-Type': 'multipart/form-data' } });
+			const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/product`, formData, { headers: { 'Content-Type': 'multipart/form-data' } });
 
 			const action: ProductAction = {
 				type: actionTypes.CREATE_PRODUCT_SUCCESS,
@@ -95,7 +95,7 @@ export const deleteProduct = (productId: string) => {
 		try {
 			dispatch({ type: 'LOADING_START' });
 			message.success('Product deleted', 1);
-			const { data } = await axios.delete(`/product/${productId}`);
+			const { data } = await axios.delete(`${process.env.REACT_APP_API_URL}/product/${productId}`);
 
 			const action: ProductAction = {
 				type: actionTypes.DELETE_PRODUCTS_SUCCESS,
