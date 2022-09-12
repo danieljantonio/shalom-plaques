@@ -39,37 +39,37 @@ const AboutUs: NextPage = () => {
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-1.JPG`} layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-1.JPG`} layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-2.JPG`} layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-2.JPG`} layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-3.JPG`} layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-3.JPG`} layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-4.JPG`} layout='responsive' width={2304} height={3456} />
+							<Image src={`${baseUrl}/images/about/people-4.JPG`} layout='responsive' width={576} height={864} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-5.JPG`} layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-5.JPG`} layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src={`${baseUrl}/images/about/people-6.JPG`} layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-6.JPG`} layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 					<div className='pb-32'>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32 mb-52'>
-							<Image src={`${baseUrl}/images/about/people-7.JPG`} layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-7.JPG`} layout='responsive' width={864} height={576} />
 						</div>
 					</div>
 				</div>
