@@ -1,6 +1,6 @@
+import React, { Dispatch, useEffect, useState } from 'react';
 import { Button, Modal, Space } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
-import React, { Dispatch, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import BottomDrawerComponent from '../../../components/bottom-drawer/bottom-drawer.components';
 import DrawerComponent from '../../../components/drawer/drawer.components';

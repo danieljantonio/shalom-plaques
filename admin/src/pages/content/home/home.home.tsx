@@ -1,5 +1,5 @@
-import { Steps } from 'antd';
 import React from 'react';
+import { Steps } from 'antd';
 const { Step } = Steps;
 
 const Home: React.FC = () => {

@@ -1,6 +1,6 @@
+import React, { Dispatch, useEffect } from 'react';
 import { Empty, Form, Image, Input, Space, Spin } from 'antd';
 import TextArea from 'antd/lib/input/TextArea';
-import React, { Dispatch, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '../../../../store/products/action-creators.products';
 

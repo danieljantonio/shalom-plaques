@@ -1,6 +1,6 @@
+import React, { Dispatch, useEffect, useState } from 'react';
 import { Button, Modal, Space } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
-import React, { Dispatch, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import DrawerComponent from '../../../components/drawer/drawer.components';
 import TableComponent from '../../../components/table/table.components';

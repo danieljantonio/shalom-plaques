@@ -1,5 +1,5 @@
-import { Button, Modal, Space } from 'antd';
 import React, { Dispatch, useEffect, useState } from 'react';
+import { Button, Modal, Space } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import TableComponent from '../../../components/table/table.components';
 import { createSubCategory, deleteSubCategory, fetchSubCategories } from '../../../store/subcategories/action-creators.subcategories';

@@ -1,5 +1,5 @@
-import { Button, Form, Input } from 'antd';
 import React from 'react';
+import { Button, Form, Input } from 'antd';
 
 interface Props {
 	onFinish: (value: { name: string }) => void;
