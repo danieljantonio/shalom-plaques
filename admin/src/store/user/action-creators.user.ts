@@ -47,12 +47,14 @@ export const register = (credentials: RegisterCredentials) => {
 		try {
 			dispatch({ type: 'LOADING_START' });
 			message.loading('Registering...', 1);
-			await delay(3000);
-			// const { name, email, password, phone } = credentials;
+			const {data} = await axios.post(`/auth/register`, credentials)
+			const { status, token, user } = data;
+
+			if (status !== 200) throw Error('Failed to register');
 			const action: UserAction = {
 				type: actionTypes.REGISTER_SUCCESS,
-				// user,
-				token: '',
+				user,
+				token
 			};
 			dispatch(action);
 			dispatch({ type: 'LOADING_STOP' });
