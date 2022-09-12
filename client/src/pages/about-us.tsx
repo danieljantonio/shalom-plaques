@@ -18,6 +18,7 @@ const AboutUs: NextPage = () => {
 		};
 		window.addEventListener('scroll', onscroll);
 	}, []);
+	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 	return (
 		<div className='flex flex-col'>
 			<div className='flex flex-col sm:flex-row overflow-hidden'>
@@ -34,44 +35,41 @@ const AboutUs: NextPage = () => {
 							<q className=' tracking-wide leading-normal'>
 								A SHOUT OF <span className='text-yellow-500'> PRAISE AND GRATITUDE</span> IS THE BEST WAY TO HANDLE <span className=' text-red-500'> THE IMPOSSIBLE</span>
 							</q>
-							{/* <q className=' tracking-wide leading-normal>
-								A Shout of <span className='text-yellow-500'>Praise and Gratitude</span> Is the Best Way to Handle <span className='whitespace-nowrap text-red-500'>The Impossible</span>
-							</q> */}
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src='/images/about/people-1.JPG' layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-1.JPG`} layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src='/images/about/people-2.JPG' layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-2.JPG`} layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src='/images/about/people-3.JPG' layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-3.JPG`} layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src='/images/about/people-4.JPG' layout='responsive' width={2304} height={3456} />
+							<Image src={`${baseUrl}/images/about/people-4.JPG`} layout='responsive' width={2304} height={3456} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src='/images/about/people-5.JPG' layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-5.JPG`} layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
 					<div className=''>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
-							<Image src='/images/about/people-6.JPG' layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-6.JPG`} layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
 					<div className='pb-32'>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32 mb-52'>
-							<Image src='/images/about/people-7.JPG' layout='responsive' width={3456} height={2304} />
+							<Image src={`${baseUrl}/images/about/people-7.JPG`} layout='responsive' width={3456} height={2304} />
 						</div>
 					</div>
 				</div>
