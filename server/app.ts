@@ -28,6 +28,8 @@ class App {
 		this.app.use(express.json({ limit: '20mb' }));
 		this.app.use(express.urlencoded({ limit: '20mb', extended: true }));
 		this.app.use(cookieParser());
+		this.app.use(express.static('public'))
+		this.app.use('/uploads', express.static('uploads'))
 	}
 
 	private initializeCors() {

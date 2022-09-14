@@ -9,7 +9,7 @@ import validateEnv from './helpers/validate-env.helpers';
 
 validateEnv();
 
-const app = new App([new AuthController(), new CategoryController(), new SubCategoryController(), new ProductController(), new ImageController()]);
+const app = new App([new AuthController(), new CategoryController(), new SubCategoryController(), new ProductController()]);
 
 app.listen();
 
