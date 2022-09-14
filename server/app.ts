@@ -25,15 +25,15 @@ class App {
 	}
 
 	private initializeMiddlewares() {
-		this.app.use(bodyParser.json({ limit: '20mb' }));
-		this.app.use(bodyParser.urlencoded({ limit: '20mb' }));
+		this.app.use(express.json({ limit: '20mb' }));
+		this.app.use(express.urlencoded({ limit: '20mb', extended: true }));
 		this.app.use(cookieParser());
 	}
 
 	private initializeCors() {
 		// Add a list of allowed origins.
 		// If you have more origins you would like to add, you can add them to the array below.
-		const allowedOrigins = ['http://localhost:3000', 'http://localhost:3000/', 'http://localhost:5000', 'http://localhost:5000/'];
+		const allowedOrigins = ['http://localhost:3000','http://localhost:3001', 'http://localhost:5000', 'http://157.230.38.3'];
 
 		const options: cors.CorsOptions = {
 			origin: allowedOrigins,
