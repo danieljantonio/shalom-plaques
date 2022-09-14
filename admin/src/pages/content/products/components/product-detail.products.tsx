@@ -37,7 +37,7 @@ const ProductDetail: React.FC<{ productId: string }> = ({ productId }) => {
 							{product && product.images.length > 0 ? (
 								<Space size='large'>
 									{product.images.map((imageUrl) => {
-										return <Image width={100} src={`http://localhost:5000/${imageUrl}`} />;
+										return <Image width={100} src={`${process.env.REACT_APP_API_URL}/${imageUrl}`} />;
 									})}
 								</Space>
 							) : (
