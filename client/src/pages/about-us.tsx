@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 const AboutUs: NextPage = () => {
 	const [isFixed, setIsFixed] = useState(false);
 	const ref = useRef<HTMLDivElement>(null);
-	
+
 	useEffect(() => {
 		const onscroll = () => {
 			if (ref.current?.scrollHeight) {
@@ -38,37 +38,37 @@ const AboutUs: NextPage = () => {
 							</q>
 						</div>
 					</div>
-					<div className=''>
+					<div>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-1.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
-					<div className=''>
+					<div>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-2.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
-					<div className=''>
+					<div>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-3.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
-					<div className=''>
+					<div>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-4.JPG' layout='responsive' width={576} height={864} />
 						</div>
 					</div>
-					<div className=''>
+					<div>
 						<div className=' max-w-xl mr-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-5.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
-					<div className=''>
+					<div>
 						<div className=' max-w-xl m-auto rounded-xl overflow-hidden mt-10 sm:mt-32'>
 							<Image src='/images/about/people-6.JPG' layout='responsive' width={864} height={576} />
 						</div>
 					</div>
-					<div className='pb-32'>
+					<div>
 						<div className=' max-w-xl ml-auto rounded-xl overflow-hidden mt-10 sm:mt-32 mb-52'>
 							<Image src='/images/about/people-7.JPG' layout='responsive' width={864} height={576} />
 						</div>
@@ -82,9 +82,9 @@ const AboutUs: NextPage = () => {
 							opacity: isFixed ? 0 : 1,
 							transition: 'all 0.2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s',
 						}}
-						className='h-screen align-middle p-5 font-serif  sm:p-20 xl:p-40'>
-						<div className='text-5xl sm:text-7xl xl:text-8xl  align-middle mb-5'>About Us</div>
-						<div className='text-lg sm:text-xl font-extralight leading-normal'>
+						className='h-screen align-middle p-5 font-serif sm:p-10 xl:p-30'>
+						<div className='text-3xl sm:text-7xl xl:text-8xl  align-middle mb-2'>About Us</div>
+						<div className='text-md sm:text-xl font-extralight leading-normal'>
 							For over 30 years, Shalom Handicrafts have produced high quality products made from locally selected woods. Exporting Indonesian woodwork to over 23 countries all around the world and providing training and jobs to less
 							fortunate individuals.
 						</div>
@@ -96,8 +96,8 @@ const AboutUs: NextPage = () => {
 								transition: 'all 0.1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s',
 							}}
 							className='p-5 sm:p-20 xl:p-40'>
-							<div className='xl:text-8xl md:text-7xl text-5xl mb-5'>Workers</div>
-							<div className='text-xl font-extralight'>Enabling people of lower-class to provide for their families through permanent employment. Many of which have been with us for over 25 years.</div>
+							<div className='xl:text-6xl md:text-5xl text-3xl mb-5'>Workers</div>
+							<div className='text-md font-extralight'>Enabling people of lower-class to provide for their families through permanent employment. Many of which have been with us for over 25 years.</div>
 						</motion.div>
 					</div>
 				</div>
