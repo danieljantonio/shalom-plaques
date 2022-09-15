@@ -5,7 +5,7 @@ const ProductHero = () => {
 	return (
 		<div className='flex flex-col mdl:h-1/2 sm:flex-row justify-between bg-gradient-to-r from-yellow-800 to-orange-200'>
 			<div className='basis2/3 m-auto font-serif text-white'>
-				<div className='w-fit h-full text-center p-1/10 font-serif '>
+				<div className='w-full h-full text-center p-5 font-serif '>
 					<div className='font-semibold text-6xl text-center md:text-8xl pb-5 underline'>
 						Product
 						<br />
