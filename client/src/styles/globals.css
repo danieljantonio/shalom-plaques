@@ -10,3 +10,7 @@
 	background-position: center;
 	background-size: contain !important;
 }
+
+html, body {
+	overflow-x: scroll;
+}
