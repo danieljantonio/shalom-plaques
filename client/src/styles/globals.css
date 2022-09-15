@@ -11,6 +11,7 @@
 	background-size: contain !important;
 }
 
-html, body {
+html,
+body {
 	overflow-x: scroll;
 }

@@ -15,7 +15,7 @@ const ProductHero = () => {
 				</div>
 			</div>
 			<div className='basis-1/3 h-full w-full m-auto'>
-				<Image src='/images/product/product-banner-1.png' layout='responsive' width={1620} height={1080} className="sm:w-4/5"></Image>
+				<Image src='/images/product/product-banner-1.png' layout='responsive' width={1620} height={1080} className='sm:w-4/5'></Image>
 			</div>
 		</div>
 	);
