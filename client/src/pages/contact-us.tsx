@@ -28,7 +28,7 @@ const ContactUs: NextPage = () => {
 	};
 
 	return (
-		<div className='container mx-auto'>
+		<div className='container mx-auto w-11/12'>
 			<form className='mt-8' onSubmit={validateForm} id='contact-form'>
 				<h1 className='text-5xl bold text-center mb-8'>Contact Us</h1>
 				<div className='grid gap-6 mb-6 md:grid-cols-2'>
