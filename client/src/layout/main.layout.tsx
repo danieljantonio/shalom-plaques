@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import Footer from '../components/footer.components';
 import Navbar from '../components/navbar.components';
+import SocialLinkIcons from '../components/socials.components';
 // import Navbar from '../components/Navbar';
 
 type Props = {
@@ -13,6 +14,7 @@ const Layout: React.FC<Props> = ({ children }) => {
 			<Navbar />
 			<main>{children}</main>
 			<Footer />
+			<SocialLinkIcons />
 		</>
 	);
 };
