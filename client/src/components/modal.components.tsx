@@ -36,14 +36,12 @@ const ProductModal: React.FC<Props> = ({ product, showModal, closeModal }) => {
 	const collageSetting = {
 		width: '450px',
 		height: ['400px', '200px'],
-		layout: [1, 2],
 		showNumOfRemainingPhotos: true,
 		photos: photos,
 		style: { padding: '4px', backgroundSize: 'contain' },
 	};
 	const collageSettingSmall = {
 		height: ['300px', '150px'],
-		layout: [1, 2],
 		showNumOfRemainingPhotos: true,
 		photos: photos,
 		style: { backgroundSize: 'contain' },
@@ -56,10 +54,10 @@ const ProductModal: React.FC<Props> = ({ product, showModal, closeModal }) => {
 					{photos.length > 0 ? (
 						<>
 							<div className='h-full m-auto w-1/2 items-center lg:pr-5 justify-center hidden lg:flex'>
-								<ReactPhotoCollage {...collageSetting} />
+								<ReactPhotoCollage {...collageSetting} layout={photos.length > 1 ? [1, 2] : [1]}/>
 							</div>
 							<div className='w-4/5 mx-auto h-4/6 flex items-center lg:pr-5 justify-center lg:hidden'>
-								<ReactPhotoCollage {...collageSettingSmall} />
+								<ReactPhotoCollage {...collageSettingSmall} layout={photos.length > 1 ? [1, 2] : [1]}/>
 							</div>
 						</>
 					) : (
