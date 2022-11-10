@@ -37,12 +37,12 @@ const ProductCatalogue = ({ categories, subCategories, products }: Props) => {
 	}, [categoryId, subCategoryIds]);
 
 	return (
-		<div className='flex flex-col lg:flex-row w-full justify-between mdl:mt-14 2xl:px-24' style={{ minHeight: '70vh' }}>
-			<div className='w-full mdl:w-100 mx-auto'>
+		<div className='flex flex-col lg:flex-row w-full justify-between mdl:mt-14 mx-auto' style={{ minHeight: '70vh' }}>
+			<div className='lg:max-w-sm w-full mx-auto'>
 				<Sidebar categories={categories} setCategoryId={setCategoryId} subCategoryIds={subCategoryIds} setSubCategoryIds={setSubCategoryIds} />
 			</div>
 			<div className='mdl:w-4/5'>
-				<div className='grid max-w-screen-2xl mx-auto xl:grid-cols-3 sm:grid-cols-2 grid-cols-1' ref={listRef}>
+				<div className='grid w-full xl:w-11/12 mx-auto 2xl:grid-cols-3 md:grid-cols-2 grid-cols-1' ref={listRef}>
 					{productsState.map((product, index) => (
 						<Card product={product} key={index} onClick={() => onClickProduct(product)} />
 					))}
