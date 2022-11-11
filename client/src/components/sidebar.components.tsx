@@ -74,10 +74,10 @@ const Sidebar = ({ categories, setCategoryId, subCategoryIds, setSubCategoryIds 
 					{/* SideBar */}
 					<div className='flex flex-col min-h-full mb-0 w-full'>
 						{/* Search */}
-						<div className='relative px-5 py-5 grow-0 shrink basis-auto shadow-sm'>
+						{/* <div className='relative px-5 py-5 grow-0 shrink basis-auto shadow-sm'>
 							<AiOutlineSearch className='absolute top-1/2 -translate-y-1/2 left-8 h-5 w-5 cursor-text' />
 							<input type='search' className='input w-full input-bordered input-sm pl-9' placeholder='Search Product...' />
-						</div>
+						</div> */}
 						{/* Checkbox */}
 						<div className='grow shrink basis-auto'>
 							{categories.map((category, i) => (
