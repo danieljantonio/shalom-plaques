@@ -19,6 +19,6 @@ interface ICircleContainerProps {
 	link: string
 }
 
-const CircleContainer: FC<PropsWithChildren<ICircleContainerProps>> = ({children, link, className}) => {
-	return <a href={link} target="_blank" className={`bg-white border h-8 w-8 overflow-hidden rounded-full border-gray-400 flex justify-center  items-center mt-3 shadow-lg ${className}`}>{children}</a>
+const CircleContainer: FC<PropsWithChildren<ICircleContainerProps>> = ({children, link}) => {
+	return <a href={link} target="_blank" rel='noreferrer' className={`bg-white border h-8 w-8 overflow-hidden rounded-full border-gray-400 flex justify-center  items-center mt-3 shadow-lg`}>{children}</a>
 }
