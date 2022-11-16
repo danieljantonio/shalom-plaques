@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
 				</div>
 			</div>
 			<div className='w-full py-4 flex flex-wrap justify-center lg:border-t-2'>
-				{countries.map((countryCode) => <ReactCountryFlag countryCode={countryCode} svg style={{width: '1.5rem', height:'auto', margin: '0.25rem', border: '1px grey solid'}}/>)}
+				{countries.map((countryCode, i) => <ReactCountryFlag countryCode={countryCode} svg key={i} style={{width: '1.5rem', height:'auto', margin: '0.25rem', border: '1px grey solid'}}/>)}
 			</div>
 			
 		</footer>
