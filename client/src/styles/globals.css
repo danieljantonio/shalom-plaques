@@ -11,7 +11,13 @@
 	background-size: contain !important;
 }
 
-body {
+#__next {
+	position: relative;
 	max-width: 100%;
-	overflow-x: scroll;
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+main {
+	padding-bottom: 12rem;
 }
