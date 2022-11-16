@@ -21,6 +21,7 @@
 		"react-icons": "^4.4.0",
 		"react-modal": "^3.15.1",
 		"react-photo-collage": "^1.0.9",
+		"sharp": "^0.31.2",
 		"styled-components": "^5.3.5",
 		"swiper": "^8.3.1"
 	},
