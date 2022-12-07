@@ -32,7 +32,7 @@ class CategoryController {
 
 	getCategories = async (_: express.Request, res: express.Response) => {
 		try {
-			const categories = await Category.find().populate('subCategories').lean().exec();
+			const categories = await Category.find().populate('subCategories').sort({ name: 1 }).lean().exec();
 			returnResponse(200, res, { categories });
 		} catch (error) {
 			returnResponse(500, res, { error: 'Failed to fetch categories' /* , errorLog: error */ });
