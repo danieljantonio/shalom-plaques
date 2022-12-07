@@ -73,17 +73,12 @@ const Sidebar = ({ categories, setCategoryId, subCategoryIds, setSubCategoryIds 
 				<div className='smax:collapse-content'>
 					{/* SideBar */}
 					<div className='flex flex-col min-h-full mb-0 w-full'>
-						{/* Search */}
-						{/* <div className='relative px-5 py-5 grow-0 shrink basis-auto shadow-sm'>
-							<AiOutlineSearch className='absolute top-1/2 -translate-y-1/2 left-8 h-5 w-5 cursor-text' />
-							<input type='search' className='input w-full input-bordered input-sm pl-9' placeholder='Search Product...' />
-						</div> */}
-						{/* Checkbox */}
 						<div className='grow shrink basis-auto'>
+							<div className='divider my-1 mt-3'></div>
 							{categories.map((category, i) => (
 								<div key={i}>
 									<div key={category._id} className='flex flex-col justify-between px-2 py-1 cursor-pointer'>
-										<p onClick={() => handleClickCategory(i)} className='relative p-3 text-lg btn-ghost px-2'>
+										<p onClick={() => handleClickCategory(i)} className='relative p-3 text-lg btn-ghost px-2 hover:rounded-sm'>
 											{category.name}
 											<AiOutlineLeft className={`absolute right-1.5 top-4 transition-transform ${active === i ? '-rotate-90' : ''}`} />
 										</p>
