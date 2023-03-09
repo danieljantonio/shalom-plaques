@@ -4,7 +4,7 @@ import { Navbar } from "flowbite-react";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Navbar fluid={true}>
         <Navbar.Brand href="/">
           <img
