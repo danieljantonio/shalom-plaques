@@ -1,8 +1,20 @@
-import { Carousel } from "flowbite-react";
+import { Card, Carousel } from "flowbite-react";
 import { type NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import MetaTag from "~/components/common/meta.common";
+
+const sampleCategories = [
+  "Box",
+  "Church Supplies",
+  "Cross",
+  "Magnets",
+  "Ornaments",
+  "Wall Plaques",
+  "Photo Frame",
+  "Knock Down Products",
+  "Table Plaques",
+  "Keyring",
+  "Medium Density Fibreboard",
+];
 
 const Home: NextPage = () => {
   const imgString = [
@@ -19,7 +31,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <MetaTag />
-      <div style={{ height: 500 }} className="relative">
+      <div id="hero-carousel" style={{ height: 500 }} className="relative">
         <div className="absolute z-10 h-full w-full bg-black opacity-50"></div>
         <div className="absolute z-20 flex h-full w-full flex-col items-center justify-center font-serif  text-white">
           <div className="space-y-3 text-center">
@@ -45,6 +57,20 @@ const Home: NextPage = () => {
             />
           ))}
         </Carousel>
+      </div>
+      <div id="product-categories" className="mx-auto max-w-7xl">
+        <h3 className="mx-auto mt-12 mb-8 text-center text-4xl">
+          Product Catalogues
+        </h3>
+        <div className="flex flex-wrap">
+          {sampleCategories.map((categories) => {
+            return (
+              <div className="w-1/4">
+                <div className="m-2 rounded-md border p-5">{categories}</div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
