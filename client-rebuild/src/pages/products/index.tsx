@@ -1,6 +1,5 @@
 import { Sidebar } from "flowbite-react";
 import { type NextPage } from "next";
-import Head from "next/head";
 import MetaTag from "~/components/common/meta.common";
 
 const Products: NextPage = () => {
