@@ -1,6 +1,8 @@
 import { Card, Carousel } from "flowbite-react";
 import { type NextPage } from "next";
+import ReactCountryFlag from "react-country-flag";
 import MetaTag from "~/components/common/meta.common";
+import { countries, imgString } from "~/helpers/misc";
 
 const sampleCategories = [
   "Box",
@@ -17,17 +19,6 @@ const sampleCategories = [
 ];
 
 const Home: NextPage = () => {
-  const imgString = [
-    "machine-1.JPG",
-    "machine-2.JPG",
-    "working-1.JPG",
-    "working-2.JPG",
-    "working-3.JPG",
-    "working-4.JPG",
-    "working-5.JPG",
-    "working-6.JPG",
-    "working-7.JPG",
-  ];
   return (
     <div>
       <MetaTag />
@@ -58,21 +49,47 @@ const Home: NextPage = () => {
           ))}
         </Carousel>
       </div>
-      <div id="product-categories" className="mx-auto max-w-7xl">
-        <h3 className="mx-auto mt-12 mb-8 text-center text-4xl">
+      <div id="product-categories" className="mx-auto max-w-7xl py-12">
+        <h3 className="mx-auto mb-8 text-center text-4xl">
           Product Catalogues
         </h3>
         <div className="flex flex-wrap">
           {sampleCategories.map((categories) => {
             return (
               <div className="w-1/4">
-                <div className="m-2 rounded-md border p-5">{categories}</div>
+                <div className="m-2 rounded-md border p-5 hover:cursor-pointer hover:shadow-md">
+                  {categories}
+                </div>
               </div>
             );
           })}
         </div>
       </div>
       {/* TODO: add carousel containing countries that have been clients */}
+      <div className="relative mb-12 w-full" style={{ height: 350 }}>
+        <div className="absolute h-full w-full bg-gradient-to-r from-pink-500 to-yellow-500 opacity-95">
+          <h6 className="mt-6 text-center text-3xl text-white">
+            Our <b className="font-bold">{countries.length}</b> International
+            Clients
+          </h6>
+        </div>
+        <Carousel slide={false}>
+          {countries.map(({ code, label }) => {
+            return (
+              <div className="flex items-center justify-center gap-6">
+                <ReactCountryFlag
+                  countryCode={code}
+                  svg
+                  key={code}
+                  style={{ width: 140, height: "auto" }}
+                  className="border"
+                />
+                <h3 className="text-7xl text-white">{label}</h3>
+              </div>
+            );
+          })}
+        </Carousel>
+      </div>
       {/* TODO: add more fun stuff */}
     </div>
   );
