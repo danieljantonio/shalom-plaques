@@ -72,6 +72,8 @@ const Home: NextPage = () => {
           })}
         </div>
       </div>
+      {/* TODO: add carousel containing countries that have been clients */}
+      {/* TODO: add more fun stuff */}
     </div>
   );
 };
