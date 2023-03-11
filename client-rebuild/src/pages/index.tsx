@@ -56,8 +56,8 @@ const Home: NextPage = () => {
         <div className="flex flex-wrap">
           {sampleCategories.map((categories) => {
             return (
-              <div className="w-1/4">
-                <div className="m-2 rounded-md border p-5 hover:cursor-pointer hover:shadow-md">
+              <div className="w-1/2 md:w-1/4">
+                <div className="m-2 flex h-24 items-center justify-center rounded-md border p-5 hover:cursor-pointer hover:shadow-md xl:h-20">
                   {categories}
                 </div>
               </div>
