@@ -54,11 +54,11 @@ const Home: NextPage = () => {
           Product Catalogues
         </h3>
         <div className="flex flex-wrap">
-          {sampleCategories.map((categories) => {
+          {sampleCategories.map((category) => {
             return (
-              <div className="w-1/2 md:w-1/4">
+              <div key={category} className="w-1/2 md:w-1/4">
                 <div className="m-2 flex h-24 items-center justify-center rounded-md border p-5 hover:cursor-pointer hover:shadow-md xl:h-20">
-                  {categories}
+                  {category}
                 </div>
               </div>
             );
@@ -76,11 +76,13 @@ const Home: NextPage = () => {
         <Carousel slide={false}>
           {countries.map(({ code, label }) => {
             return (
-              <div className="flex items-center justify-center gap-6">
+              <div
+                key={code}
+                className="flex items-center justify-center gap-6"
+              >
                 <ReactCountryFlag
                   countryCode={code}
                   svg
-                  key={code}
                   style={{ width: 140, height: "auto" }}
                   className="border"
                 />
