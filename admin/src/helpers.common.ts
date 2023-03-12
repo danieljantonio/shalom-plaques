@@ -29,7 +29,7 @@ export const fetchData = async (route: string) => {
 
 export const postData = async (route: string, _data: any) => {
 	try {
-		const { data } = await axios.post(`${process.env.REACT_APP_API_URL}/${route}`, _data);
+		const { data } = await axios.post(`${process.env.REACT_APP_API_URL}${route}`, _data);
 		return data;
 	} catch (error) {
 		throw error;
