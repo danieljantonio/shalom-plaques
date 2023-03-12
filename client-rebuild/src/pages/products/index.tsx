@@ -1,8 +1,18 @@
-import { Sidebar } from "flowbite-react";
+import { Button, Sidebar, Spinner } from "flowbite-react";
 import { type NextPage } from "next";
 import MetaTag from "~/components/common/meta.common";
+import { api } from "~/utils/api";
 
 const Products: NextPage = () => {
+  const { isLoading, data } = api.product.getSidebarData.useQuery();
+
+  const mapData = () => {
+    if (!data) return;
+    for (const entries of data.entries()) {
+      console.log(entries[0]);
+    }
+  };
+
   return (
     <>
       <MetaTag
@@ -21,8 +31,36 @@ const Products: NextPage = () => {
           </div>
         </div>
       </div>
-      <div>
-        <Sidebar></Sidebar>
+      <div className="mx-6 my-10 flex ">
+        <div className="w-1/4">
+          <div className="w-fit rounded border">
+            <Sidebar>
+              <Sidebar.Items>
+                {isLoading ? (
+                  <div className="flex h-20 w-full items-center justify-center">
+                    <Spinner />
+                  </div>
+                ) : (
+                  <Sidebar.ItemGroup>
+                    <Sidebar.Collapse label={`Test`}>
+                      <Sidebar.Item>Content 1</Sidebar.Item>
+                      <Sidebar.Item>Content 2</Sidebar.Item>
+                      <Sidebar.Item>Content 3</Sidebar.Item>
+                    </Sidebar.Collapse>
+                    <Sidebar.Collapse label={`Test`}>
+                      <Sidebar.Item>Content 1</Sidebar.Item>
+                      <Sidebar.Item>Content 2</Sidebar.Item>
+                      <Sidebar.Item>Content 3</Sidebar.Item>
+                    </Sidebar.Collapse>
+                  </Sidebar.ItemGroup>
+                )}
+              </Sidebar.Items>
+            </Sidebar>
+          </div>
+        </div>
+        <div className="w-3/4">
+          <Button onClick={mapData}>Log</Button>
+        </div>
       </div>
     </>
   );
