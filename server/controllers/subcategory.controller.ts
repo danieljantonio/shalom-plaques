@@ -45,7 +45,14 @@ class SubCategoryController {
 
 	getSubCategories = async (_: express.Request, res: express.Response) => {
 		try {
-			const subCategories = await SubCategory.find().populate('products').lean().exec();
+			const categories = await Category.find().populate('subCategories subCategories.products').lean().exec();
+			const subCategories: any = [];
+			categories.map((category) => {
+				category.subCategories.map((subCat) => {
+					subCategories.push({ ...subCat, category: category.name });
+				});
+			});
+
 			returnResponse(200, res, { subCategories });
 		} catch (error) {
 			returnResponse(500, res, { error: 'Failed to fetch categories' /* , errorLog: error */ });

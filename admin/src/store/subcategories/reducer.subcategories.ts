@@ -5,6 +5,7 @@ const initState: SubCategoryState = {
 		_id: '',
 		name: '',
 		products: [],
+		category: '',
 	},
 	subCategories: [],
 };

@@ -47,6 +47,13 @@ const SubCategoryContent: React.FC = () => {
 			sortDirections: ['ascend', 'descend'],
 		},
 		{
+			title: 'Category',
+			dataIndex: 'category',
+			key: 'category',
+			sorter: (a, b) => a.category.length - b.category.length,
+			sortDirections: ['ascend', 'descend'],
+		},
+		{
 			title: 'Products',
 			dataIndex: 'products',
 			key: 'products',
@@ -68,8 +75,10 @@ const SubCategoryContent: React.FC = () => {
 
 	const renderData = async () => {
 		const data: SubCategoryData[] = await subCategories.map((subCategory: ISubCategory) => {
-			return { title: subCategory.name, products: subCategory.products.length, key: subCategory._id };
+			return { title: subCategory.name, products: subCategory.products.length, key: subCategory._id, category: subCategory.category };
 		});
+		console.log(data);
+
 		setData(data);
 	};
 

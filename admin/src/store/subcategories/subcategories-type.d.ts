@@ -2,6 +2,7 @@ interface ISubCategory {
 	_id: string;
 	name: string;
 	products: IProduct[];
+	category: string;
 }
 
 type SubCategoryState = {

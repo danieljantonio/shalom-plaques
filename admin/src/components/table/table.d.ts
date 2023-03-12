@@ -24,5 +24,6 @@ interface CategoryData {
 interface SubCategoryData {
 	title: string;
 	products: number;
+	category: string;
 	key: string;
 }
