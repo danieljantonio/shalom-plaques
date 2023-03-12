@@ -35,3 +35,17 @@ export const countries = [
   { code: "ID", label: "Indonesia" },
   { code: "FJ", label: "Fiji" },
 ];
+
+export const sampleCategories = [
+  "Box",
+  "Church Supplies",
+  "Cross",
+  "Magnets",
+  "Ornaments",
+  "Wall Plaques",
+  "Photo Frame",
+  "Knock Down Products",
+  "Table Plaques",
+  "Keyring",
+  "Medium Density Fibreboard",
+];

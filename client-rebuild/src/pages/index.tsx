@@ -2,21 +2,7 @@ import { Card, Carousel } from "flowbite-react";
 import { type NextPage } from "next";
 import ReactCountryFlag from "react-country-flag";
 import MetaTag from "~/components/common/meta.common";
-import { countries, imgString } from "~/helpers/misc";
-
-const sampleCategories = [
-  "Box",
-  "Church Supplies",
-  "Cross",
-  "Magnets",
-  "Ornaments",
-  "Wall Plaques",
-  "Photo Frame",
-  "Knock Down Products",
-  "Table Plaques",
-  "Keyring",
-  "Medium Density Fibreboard",
-];
+import { countries, imgString, sampleCategories } from "~/helpers/misc";
 
 const Home: NextPage = () => {
   return (
