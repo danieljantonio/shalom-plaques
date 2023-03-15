@@ -55,7 +55,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       {/* TODO: add carousel containing countries that have been clients */}
-      <div className="relative mb-12 w-full" style={{ height: 350 }}>
+      <div className="relative w-full" style={{ height: 350 }}>
         <div className="absolute h-full w-full bg-gradient-to-r from-pink-500 to-yellow-500 opacity-95">
           <h6 className="mt-6 text-center text-3xl text-white">
             Our <b className="font-bold">{countries.length}</b> International
@@ -80,6 +80,32 @@ const Home: NextPage = () => {
             );
           })}
         </Carousel>
+      </div>
+      <div
+        className="flex w-full items-center justify-center gap-10 text-4xl"
+        style={{ height: 350 }}
+      >
+        <Image
+          className="rounded-full"
+          src="/images/about/aboutscale.JPG"
+          width={200}
+          height={200}
+          alt="Shalom Plaques founder"
+        />
+        <div>
+          <p>
+            A shout of{" "}
+            <span className="text-yellow-400">
+              &quot;Praise and Gratitude&quot;
+            </span>{" "}
+          </p>
+          <p>is the best way</p>
+          <p>
+            to handle{" "}
+            <span className="text-red-600">&quot;The Impossible&quot;</span>
+          </p>
+          <p className="text-xl"></p>
+        </div>
       </div>
       {/* TODO: add more fun stuff */}
     </div>
