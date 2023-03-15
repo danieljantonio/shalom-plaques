@@ -1,5 +1,6 @@
-import { Card, Carousel } from "flowbite-react";
+import { Carousel } from "flowbite-react";
 import { type NextPage } from "next";
+import Image from "next/image";
 import ReactCountryFlag from "react-country-flag";
 import MetaTag from "~/components/common/meta.common";
 import { countries, imgString, sampleCategories } from "~/helpers/misc";
@@ -26,10 +27,12 @@ const Home: NextPage = () => {
           slideInterval={5000}
         >
           {imgString.map((img) => (
-            <img
+            <Image
               key={img}
               src={`/images/carousel/${img}`}
               alt="Shalom Plaques"
+              width={1920}
+              height={500}
               className="w-full object-cover"
             />
           ))}
