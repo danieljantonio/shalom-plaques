@@ -33,7 +33,7 @@
 		"eject": "react-scripts eject",
 		"prod": "pm2 serve build 3001 --name 'admin'"
 	},
-	"proxy": "http://shalomplaques.com/api",
+	"proxy": "https://shalomplaques.com/api",
 	"eslintConfig": {
 		"extends": [
 			"react-app",
