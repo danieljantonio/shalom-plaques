@@ -33,7 +33,7 @@
 		"eject": "react-scripts eject",
 		"prod": "pm2 serve build 3001 --name 'admin'"
 	},
-	"proxy": "http://127.0.0.1:5000",
+	"proxy": "https:/shalomplaques.com/api",
 	"eslintConfig": {
 		"extends": [
 			"react-app",
@@ -64,5 +64,5 @@
 		"//": "See https://github.com/facebook/create-react-app/issues/11773",
 		"react-error-overlay": "6.0.9"
 	},
-	"homepage": "/admin/"
+	"homepage": "/"
 }
